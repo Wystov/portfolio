@@ -11,121 +11,127 @@
     <title>Plants</title>
 </head>
 <body>
-    <header class="green_background">
-        <div>
-            <img src="img/logo_vector.svg" alt="logo" height="20" width="20">
-            Plants
-        </div>
-            <nav>
-            <ul class="flex_between">
-                <li><a class="orange_text" href="index.html">Home</a></li>
-                <li><a href="#About_us">About us</a></li>
-                <li><a href="#Service">Service</a></li>
-                <li><a href="#Price">Price</a></li>
-                <li><a href="#Contacts">Contacts</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="green_background">
-            <div class="flex_between">
-                <img src="img/leafs.png" alt="leafs" height="407">
-                <div>
-                    <h1 class="welcome">We grow <span class="green_text">plants</span> and give you oxygen</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.></p>
-                    <a href="#">LEARN MORE</a>
-                </div>
-            </div>
-        </section>
-        <section  id="About_us">
-            <div>
-                <h2 class="green_text">We are <span class="orange_text">professional experienced</span> gardeners</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <img src="img/houseplant_1.png" alt="houseplant">
-            </div>
-        </section>
-        <section id="Service">
-            <div>
-                <h2 class="green_text">Service and our projects</h2>
-                <ul>
-                    <li><a class="orange_text" href="#">Gardens</a></li>
-                    <li><a class="orange_text" href="#">Lawn</a></li>
-                    <li><a class="orange_text" href="#">Planting</a></li>
-                </ul>
-            </div>
-            <div>
-                <div>
-                    <img src="img/first.jpg" alt="Garden care">
-                    <h4  class="orange_text">Garden care</h4>
-                    <p>Lorem Ipsum has been the industry</p>
-                </div>
-                <div>
-                    <img src="img/first(1).jpg" alt="Planting">
-                    <h4 class="orange_text">Planting</h4>
-                    <p>Lorem Ipsum has been the industry</p>
-                </div>
-                <div>
-                    <img src="img/first(2).jpg" alt="Lawn care">
-                    <h4 class="orange_text">Lawn care</h4>
-                    <p>Lorem Ipsum has been the industry</p>
-                </div>
-                <div>
-                    <img src="img/first(3).jpg" alt="Planting">
-                    <h4 class="orange_text">Planting</h4>
-                    <p>Lorem Ipsum has been the industry</p>
-                </div>
-                <div>
-                    <img src="img/first(4).jpg" alt="Garden care">
-                    <h4 class="orange_text">Garden care</h4>
-                    <p>Lorem Ipsum has been the industry</p>
-                </div>
-                <div>
-                    <img src="img/first(5).jpg" alt="Planting">
-                    <h4 class="orange_text">Planting</h4>
-                    <p>Lorem Ipsum has been the industry</p>
-                </div>
-            </div>
-        </section>
-        <section id="Price">
-            <div>
-                <h2>Prices</h2>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header_row">
+                <div class="header_content">
                     <div>
-                        <ul>
-                            <li><a href=""></a>Basics</li>
-                            <li><a href=""></a>Standard</li>
-                            <li><a href=""></a>Pro care</li>
-                        </ul>
+                        <img src="img/logo_vector.svg" alt="logo" height="20" width="20">
+                        <span class="name">Plants</span>
                     </div>
+                    <nav class="header_navigation">
+                        <ul class="header_navigation_list">
+                                <li><a class="orange_text" href="index.html">Home</a></li>
+                                <li><a href="#About_us">About us</a></li>
+                                <li><a href="#Service">Service</a></li>
+                                <li><a href="#Price">Price</a></li>
+                                <li><a href="#Contacts">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
+        </header>
+        <main>
+            <section class="green_background">
+                <img src="img/leafs.png" alt="leafs" height="407">
+                <div class="flex_basis flex_welcome">
+                    <h1 class="welcome">We grow <span class="green_text">plants</span> and give you oxygen</h1>
+                    <p class="welcome_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <a href="#" class="orange_button">LEARN MORE</a>
+                </div>
+            </section>
+            <section  id="About_us">
+                <div class="">
+                    <div class="width50">
+                        <h2 class="green_text">We are <span class="orange_text">professional experienced</span> gardeners</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    </div>
+                        <img src="img/houseplant_1.png" alt="houseplant">
+                </div>
+            </section>
+            <section id="Service">
+                <div>
+                    <h2 class="green_text">Service and our projects</h2>
+                    <ul>
+                        <li><a class="orange_text" href="#">Gardens</a></li>
+                        <li><a class="orange_text" href="#">Lawn</a></li>
+                        <li><a class="orange_text" href="#">Planting</a></li>
+                    </ul>
+                </div>
+                <div class="service_cards">
+                    <div>
+                        <img src="img/first.jpg" alt="Garden care">
+                        <h4  class="orange_text">Garden care</h4>
+                        <p>Lorem Ipsum has been the industry</p>
+                    </div>
+                    <div>
+                        <img src="img/first(1).jpg" alt="Planting">
+                        <h4 class="orange_text">Planting</h4>
+                        <p>Lorem Ipsum has been the industry</p>
+                    </div>
+                    <div>
+                        <img src="img/first(2).jpg" alt="Lawn care">
+                        <h4 class="orange_text">Lawn care</h4>
+                        <p>Lorem Ipsum has been the industry</p>
+                    </div>
+                    <div>
+                        <img src="img/first(3).jpg" alt="Planting">
+                        <h4 class="orange_text">Planting</h4>
+                        <p>Lorem Ipsum has been the industry</p>
+                    </div>
+                    <div>
+                        <img src="img/first(4).jpg" alt="Garden care">
+                        <h4 class="orange_text">Garden care</h4>
+                        <p>Lorem Ipsum has been the industry</p>
+                    </div>
+                    <div>
+                        <img src="img/first(5).jpg" alt="Planting">
+                        <h4 class="orange_text">Planting</h4>
+                        <p>Lorem Ipsum has been the industry</p>
+                    </div>
+                </div>
+            </section>
+            <section id="Price">
+                <div>
+                    <h2>Prices</h2>
+                        <div>
+                            <ul>
+                                <li><a href=""></a>Basics</li>
+                                <li><a href=""></a>Standard</li>
+                                <li><a href=""></a>Pro care</li>
+                            </ul>
+                        </div>
+                </div>
+                <div>
+                    <h2>Our best <span class="green_text">gardeners</span> are ready to help you</h2>
+                    <img src="img/leafs2.png" alt="leafs">
+                    <a  class="orange_text" href="#">Contact us</a>
+                </div>
+            </section>
+            <section id="Contacts">
+                <img src="img/contact_woman_1.png" alt="woman">
+                <h2 class="green_text">Contact us</h2>
+                <form>
+                    <select>
+                        <option value="city1">City 1</option>
+                        <option value="city2">City 2</option>
+                        <option value="city3">City 3</option>
+                        <option value="city4">City 4</option>
+                        <option value="city5">City 5</option>
+                    </select>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&#169; 2022 github</p>
+            <p>Rolling Scopes School</p>
             <div>
-                <h2>Our best <span class="green_text">gardeners</span> are ready to help you</h2>
-                <img src="img/leafs2.png" alt="leafs">
-                <a  class="orange_text" href="#">Contact us</a>
+                <a href=""><img src="img/inst_1.svg" alt="instagram"></a>
+                <a href=""><img src="img/fb_1.svg" alt="facebook"></a>
+                <a href=""><img src="img/tw_1.svg" alt="twitter"></a>
+                <a href=""><img src="img/pinterest_1.svg" alt="pinterest"></a>
             </div>
-        </section>
-        <section id="Contacts">
-            <img src="img/contact_woman_1.png" alt="woman">
-            <h2 class="green_text">Contact us</h2>
-            <form>
-                <select>
-                    <option value="city1">City 1</option>
-                    <option value="city2">City 2</option>
-                    <option value="city3">City 3</option>
-                    <option value="city4">City 4</option>
-                    <option value="city5">City 5</option>
-                </select>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&#169; 2022 github</p>
-        <p>Rolling Scopes School</p>
-        <div>
-            <a href=""><img src="img/inst_1.svg" alt="instagram"></a>
-            <a href=""><img src="img/fb_1.svg" alt="facebook"></a>
-            <a href=""><img src="img/tw_1.svg" alt="twitter"></a>
-            <a href=""><img src="img/pinterest_1.svg" alt="pinterest"></a>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>

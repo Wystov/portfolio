@@ -8,6 +8,8 @@ body {
 
 .orange_text {
     color: #E06733 !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .button {
@@ -83,7 +85,8 @@ li {
 
 .welcome_block {
     max-width: 1440px;
-    margin: 0 auto;
+    margin: auto;
+    padding: 62px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,7 +137,8 @@ li {
 
 .about_block {
     max-width: 1440px;
-    margin: 0 auto;
+    margin: auto;
+    padding: 94px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,6 +176,8 @@ li {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-top: 40px;
+    padding-bottom: 90px;
 }
 
 .service_header_text {
@@ -181,18 +187,25 @@ li {
     font-size: 40px;
     line-height: 52px;
     color: #499A18;
+    padding-right: 142px;
 }
 
 .service_header_nav {
-    max-width: 559px;
+    display: flex;
+    justify-content: space-between;
+    width: 559px;
     padding: 0;
     margin: 0;
 }
 
 .service_header_nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #E06733;
     border-radius: 5px;
-    padding: 12px 50px;
+    width: 161px;
+    height: 50px;
 }
 
 .service_header_nav li a {
@@ -208,10 +221,176 @@ li {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
+    padding-bottom: 66px;
 }
 
+.service_card {
+    max-width: 330px;
+    max-height: 450px;
+    margin-bottom: 55px;
+}
 .service_card_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: -5px;
     border: 1px solid #E3E1D5;
     border-radius: 0px 0px 20px 20px;
+    padding-top: 10px;
+    font-size: 20px;
 }
 
+.service_card_text p {
+    margin-top: 10px;
+    margin-bottom: 36px;
+    font-size: 16px;
+    color: #717171;
+}
+
+.price {
+    background-color: #ffffff;
+}
+
+.price_block {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price_content {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 84.73%;
+    margin-top: 40px;
+    padding-bottom: 115px;
+}
+
+.price_content_left {
+    display: flex;
+    flex-direction: column;
+    font-family: Inter, sans-serif;
+}
+
+.price_content_left h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0px 0px 60px 0px;
+}
+
+.price_content_left ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 332px;
+    height: 282px;
+    border: 1px solid #E3E1D5;
+    border-radius: 20px;
+    margin: 0;
+    padding: 34px 41px;
+}
+
+.price_content_left ul li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #EDF2EC;
+    border-radius: 20px;
+    width: 250px;
+    height: 50px;
+}
+
+.price_content_left ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.price_content_right {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 37%;
+    align-items: flex-end;
+}
+
+.price_content_right h2 {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    margin: 0;
+    text-align: right;
+}
+
+.price_content_right h2 span {
+    color: #499A18;
+}
+
+.price_content_right .button {
+    font-family: Inika, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: #E06733;
+    margin: 38px 0;
+}
+
+.contact {
+    background-color: #EDF2EC;
+}
+
+.contact_block {
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.contact_content {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 84.73%;
+}
+
+.contact_content h2 {
+    font-family: Inika, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    color: #499A18;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: #ffffff;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    line-height: 50px;
+    color: #000000;
+}
+
+.footer_block {
+    max-width: 1440px;
+    height: 130px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 84.73%;
+}
+
+.footer_social {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 15.4%;
+}

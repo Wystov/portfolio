@@ -21,17 +21,52 @@ body {
 }
 
 .button {
-    border: 2px solid #E06733;
+    border: 1px solid #E06733;
     border-radius: 5px;
-    padding: 14px 27px;
+    width: 161px;
+    height: 50px;
     background-color: #FFFFFF00;
     color: #E06733;
-    text-decoration: none;
     font-size: 20px;
     font-family: Inika, sans-serif;
 }
 
 .button:hover {
+    background-color: #E06733;
+    color: #FFFFFF;
+}
+
+.button_welcome {
+    border: 2px solid #E06733;
+    border-radius: 10px;
+    width: 158px;
+    height: 44px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    background-color: #FFFFFF00;
+
+}
+
+.button_welcome:hover {
+    background-color: #E06733;
+    color: #FFFFFF;
+}
+
+.button_price {
+    border: 1px solid #E06733;
+    border-radius: 5px;
+    width: 162px;
+    height: 50px;
+    font-family: Inika, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #E06733;
+    background-color: #FFFFFF00;
+
+}
+
+.button_price:hover {
     background-color: #E06733;
     color: #FFFFFF;
 }
@@ -57,7 +92,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 84.73%;
+    flex-basis: 84.86%;
 }
 
 .header_navigation {
@@ -109,15 +144,20 @@ li {
 .welcome_content {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
-    flex-basis: 84.73%;
+    align-items: center;
+    flex-basis: 84.86%;
 }
 
 .welcome_content_right {
     display: flex;
     flex-direction: column;
-    flex-basis: 45%;
-    justify-content: space-evenly;
+    flex-basis: 44.92%;
+    height: 340px;
+    justify-content: space-between;
+}
+
+.welcome_content_right p {
+    margin: 0;
 }
 
 .welcome_header {
@@ -126,9 +166,10 @@ li {
     font-weight: 700;
     line-height: 50px;
     color: #717171;
+    margin-top: 2px;
 }
 
-.welcome_h2 {
+.about_h2 {
     font-family: Inika, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -136,6 +177,7 @@ li {
     line-height: 52px;
     color: #499A18; 
     max-width: 463px;
+    margin: 20px 0px 38px 0px;
 }
 
 /* MAIN */
@@ -161,7 +203,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 84.73%;
+    flex-basis: 84.86%;
 }
 
 .about_content_left {
@@ -183,7 +225,7 @@ li {
 .service_content {
     display: flex;
     flex-direction: column;
-    flex-basis: 84.73%;
+    flex-basis: 84.86%;
 }
 
 .service_header {
@@ -191,7 +233,7 @@ li {
     justify-content: flex-start;
     align-items: center;
     padding-top: 40px;
-    padding-bottom: 90px;
+    padding-bottom: 80px;
 }
 
 .service_header_text {
@@ -202,6 +244,7 @@ li {
     line-height: 52px;
     color: #499A18;
     padding-right: 142px;
+    margin: 0;
 }
 
 .service_header_nav {
@@ -210,21 +253,6 @@ li {
     width: 559px;
     padding: 0;
     margin: 0;
-}
-
-.service_header_nav a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #E06733;
-    border-radius: 5px;
-    width: 161px;
-    height: 50px;
-    font-family: Inika, sans-serif;
-    line-height: 26px;
-    text-decoration: none;
-    color: #E06733;
-    font-size: 20px;
 }
 
 .service_cards_container {
@@ -249,12 +277,16 @@ li {
     border: 1px solid #E3E1D5;
     border-radius: 0px 0px 20px 20px;
     padding-top: 10px;
+    font-family: Inter, sans-serif;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .service_card_text p {
-    margin-top: 10px;
+    margin-top: 12px;
     margin-bottom: 36px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
     font-size: 16px;
     color: #717171;
 }
@@ -274,15 +306,16 @@ li {
 .price_content {
     display: flex;
     justify-content: space-between;
-    flex-basis: 84.73%;
+    flex-basis: 84.86%;
     margin-top: 40px;
-    padding-bottom: 115px;
+    margin-bottom: 127px;
 }
 
 .price_content_left {
     display: flex;
     flex-direction: column;
     font-family: Inter, sans-serif;
+    margin-top: -2px;
 }
 
 .price_content_left h2 {
@@ -295,7 +328,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: 32px;
     border: 1px solid #E3E1D5;
     border-radius: 20px;
@@ -305,25 +338,39 @@ li {
 
 .price_item {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background: #EDF2EC;
     border-radius: 20px;
-    width: 250px;
+    width: 170px;
     height: 50px;
+    padding: 0px 40px;
 }
 
-.price_item a {
+.price_item {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
     color: #000000;
     text-decoration: none;
     font-weight: 700;
 }
 
+.pcr_leaf {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-basis: 36.99%;
+    height: 405px;
+    justify-content: space-between;
+}
+
 .price_content_right {
     display: flex;
     flex-direction: column;
-    flex-basis: 37%;
+    justify-content: space-between;
     align-items: flex-end;
+    height: 191px;
+    margin-top: -1px;
 }
 
 .price_content_right h3 {
@@ -331,14 +378,8 @@ li {
     font-weight: 700;
     font-size: 40px;
     line-height: 50px;
-    margin: 0;
+    margin: 0px 0px 12px 0px;
     text-align: right;
-}
-
-.price_content_right .button {
-    font-weight: 700;
-    line-height: 26px;
-    margin: 38px 0;
 }
 
 .contact {
@@ -355,7 +396,7 @@ li {
 .contact_content {
     display: flex;
     justify-content: space-between;
-    flex-basis: 84.73%;
+    flex-basis: 84.86%;
 }
 
 .contact_content h2 {
@@ -364,7 +405,31 @@ li {
     font-size: 40px;
     line-height: 52px;
     color: #499A18;
+    margin-top: 60px;
+    margin-left: 43px;
 }
+
+.contact_woman {
+    margin-top: 53px;
+}
+
+.contact_city {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 35px 0px 20px;
+    margin-top: 148px;
+    background-color: #D6E7D2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 395px;
+    height: 50px;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    color: #717171;
+    letter-spacing: 0.05em;
+}
+
+
 
 /* FOOTER */
 
@@ -389,21 +454,27 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 84.73%;
+    flex-basis: 84.86%;
 }
 
 .footer_social {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-basis: 15.4%;
+    margin-top: 38px;
 }
 
 .footer_links {
     display: flex;
-    flex-basis: 15%;
+    flex-basis: 13.85%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.rs_link {
+    margin-left: 58px;
 }
 
 .footer_content a {

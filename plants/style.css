@@ -34,6 +34,7 @@ body {
 .button:hover {
     background-color: #E06733;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .button_welcome {
@@ -51,6 +52,7 @@ body {
 .button_welcome:hover {
     background-color: #E06733;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .button_price {
@@ -69,7 +71,9 @@ body {
 .button_price:hover {
     background-color: #E06733;
     color: #FFFFFF;
+    cursor: pointer;
 }
+
 /* HEADER  */
 
 .header {
@@ -109,6 +113,10 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+}
+
+.header_navigation_list li a:hover {
+    color: #E06733;
 }
 
 li {
@@ -194,7 +202,7 @@ li {
 .about_block {
     max-width: 1440px;
     margin: auto;
-    padding: 94px 0;
+    padding: 94px 0px 86px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -308,7 +316,7 @@ li {
     justify-content: space-between;
     flex-basis: 84.86%;
     margin-top: 40px;
-    margin-bottom: 127px;
+    margin-bottom: 113px;
 }
 
 .price_content_left {
@@ -480,5 +488,9 @@ li {
 .footer_content a {
     color: #000000;
     text-decoration: none;
+}
+
+.footer_content a:hover {
+    color: #E06733;
 }
 

@@ -6,6 +6,14 @@ body {
     margin: auto;
 }
 
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 380px) {
+
+}
+
 .orange_text {
     color: #E06733 !important;
     margin-top: 0px;

@@ -6,14 +6,6 @@ body {
     margin: auto;
 }
 
-@media (max-width: 768px) {
-    
-}
-
-@media (max-width: 380px) {
-
-}
-
 .orange_text {
     color: #E06733 !important;
     margin-top: 0px;
@@ -78,6 +70,10 @@ body {
     cursor: pointer;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 /* HEADER  */
 
 .header {
@@ -103,11 +99,16 @@ body {
     flex-basis: 84.86%;
 }
 
+.header_logo {
+    flex-grow: 2;
+}
+
 .header_navigation {
     list-style: none;
     display: flex;
     flex-basis: 37%;
     justify-content: space-between;
+    flex-grow: 3;
 }
 
 .header_navigation_list {
@@ -158,6 +159,11 @@ li {
     justify-content: space-between;
     align-items: center;
     flex-basis: 84.86%;
+}
+
+.welcome_content picture {
+    max-width: 449px;
+    max-height: 407px;
 }
 
 .welcome_content_right {
@@ -216,6 +222,10 @@ li {
     justify-content: space-between;
     align-items: center;
     flex-basis: 84.86%;
+}
+
+.about_content picture {
+    max-height: 479px;
 }
 
 .about_content_left {
@@ -498,3 +508,152 @@ li {
     color: #E06733;
 }
 
+/* ADAPTIVE */
+
+@media (max-width: 768px) {
+    .header_block {
+        height: 117px;
+    }
+    .header_content {
+        flex-basis: 87%;
+        align-items: flex-end;
+    }
+    .header_navigation{
+        flex-basis: 35%;
+    }
+    .welcome_block {
+        padding: 40px 0 70px;
+    }
+    .welcome_content {
+        flex-basis: 87%;
+    }
+    .welcome_content picture {
+        align-self: flex-start;
+    }
+    .welcome_content picture img {
+        max-width: 280px;
+        max-height: 254px;
+    }
+    .welcome_content_right {
+        order: -1;
+        max-height: 310px;
+        flex-grow: 1;
+        margin-right: 50px;
+    }
+    .welcome_content_right p {
+        padding-left: 5px;
+    }
+    .welcome_header {
+        font-size: 35px;
+    }
+    .welcome_content_right p {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .about_block {
+        padding: 19px 0px 86px;
+    }
+    .about_content {
+        flex-basis: 87%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about_content p {
+        margin-bottom: 70px;
+    }
+    .about_content_left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about_h2 {
+        text-align: center;
+        font-size: 35px;
+        line-height: 46px;
+        margin-bottom: 30px;
+    }
+    .service_content {
+        flex-basis: 87%;
+    }
+    .service_header {
+        flex-wrap: wrap;
+        gap: 42px;
+        padding-top: 59px;
+        padding-bottom: 41px;
+    }
+    .service_header_text {
+        font-size: 35px;
+        line-height: 46px;
+    }
+    .service_cards_container {
+        padding-bottom: 33px;
+    }
+    .service_card {
+        margin-bottom: 38px;
+    }
+    .service_card_text p {
+        text-align: center;
+        max-width: 201px;
+        margin-top: 6px;
+        margin-bottom: 20px;
+    }
+    .price_content {
+        flex-basis: 87%;
+        margin-bottom: 87px;
+    }
+    .price_content_left h2 {
+        font-size: 35px;
+        padding-left: 15px;
+    }
+    .pcr_leaf {
+        flex-grow: 1;
+        margin-top: 100px;
+        max-height: 358px;
+    }
+    .price_content_right {
+        max-height: 149px;
+    }
+    .price_content_right h3 {
+        font-size: 25px;
+        line-height: 35px;
+    }
+    .contact_content {
+        display: flex;
+        flex-basis: 87%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact_content h2 {
+        margin: 40px 0 0 ;
+    }
+    .contact_city {
+        margin-top: 99px;
+    }
+    .contact_content picture {
+        order: 1;
+        margin-top: 250px;
+        margin-left: 20px;
+        margin-bottom: -4px;
+    }
+    .footer_content {
+        flex-direction: column;
+        line-height: 24px;
+    }
+    .rs_link {
+        margin: -5px 0 -9px 0;
+    }
+    .footer_links {
+        min-width: 173px;
+        margin-top: 14px;
+        margin-right: 2px;
+    }
+    .footer_social {
+        padding: 0;
+        min-width: 188px;
+        margin-top: 33px;
+    }
+}
+
+@media (max-width: 380px) {
+
+}

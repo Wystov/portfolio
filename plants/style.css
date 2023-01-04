@@ -99,10 +99,6 @@ body {
     flex-basis: 84.86%;
 }
 
-.header_logo {
-    flex-grow: 2;
-}
-
 .hamburger {
     display: none;
 }
@@ -122,7 +118,6 @@ body {
     display: flex;
     flex-basis: 37%;
     justify-content: space-between;
-    flex-grow: 3;
 }
 
 .header_navigation_list {
@@ -529,12 +524,16 @@ li {
     .header_block {
         height: 117px;
     }
+    .header_logo {
+        flex-grow: 2;
+    }
     .header_content {
         flex-basis: 87%;
         align-items: flex-end;
     }
     .header_navigation{
         flex-basis: 35%;
+        flex-grow: 3;
     }
     .welcome_block {
         padding: 40px 0 70px;
@@ -670,31 +669,61 @@ li {
 }
 
 @media (max-width: 380px) {
+    .header_block {
+        height: 95px;
+    }
+    .header_content {
+        align-items: center;
+    }
     .header_navigation {
         justify-content: flex-end;
+    }
+    .welcome_block {
+        padding-top: 25px;
+        padding-bottom: 24px;
     }
     .welcome_content picture {
         display: none;
     }
     .welcome_content_right {
         margin: 0;
+        max-height: 252px;
     }
     .welcome_content_right h1 {
         font-size: 25px;
         line-height: 35px;
+    }
+    .welcome_content_right p {
+        padding-left: 0;
     }
     .button_welcome {
         width: 100px;
         height: 34px;
         font-size: 10px;
     }
+    .about_block {
+        padding: 10px 0 0;
+    }
     .about_h2 {
         font-size: 25px;
         line-height: 32px;
+        margin-bottom: 0;
     }
     .about_content_left p {
         font-size: 15px;
         line-height: 25px;
+        margin-bottom: 4px;
+    }
+    .about_picture {
+        margin-bottom: 15px;
+    }
+    .about_picture picture {
+        max-height: 147px;
+    }
+    .service_header {
+        padding-top: 31px;
+        gap: 38px;
+        padding-bottom: 37px;
     }
     .service_header_text {
         font-size: 25px;
@@ -703,6 +732,19 @@ li {
     .service_header_nav {
         flex-wrap: wrap;
         max-width: 252px;
+        min-height: 83px;
+        align-content: space-around;
+    }
+    .service_cards_container {
+        justify-content: center;
+        padding-bottom: 0;
+    }
+    .service_card {
+        margin-bottom: 34px;
+    }
+    .service_card:last-child {
+        margin-bottom: 0;
+        padding-bottom: 29px;
     }
     .button {
         width: 121px;
@@ -711,20 +753,34 @@ li {
     }
     .price_content {
         flex-direction: column;
+        margin-top: 28px;
+        margin-bottom: 40px;
+    }
+    .price_content_left {
+        align-items: center;
     }
     .price_content_left h2 {
         font-size: 25px;
         text-align: center;
+        padding: 0;
+        margin-bottom: 35px;
     }
     .price_items_block {
         align-items: center;
+        justify-content: space-evenly;
+        width: 222px;
+        height: 177px;
+        padding: 29px 0;
+        gap: 14px;
     }
     .price_item {
         font-size: 15px;
-        width: 100px;
+        width: 111px;
+        padding-left: 30px;
     }
     .price_content_right {
         align-items: center;
+        max-height: 125px;
     }
     .price_content_right h3 {
         max-width: 230px;
@@ -734,6 +790,7 @@ li {
     }
     .pcr_leaf {
         align-items: center;
+        margin-top: 20px;
     }
     .pcr_leaf img {
         display: none;
@@ -745,11 +802,30 @@ li {
     }
     .contact_content h2 {
         font-size: 25px;
+        margin-top: 15px;
+        margin-left: -3px;
     }
     .contact_city {
         width: 245px;
+        margin-top: 72px;
+    }
+    .contact_city img {
+        margin-right: -13px;
+    }
+    .contact_content picture {
+        margin: 132px 7px -4px 5px;
+    }
+    .footer_content {
+        line-height: 16px;
+    }
+    .footer_links {
+        margin-top: 6px;
+    }
+    .rs_link {
+        margin: 3px 0 -17px 0;
     }
     /* hamburger */
+
     .header_navigation_list {
         position: fixed;
         left: -100%;

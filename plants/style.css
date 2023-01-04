@@ -103,6 +103,20 @@ body {
     flex-grow: 2;
 }
 
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin: 6px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #717171;
+}
+
 .header_navigation {
     list-style: none;
     display: flex;
@@ -656,6 +670,9 @@ li {
 }
 
 @media (max-width: 380px) {
+    .header_navigation {
+        justify-content: flex-end;
+    }
     .welcome_content picture {
         display: none;
     }
@@ -731,5 +748,36 @@ li {
     }
     .contact_city {
         width: 245px;
+    }
+    /* hamburger */
+    .header_navigation_list {
+        position: fixed;
+        left: -100%;
+        flex-direction: column;
+        background-color: #ffffff;
+        align-items: center;
+    }
+    .header_navigation_list li  {
+        margin: 10px 0;
+    }
+    .header_navigation_list.active {
+        left: 0;
+        top: 80px;
+        transition: 0.5s;
+    }
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        transform: translateY(4px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+    .hamburger.active .bar:nth-child(4) {
+        opacity: 0;
     }
 }

@@ -127,6 +127,7 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    transition: 0.5s;
 }
 
 .header_navigation_list li a:hover {
@@ -840,12 +841,21 @@ li {
     .header_navigation_list {
         position: fixed;
         left: -100%;
+        top: 80px;
         flex-direction: column;
         background-color: #ffffff;
-        align-items: center;
     }
     .header_navigation_list li  {
-        margin: 10px 0;
+        width: 100vw;
+        text-align: center;
+        border-bottom: 2px dotted #EDF2EC;
+    }
+    .header_navigation_list li:last-child {
+        border-bottom: none;
+    }
+    .header_navigation_list li a {
+        display: block;
+        padding: 10px 0;
     }
     .header_navigation_list.active {
         left: 0;

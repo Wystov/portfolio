@@ -10,8 +10,15 @@ function hamburgerMenu() {
 }
 
 navLink.forEach(n => n.addEventListener("click", hideMenu));
+document.addEventListener("click", (x) => {
+    if (x.target !== headerNav && x.target !== hamburger) {
+    hideMenu();
+    }
+});
 
 function hideMenu() {
     hamburger.classList.remove("active");
     headerNav.classList.remove("active");
 }
+
+

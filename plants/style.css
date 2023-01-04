@@ -168,6 +168,7 @@ li {
     justify-content: space-between;
     align-items: center;
     flex-basis: 84.86%;
+    flex-wrap: wrap;
 }
 
 .welcome_content picture {
@@ -226,6 +227,7 @@ li {
     justify-content: center;
     align-items: center;
 }
+
 .about_content {
     display: flex;
     justify-content: space-between;
@@ -263,6 +265,7 @@ li {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     padding-top: 40px;
     padding-bottom: 80px;
 }
@@ -281,7 +284,9 @@ li {
 .service_header_nav {
     display: flex;
     justify-content: space-between;
-    width: 559px;
+    flex-wrap: wrap;
+    max-width: 559px;
+    gap: 38px;
     padding: 0;
     margin: 0;
 }
@@ -338,6 +343,7 @@ li {
     display: flex;
     justify-content: space-between;
     flex-basis: 84.86%;
+    flex-wrap: wrap;
     margin-top: 40px;
     margin-bottom: 113px;
 }
@@ -449,19 +455,17 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 335px;
     padding: 0px 35px 0px 20px;
     margin-top: 148px;
     background-color: #D6E7D2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width: 395px;
     height: 50px;
     font-family: Inter, sans-serif;
     font-size: 20px;
     color: #717171;
     letter-spacing: 0.05em;
 }
-
-
 
 /* FOOTER */
 
@@ -668,6 +672,12 @@ li {
     }
 }
 
+@media (max-width: 500px) {
+    .contact_city {
+        gap: 190px;
+    }
+}
+
 @media (max-width: 380px) {
     .header_block {
         height: 95px;
@@ -731,6 +741,7 @@ li {
     }
     .service_header_nav {
         flex-wrap: wrap;
+        gap: 0;
         max-width: 252px;
         min-height: 83px;
         align-content: space-around;
@@ -806,8 +817,8 @@ li {
         margin-left: -3px;
     }
     .contact_city {
-        width: 245px;
         margin-top: 72px;
+        gap: 200px;
     }
     .contact_city img {
         margin-right: -13px;

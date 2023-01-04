@@ -419,6 +419,7 @@ li {
     display: flex;
     justify-content: space-between;
     flex-basis: 84.86%;
+    flex-wrap: wrap;
 }
 
 .contact_content h2 {
@@ -655,5 +656,80 @@ li {
 }
 
 @media (max-width: 380px) {
-
+    .welcome_content picture {
+        display: none;
+    }
+    .welcome_content_right {
+        margin: 0;
+    }
+    .welcome_content_right h1 {
+        font-size: 25px;
+        line-height: 35px;
+    }
+    .button_welcome {
+        width: 100px;
+        height: 34px;
+        font-size: 10px;
+    }
+    .about_h2 {
+        font-size: 25px;
+        line-height: 32px;
+    }
+    .about_content_left p {
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .service_header_text {
+        font-size: 25px;
+        line-height: 32px;
+    }
+    .service_header_nav {
+        flex-wrap: wrap;
+        max-width: 252px;
+    }
+    .button {
+        width: 121px;
+        height: 35px;
+        font-size: 15px;
+    }
+    .price_content {
+        flex-direction: column;
+    }
+    .price_content_left h2 {
+        font-size: 25px;
+        text-align: center;
+    }
+    .price_items_block {
+        align-items: center;
+    }
+    .price_item {
+        font-size: 15px;
+        width: 100px;
+    }
+    .price_content_right {
+        align-items: center;
+    }
+    .price_content_right h3 {
+        max-width: 230px;
+        text-align: center;
+        font-size: 20px;
+        line-height: 35px;
+    }
+    .pcr_leaf {
+        align-items: center;
+    }
+    .pcr_leaf img {
+        display: none;
+    }
+    .button_price {
+        width: 121px;
+        height: 35px;
+        font-size: 15px;
+    }
+    .contact_content h2 {
+        font-size: 25px;
+    }
+    .contact_city {
+        width: 245px;
+    }
 }

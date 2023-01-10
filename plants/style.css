@@ -840,7 +840,7 @@ li {
 
     .header_navigation_list {
         position: fixed;
-        left: -100%;
+        right: -100%;
         top: 80px;
         flex-direction: column;
         background-color: #ffffff;
@@ -858,7 +858,7 @@ li {
         padding: 10px 0;
     }
     .header_navigation_list.active {
-        left: 0;
+        right: 0;
         top: 80px;
         transition: 0.5s;
     }

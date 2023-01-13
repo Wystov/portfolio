@@ -12,22 +12,28 @@
     <title>Plants</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div>
         <header class="header">
             <div class="header_block">
                 <div class="header_content">
-                    <div>
+                    <div class="header_logo">
                         <img src="img/logo_vector.svg" alt="logo" height="20" width="20">
                         <span class="name">Plants</span>
                     </div>
                     <nav class="header_navigation">
                         <ul class="header_navigation_list">
-                                <li><a class="orange_text" href="index.html">Home</a></li>
+                                <li><a class="orange_text bold" href="index.html">Home</a></li>
                                 <li><a href="#about_us">About us</a></li>
                                 <li><a href="#service">Service</a></li>
                                 <li><a href="#price">Price</a></li>
                                 <li><a href="#contacts">Contacts</a></li>
                         </ul>
+                        <div class="hamburger">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
                     </nav>
                 </div>
             </div>
@@ -36,7 +42,11 @@
             <section class="welcome">
                 <div class="welcome_block">
                     <div class="welcome_content">
-                            <img src="img/leafs.png" alt="leafs" width="449" height="407">
+                            <picture>
+                                <source srcset="img/leafs.png" type="image/png" media="(min-width:769px)">
+                                <source srcset="img/leafs_tablet.png" type="image/png" media="(max-width:768px)">
+                                <img src="img/leafs.png" alt="leafs">
+                            </picture>
                         <div class="welcome_content_right">
                             <h1 class="welcome_header">We grow <span class="green_text">plants</span> and give you oxygen</h1>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
@@ -54,8 +64,13 @@
                             <h2 class="about_h2">We are <span class="orange_text">professional experienced</span> gardeners</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         </div>
-                        <div>
-                            <img src="img/houseplant_1.png" alt="houseplant" height="479">
+                        <div class="about_picture">
+                            <picture>
+                                <source srcset="img/houseplant_1.png" type="image/png" media="(min-width:769px)">
+                                <source srcset="img/houseplant_1_tablet.png" type="image/png" media="(min-width:381px)">
+                                <source srcset="img/houseplant_1_mobile.png" type="image/png" media="(max-width:380px)">
+                                <img src="img/leafs.png" alt="houseplant">
+                            </picture>
                         </div>
                     </div>
                 </div>
@@ -73,42 +88,66 @@
                         </div>
                         <div class="service_cards_container">
                             <div class="service_card">
-                                <img src="img/first.png" alt="Garden care">
-                                <div class="service_card_text">
+                                <picture>
+                                    <source srcset="img/first.png" type="image/png" media="(min-width:769px)">
+                                    <source srcset="img/first_tablet.png" type="image/png" media="(max-width:768px)">
+                                    <img src="img/first.png" alt="houseplant">
+                                </picture>
+                                    <div class="service_card_text">
                                     <h4 class="orange_text">Garden care</h4>
                                     <p>Lorem Ipsum has been the industry</p>
                                 </div>
                             </div>
                             <div class="service_card">
-                                <img src="img/first(1).png" alt="Planting">
+                                <picture>
+                                    <source srcset="img/first(1).png" type="image/png" media="(min-width:769px)">
+                                    <source srcset="img/first_tablet(1).png" type="image/png" media="(max-width:768px)">
+                                    <img src="img/first(1).png" alt="planting">
+                                </picture>
                                 <div class="service_card_text">
                                     <h4 class="orange_text">Planting</h4>
                                     <p>Lorem Ipsum has been the industry</p>
                                 </div>
                             </div>
                             <div class="service_card">
-                                <img src="img/first(2).png" alt="Lawn care">
+                                <picture>
+                                    <source srcset="img/first(2).png" type="image/png" media="(min-width:769px)">
+                                    <source srcset="img/first_tablet(2).png" type="image/png" media="(max-width:768px)">
+                                    <img src="img/first(2).png" alt="lawn care">
+                                </picture>
                                 <div class="service_card_text">
                                     <h4 class="orange_text">Lawn care</h4>
                                     <p>Lorem Ipsum has been the industry</p>
                                 </div>
                             </div>
                             <div class="service_card">
-                                <img src="img/first(3).png" alt="Planting">
+                                <picture>
+                                    <source srcset="img/first(3).png" type="image/png" media="(min-width:769px)">
+                                    <source srcset="img/first_tablet(3).png" type="image/png" media="(max-width:768px)">
+                                    <img src="img/first(3).png" alt="planting">
+                                </picture>
                                 <div class="service_card_text">
                                     <h4 class="orange_text">Planting</h4>
                                     <p>Lorem Ipsum has been the industry</p>
                                 </div>
                             </div>
                             <div class="service_card">
-                                <img src="img/first(4).png" alt="Garden care">
+                                <picture>
+                                    <source srcset="img/first(4).png" type="image/png" media="(min-width:769px)">
+                                    <source srcset="img/first_tablet(4).png" type="image/png" media="(max-width:768px)">
+                                    <img src="img/first(4).png" alt="garden care">
+                                </picture>
                                 <div class="service_card_text">
                                     <h4 class="orange_text">Garden care</h4>
                                     <p>Lorem Ipsum has been the industry</p>
                                 </div>
                             </div>
                             <div class="service_card">
-                                <img src="img/first(5).png" alt="Planting">
+                                <picture>
+                                    <source srcset="img/first(5).png" type="image/png" media="(min-width:769px)">
+                                    <source srcset="img/first_tablet(5).png" type="image/png" media="(max-width:768px)">
+                                    <img src="img/first(5).png" alt="planting">
+                                </picture>
                                 <div class="service_card_text">
                                     <h4 class="orange_text">Planting</h4>
                                     <p>Lorem Ipsum has been the industry</p>
@@ -124,9 +163,9 @@
                         <div class="price_content_left">
                             <h2>Prices</h2>
                             <div class="price_items_block">
-                                <div class="price_item">Basics<img src="img/accordion_btn.svg" alt="button" width="16"></div>
-                                <div class="price_item">Standard<img src="img/accordion_btn.svg" alt="button" width="16"></div>
-                                <div class="price_item">Pro care<img src="img/accordion_btn.svg" alt="button" width="16"></div>
+                                <div class="price_item"><span>Basics</span><img src="img/accordion_btn.svg" alt="button" width="16"></div>
+                                <div class="price_item"><span>Standard</span><img src="img/accordion_btn.svg" alt="button" width="16"></div>
+                                <div class="price_item"><span>Pro care</span><img src="img/accordion_btn.svg" alt="button" width="16"></div>
                             </div>
                         </div>
                         <div class="pcr_leaf">
@@ -142,7 +181,12 @@
             <section id="contacts" class="contact">
                 <div class="contact_block">
                     <div class="contact_content">
-                        <img src="img/contact_woman_1.png" alt="woman" class="contact_woman">
+                        <picture class="contact_woman">
+                            <source srcset="img/contact_woman_1.png" type="image/png" media="(min-width:769px)">
+                            <source srcset="img/contact_woman_1_tablet.png" type="image/png" media="(min-width:381px)">
+                            <source srcset="img/contact_woman_1_mobile.png" type="image/png" media="(max-width:380px)">
+                            <img src="img/contact_woman_1.png" alt="woman">
+                        </picture>
                         <h2 class="green_text">Contact us</h2>
                         <div class="contact_city">
                             <p>City</p>
@@ -172,5 +216,6 @@
         </footer>
     </div>
 <script src="index.js"></script>
+<script src="hamburger.js"></script>
 </body>
 </html>

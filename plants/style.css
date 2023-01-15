@@ -867,11 +867,16 @@ li {
         align-items: center;
         justify-content: space-evenly;
         width: 222px;
-        height: 177px;
+        height: auto;
         padding: 29px 0;
         gap: 14px;
     }
     .price_item {
+        font-size: 15px;
+        width: 111px;
+        padding-left: 30px;
+    }
+    .price_item_expand {
         font-size: 15px;
         width: 111px;
         padding-left: 30px;

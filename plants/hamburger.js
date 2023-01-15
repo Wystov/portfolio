@@ -2,23 +2,24 @@ const hamburger = document.querySelector(".hamburger");
 const headerNav = document.querySelector(".header_navigation_list");
 const navLink = document.querySelectorAll(".header_navigation_list li a");
 
-hamburger.addEventListener("click", hamburgerMenu);
-
 function hamburgerMenu() {
     hamburger.classList.toggle("active");
     headerNav.classList.toggle("active");
 }
 
-navLink.forEach(n => n.addEventListener("click", hideMenu));
+hamburger.addEventListener("click", hamburgerMenu);
+navLink.forEach(n => n.addEventListener("click", hamburgerMenu));
 document.addEventListener("click", (x) => {
-    if (x.target !== headerNav && x.target !== hamburger) {
-    hideMenu();
+    if (headerNav.classList.contains("active") && 
+       !(headerNav.contains(x.target)) &&
+       !(hamburger.contains(x.target))) {
+    hamburgerMenu();
     }
 });
 
-function hideMenu() {
-    hamburger.classList.remove("active");
-    headerNav.classList.remove("active");
-}
+
+
+
+
 
 

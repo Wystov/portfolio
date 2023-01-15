@@ -40,6 +40,7 @@ body {
 .button_service_focus {
     background-color: #E06733;
     color: #FFFFFF;
+    transition: 1s;
 }
 
 .button_welcome {
@@ -391,7 +392,12 @@ li {
 }
 
 .price_item {
-    display: flex;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+    display: none;
     justify-content: space-between;
     align-items: center;
     background: #EDF2EC;
@@ -401,12 +407,76 @@ li {
     padding: 0px 40px;
 }
 
-.price_item {
+.price_btn {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.price_item_expand {
     font-family: Inter, sans-serif;
     font-size: 20px;
     color: #000000;
     text-decoration: none;
     font-weight: 700;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: #D6E7D2;
+    border-radius: 20px;
+    width: 170px;
+    height: auto;
+    padding: 13px 40px 12px;
+}
+
+.price_item_active {
+    display: flex;
+}
+
+.price_item_line {
+    width: 164px;
+    height: 1px;
+    background-color: #AEA1A1;
+    margin-top: 12px;
+}
+
+.price_item_text {
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 10px;
+    color: #717171;
+}
+
+.price_item_price {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #E06733;
+}
+
+.price_item_symbol {
+    font-size: 12px;
+}
+
+.price_item_price_text {
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #000000;
+}
+
+.price_item_order {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    color: #717171;
+    text-decoration: none;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 3px 26px 2px 20px;
 }
 
 .pcr_leaf {

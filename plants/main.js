@@ -77,8 +77,77 @@ function activeCardPlanting() {
     btnPlanting.classList.toggle("button_service_focus");
 }
 
+// PRICE ACCORDION
 
+const btnBasics = document.querySelectorAll(".basics_btn");
+const divBasics = document.querySelectorAll(".price_basics");
+btnBasics.forEach(btn => btn.addEventListener("click", expandAccB));
+const btnStandard = document.querySelectorAll(".standard_btn");
+const divStandard = document.querySelectorAll(".price_standard");
+btnStandard.forEach(btn => btn.addEventListener("click", expandAccS));
+const btnPro = document.querySelectorAll(".pro_btn");
+const divPro = document.querySelectorAll(".price_pro");
+btnPro.forEach(btn => btn.addEventListener("click", expandAccP));
+const divExpand = document.querySelectorAll(".price_item_expand");
+let isActiveExpand = [];
+let activeName = '';
 
+function expandAccB() {
+    if (isActiveExpand.length === 0) {
+        divBasics.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = divBasics;
+        activeName = 'basics';
+    }
+    else if (activeName === 'basics') {
+        divBasics.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = [];
+        activeName = "";
+    }
+    else if (activeName !== 'basics' && isActiveExpand.length > 0) {
+        isActiveExpand.forEach(div => div.classList.toggle("price_item_active"));
+        divBasics.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = divBasics;
+        activeName = 'basics';
+    }
+}
+
+function expandAccS() {
+    if (isActiveExpand.length === 0) {
+        divStandard.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = divStandard;
+        activeName = 'standard';
+    }
+    else if (activeName === 'standard') {
+        divStandard.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = [];
+        activeName = "";
+    }
+    else if (activeName !== 'standard' && isActiveExpand.length > 0) {
+        isActiveExpand.forEach(div => div.classList.toggle("price_item_active"));
+        divStandard.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = divStandard;
+        activeName = 'standard';
+    }
+}
+
+function expandAccP() {
+    if (isActiveExpand.length === 0) {
+        divPro.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = divPro;
+        activeName = 'pro';
+    }
+    else if (activeName === 'pro') {
+        divPro.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = [];
+        activeName = '';
+    }
+    else if (activeName !== 'pro' && isActiveExpand.length > 0) {
+        isActiveExpand.forEach(div => div.classList.toggle("price_item_active"));
+        divPro.forEach(div => div.classList.toggle("price_item_active"));
+        isActiveExpand = divPro;
+        activeName = 'pro';
+    }
+}
 
 
 

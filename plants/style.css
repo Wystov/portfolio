@@ -864,6 +864,7 @@ li {
     }
     .city_drop {
         width: 259px;
+    }
 }
 
 @media (max-width: 380px) {

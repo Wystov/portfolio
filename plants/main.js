@@ -202,4 +202,5 @@ function showCity() {
         return;
     } 
     displayCity.classList.toggle("contact_show_active");
+    contactSelect.style.backgroundColor = "#C1E698";
 }

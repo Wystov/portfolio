@@ -152,19 +152,52 @@ function expandAccP() {
 // CONTACTS SELECT
 
 const contactSelect = document.querySelector(".contact_city_select");
-contactSelect.addEventListener("click", contactExpand);
+contactSelect.addEventListener("click", contactDropDown);
 const cityDrop = document.querySelector(".city_drop");
-cityDrop.addEventListener("click", contactExpand);
-const cityCan = document.querySelector(".canandaigua");
-cityCan.addEventListener("click", showCityCan);
+cityDrop.addEventListener("click", contactDropDown);
 const displayCity = document.querySelector(".contact_show");
+const cityVariants = document.querySelectorAll(".city_variant");
+cityVariants.forEach(city => city.addEventListener("click", showCity));
+const valueCity = document.querySelector(".value_city");
+const valuePhone = document.querySelector(".value_phone");
+const valueAdress = document.querySelector(".value_adress");
+const selectCity = document.querySelector(".select_city");
+const callBtn = document.querySelector(".contact_show_call_btn");
 
-function contactExpand() {
+function contactDropDown() {
     contactSelect.classList.toggle("city_active");
     cityDrop.classList.toggle("city_drop_active");
 }
 
-function showCityCan() {
+function showCity() {
+    if (this.classList.contains("canandaigua")) {
+        valueCity.innerHTML="Canandaigua, NY";
+        valuePhone.innerHTML="+1 585 393 0001";
+        valueAdress.innerHTML="151 Charlotte Street";
+        selectCity.innerHTML="Canandaigua, NY";
+        callBtn.href="tel:+1-585-393-0001"
+    }
+    if (this.classList.contains("newyork")) {
+        valueCity.innerHTML="New York City";
+        valuePhone.innerHTML="+1 212 456 0002";
+        valueAdress.innerHTML="9 East 91st Street";
+        selectCity.innerHTML="New York City";
+        callBtn.href="tel:+1-212-456-0002";
+    }
+    if (this.classList.contains("yonkers")) {
+        valueCity.innerHTML="Yonkers, NY";
+        valuePhone.innerHTML="+1 914 678 0003";
+        valueAdress.innerHTML="511 Warburton Ave";
+        selectCity.innerHTML="Yonkers, NY";
+        callBtn.href="tel:+1-914-678-0003";
+    }
+    if (this.classList.contains("sherill")) {
+        valueCity.innerHTML="Sherrill, NY";
+        valuePhone.innerHTML="+1 315 908 0004";
+        valueAdress.innerHTML="14 WEST Noyes BLVD";
+        selectCity.innerHTML="Sherrill, NY";
+        callBtn.href="tel:+1-315-908-0004";
+    }
     if (displayCity.classList.contains("contact_show_active")) {
         return;
     } 

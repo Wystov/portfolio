@@ -545,7 +545,6 @@ li {
     height: 50px;
     margin-top: 148px;
     background-color: #D6E7D2;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Inter, sans-serif;
     font-size: 20px;
     color: #717171;
@@ -556,9 +555,9 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 335px;
     padding: 0px 35px 0px 20px;
-    
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .contact_city_select p {
@@ -586,6 +585,10 @@ li {
     letter-spacing: 0.05em;
     color: #499A18;  
     padding: 27px 50px 31px 20px;
+}
+
+.city_drop li {
+    cursor: pointer;
 }
 
 .city_drop li:hover {
@@ -643,6 +646,7 @@ li {
     border: 1px solid #E06733;
     border-radius: 5px;
     margin: 24px 163px 32px;
+    cursor: pointer;
 }
 
 

@@ -149,8 +149,24 @@ function expandAccP() {
     }
 }
 
+// CONTACTS SELECT
 
+const contactSelect = document.querySelector(".contact_city_select");
+contactSelect.addEventListener("click", contactExpand);
+const cityDrop = document.querySelector(".city_drop");
+cityDrop.addEventListener("click", contactExpand);
+const cityCan = document.querySelector(".canandaigua");
+cityCan.addEventListener("click", showCityCan);
+const displayCity = document.querySelector(".contact_show");
 
+function contactExpand() {
+    contactSelect.classList.toggle("city_active");
+    cityDrop.classList.toggle("city_drop_active");
+}
 
-
-
+function showCityCan() {
+    if (displayCity.classList.contains("contact_show_active")) {
+        return;
+    } 
+    displayCity.classList.toggle("contact_show_active");
+}

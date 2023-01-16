@@ -536,26 +536,29 @@ li {
 
 .contact_woman {
     margin-top: 53px;
+    margin-bottom: -4px;
 }
 
 .contact_city {
     display: flex;
     flex-direction: column;
     width: 449px;
-    height: 50px;
+    height: auto;
     margin-top: 148px;
-    background-color: #D6E7D2;
     font-family: Inter, sans-serif;
     font-size: 20px;
     color: #717171;
     letter-spacing: 0.05em;
+    margin-bottom: 34px;
 }
 
 .contact_city_select {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
     padding: 0px 35px 0px 20px;
+    background-color: #D6E7D2;
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -857,8 +860,10 @@ li {
 
 @media (max-width: 500px) {
     .contact_city {
-        gap: 190px;
+        width: 329px;
     }
+    .city_drop {
+        width: 259px;
 }
 
 @media (max-width: 380px) {
@@ -1006,7 +1011,24 @@ li {
     }
     .contact_city {
         margin-top: 72px;
-        gap: 200px;
+        width: 300px;
+    }
+    .city_drop {
+        width: 230px;
+    }
+    .contact_show {
+        margin-bottom: 30px;
+    }
+    .contact_show_content {
+        padding: 23px 36px 17px 36px;
+        line-height: 35px;
+    }
+    .contact_show_call_btn {
+        margin-left: 88px;
+        margin-right: 88px;
+    }
+    .contact_show_tag {
+        width: 75px;
     }
     .contact_city img {
         margin-right: -13px;

@@ -2,7 +2,6 @@ const time = document.querySelector('.time');
 const date = document.querySelector('date');
 const dateOptions = {weekday: 'long', day: 'numeric', month: 'long'};
 let newDate = new Date();
-let currentTime = newDate.toLocaleTimeString();
 const greeting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
 name.addEventListener('blur', setLocalStorage);
@@ -10,6 +9,7 @@ name.addEventListener("keydown", nameBlur);
 window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
 
+// 1. time
 
 function showTime() {
     newDate = new Date();
@@ -22,6 +22,8 @@ function showTime() {
     setTimeout(showTime, 1000);
 }
 
+showTime()
+
 function showDate() {
     const currentDate = newDate.toLocaleDateString('ru-RU', dateOptions);
     date.textContent = currentDate;
@@ -29,17 +31,18 @@ function showDate() {
 
 function getTimeOfDay() {
     const hours = newDate.getHours();
-    console.log(hours);
-    if (hours >= 0 && hours <= 3) {
+    if (hours >= 0 && hours <= 5) {
         return 'Night';
-    } else if (hours >= 4 && hours <= 11) {
+    } else if (hours >= 6 && hours <= 1) {
         return 'Morning';
     } else if (hours >= 12 && hours <= 17) {
-        return 'Day';
+        return 'Afternoon ';
     } else {
         return 'Evening';
     }
 }
+
+// 2. greeting
 
 function showGreeting() {
     const timeOfDay = getTimeOfDay();
@@ -64,7 +67,11 @@ function nameBlur (key) {
     }
 }
 
-showTime()
+// 3. picture slider
+
+
+
+
 
 
 

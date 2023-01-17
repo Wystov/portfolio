@@ -15,7 +15,7 @@ function showTime() {
     newDate = new Date();
     const currentTime = newDate.toLocaleTimeString();
     time.textContent = currentTime;
-    
+
     showDate()
     showGreeting()
  
@@ -32,13 +32,13 @@ function showDate() {
 function getTimeOfDay() {
     const hours = newDate.getHours();
     if (hours >= 0 && hours <= 5) {
-        return 'Night';
+        return 'night';
     } else if (hours >= 6 && hours <= 1) {
-        return 'Morning';
+        return 'morning';
     } else if (hours >= 12 && hours <= 17) {
-        return 'Afternoon ';
+        return 'afternoon ';
     } else {
-        return 'Evening';
+        return 'evening';
     }
 }
 
@@ -69,10 +69,52 @@ function nameBlur (key) {
 
 // 3. picture slider
 
+const prevBtn = document.querySelector('.slide-prev');
+prevBtn.addEventListener('click', getSlidePrev);
+const nextBtn = document.querySelector('.slide-next');
+nextBtn.addEventListener('click', getSlideNext);
 
+let randomNum;
 
+function getRandomNum(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+getRandomNum(1, 20);
 
+function setBg() {
+    const timeOfDay = getTimeOfDay();
+    const bgNum = randomNum.toString().padStart(2, '0');
+    const bgLink = `https://raw.githubusercontent.com/Wystov/momentum-img/main/img/${timeOfDay}/${bgNum}.webp`;
+    const img = new Image();
+    img.src = bgLink;
+    img.onload = () => {      
+        document.body.style.backgroundImage = `url(${bgLink})`;
+    }
+    //const bgLink = `https://raw.githubusercontent.com/Wystov/momentum-img/main/img/${timeOfDay}/${bgNum}.webp`;
+    //document.body.style.backgroundImage = `url(${bgLink})`;
+}
 
+setBg()
 
+function getSlideNext() {
+    if (randomNum === 20) {
+        randomNum = 1;
+        setBg()
+        return;
+    } 
+    randomNum += 1;
+    setBg()
+}
 
+function getSlidePrev() {
+    if (randomNum === 1) {
+        randomNum = 20;
+        setBg()
+        return;
+    } 
+    randomNum -= 1;
+    setBg()
+}

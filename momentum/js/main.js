@@ -210,6 +210,7 @@ const playNextBtn = document.querySelector('.play-next');
 playNextBtn.addEventListener('click', playNext);
 const playListContainer = document.querySelector('.play-list');
 
+
 let isPlay = false;
 let playNum = 0;
 
@@ -225,6 +226,7 @@ function playAudio() {
     } else {
         pauseAudio();
     }
+    playListSwitch()
 }
 
 function pauseAudio() {
@@ -264,8 +266,21 @@ function playPrev() {
 
 playList.forEach(el => {
     const li = document.createElement('li');
-    li.classList.add('.play-list');
+    li.classList.add('play-item');
     li.textContent = el.title;
     playListContainer.append(li);
 });
+
+
+const playItem = playListContainer.querySelectorAll('.play-item');
+
+function playListSwitch() {
+    playItem.forEach(el => {
+        if (playList[playNum].title === el.textContent) {
+            el.classList.add('item-active');
+        } else {
+            el.classList.remove('item-active');
+        }
+    });
+}
 

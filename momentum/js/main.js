@@ -172,3 +172,25 @@ async function getWeather() {
 }
 
 getWeather()
+
+// 5. quote of the day
+
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuote = document.querySelector('.change-quote');
+changeQuote.addEventListener('click', getQuotes);
+
+
+async function getQuotes() {  
+    const quoteList = 'assets/data/quotes.json';
+    const res = await fetch(quoteList);
+    const data = await res.json(); 
+    getRandomNum(0, 102);
+    quote.textContent = data[randomNum].quote;
+    author.textContent = data[randomNum].author;
+}
+
+getQuotes();
+
+
+

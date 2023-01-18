@@ -199,5 +199,73 @@ async function getQuotes() {
 
 getQuotes();
 
+// 6. audioplayer
 
+const audio = new Audio();
+const playBtn = document.querySelector('.play');
+playBtn.addEventListener('click', playAudio);
+const playPrevBtn = document.querySelector('.play-prev');
+playPrevBtn.addEventListener('click', playPrev)
+const playNextBtn = document.querySelector('.play-next');
+playNextBtn.addEventListener('click', playNext);
+const playListContainer = document.querySelector('.play-list');
+
+let isPlay = false;
+let playNum = 0;
+
+import playList from './playList.js';
+
+function playAudio() {
+    audio.src = playList[playNum].src;
+    audio.currentTime = 0;
+    if (!isPlay) {
+        audio.play();
+        isPlay = true;
+        toggleBtn()
+    } else {
+        pauseAudio();
+    }
+}
+
+function pauseAudio() {
+    audio.pause();
+    isPlay = false;
+    toggleBtn()
+}
+
+function toggleBtn() {
+    if (isPlay) {
+        playBtn.classList.add('pause');
+    } else {
+        playBtn.classList.remove('pause');
+    }
+}
+
+
+function playNext() {
+    if (playNum === 3) {
+        playNum = 0;
+    } else {
+        playNum += 1;
+    }
+    isPlay = false;
+    playAudio();
+}
+
+function playPrev() {
+    if (playNum === 0) {
+        playNum = 3;
+    } else {
+    playNum -= 1;
+    }
+    isPlay = false;
+    playAudio();
+}
+
+playList.forEach(el => {
+    const li = document.createElement('li');
+    li.classList.add('.play-list');
+    li.textContent = el.title;
+    playListContainer.append(li);
+});
 

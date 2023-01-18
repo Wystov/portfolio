@@ -180,14 +180,21 @@ const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 changeQuote.addEventListener('click', getQuotes);
 
+let randomQuoteNum;
+
+function getRandomQuoteNum(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    randomQuoteNum = Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 async function getQuotes() {  
     const quoteList = 'assets/data/quotes.json';
     const res = await fetch(quoteList);
     const data = await res.json(); 
-    getRandomNum(0, 102);
-    quote.textContent = data[randomNum].quote;
-    author.textContent = data[randomNum].author;
+    getRandomQuoteNum(0, 102);
+    quote.textContent = data[randomQuoteNum].quote;
+    author.textContent = data[randomQuoteNum].author;
 }
 
 getQuotes();

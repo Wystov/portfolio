@@ -19,15 +19,19 @@
       <ul class="play-list"></ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" />
-      <i class="weather-icon owf"></i>
-      <div class="weather-error"></div>
-      <div class="description-container">
-        <span class="temperature"></span>
-        <span class="weather-description"></span>
+      <input type="text" class="city"/>
+      <div class="weather-error hide">
+        <span>No such city found</span>
       </div>
-      <div class="wind"></div>
-      <div class="humidity"></div>
+      <div class="weather-container">
+        <div class="icon-temp-container">
+          <i class="weather-icon owf"></i>
+          <div class="temperature"></div>
+        </div>
+        <div class="weather-description"></div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
     </div>
   </header>
   <main class="main">

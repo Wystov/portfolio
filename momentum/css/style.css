@@ -125,20 +125,32 @@ body {
   align-items: flex-start;
   row-gap: 5px;
   width: 180px;
-  min-height: 180px;  
+  min-height: 70px;  
   text-align: left;
+  line-height: 30px;
 }
 
 .weather-error {
-  margin-top: -10px;
+  display: block;
+  margin-top: 10px;
+  background-color: #80808030;
+  border-radius: 5px;
+  padding: 8px 15px;
 }
 
-.description-container {
+.hide {
+  display: none;
+}
+
+.icon-temp-container {
+  padding: 10px 0 5px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   align-items: center;
-  column-gap: 12px;
+  gap: 20px;
+}
+
+.temperature {
+  font-size: 25px;
 }
 
 .weather-icon {

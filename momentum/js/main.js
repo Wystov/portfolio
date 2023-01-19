@@ -209,6 +209,7 @@ playPrevBtn.addEventListener('click', playPrev)
 const playNextBtn = document.querySelector('.play-next');
 playNextBtn.addEventListener('click', playNext);
 const playListContainer = document.querySelector('.play-list');
+audio.addEventListener('ended', playNext);
 
 
 let isPlay = false;
@@ -283,4 +284,11 @@ function playListSwitch() {
         }
     });
 }
+
+
+// TO DO после окончания проигрывания первого трека, автоматически запускается проигрывание следующего.
+
+// pro audioplayer
+
+
 

@@ -11,10 +11,23 @@
 <body>
   <header class="header">
     <div class="player">
+      <div class="player-info">
+        <div class="track-title">title</div>
+        <div class="track-time">0:00 / 0:00</div>
+      </div>
       <div class="player-controls">
         <button class="play-prev player-icon"></button>
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
+        <div class="volume-container">
+          <button class="audio-active invert player-icon"></button>
+          <div class="volume">
+            <div class="current-volume"></div>
+          </div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="timeline"></div>
       </div>
       <ul class="play-list"></ul>
     </div>

@@ -210,6 +210,7 @@ const playNextBtn = document.querySelector('.play-next');
 playNextBtn.addEventListener('click', playNext);
 const playListContainer = document.querySelector('.play-list');
 audio.addEventListener('ended', playNext);
+const currentTitle = document.querySelector('.track-title');
 
 
 let isPlay = false;
@@ -217,9 +218,12 @@ let playNum = 0;
 
 import playList from './playList.js';
 
+let playbackCurrentTime = 0;
+
 function playAudio() {
     audio.src = playList[playNum].src;
-    audio.currentTime = 0;
+    audio.currentTime = playbackCurrentTime;
+    currentTitle.innerHTML = playList[playNum].title;
     if (!isPlay) {
         audio.play();
         isPlay = true;
@@ -251,6 +255,7 @@ function playNext() {
     } else {
         playNum += 1;
     }
+    playbackCurrentTime = 0;
     isPlay = false;
     playAudio();
 }
@@ -261,6 +266,7 @@ function playPrev() {
     } else {
     playNum -= 1;
     }
+    playbackCurrentTime = 0;
     isPlay = false;
     playAudio();
 }
@@ -275,6 +281,7 @@ playList.forEach(el => {
 
 const playItem = playListContainer.querySelectorAll('.play-item');
 
+
 function playListSwitch() {
     playItem.forEach(el => {
         if (playList[playNum].title === el.textContent) {
@@ -285,10 +292,75 @@ function playListSwitch() {
     });
 }
 
-
-// TO DO после окончания проигрывания первого трека, автоматически запускается проигрывание следующего.
-
 // pro audioplayer
 
+audio.addEventListener('timeupdate', setPlaybackCurrentTime);
+const trackTime = document.querySelector('.track-time');
+const progressBar = document.querySelector('.progress-bar');
+const timeline = document.querySelector('.timeline');
+progressBar.addEventListener('click', changeTimeline);
+const audioMuteBtn = document.querySelector('.audio-active');
+audioMuteBtn.addEventListener('click', audioMute);
+const volume = document.querySelector('.volume');
+const currentVolume = document.querySelector('.current-volume');
+volume.addEventListener('click', setVolume);
 
 
+
+function setPlaybackCurrentTime() {
+    showMinutes()
+    playbackCurrentTime = audio.currentTime;
+    const currentTimePercent = (audio.currentTime / audio.duration) * 100;
+    timeline.style.width = currentTimePercent + '%';
+} 
+
+function changeTimeline(e) {
+    const clickTime = (e.offsetX / progressBar.offsetWidth) * audio.duration;
+    audio.currentTime = clickTime;
+}
+
+function audioMute() {
+    audio.muted = !audio.muted;
+    audioMuteBtn.classList.toggle('audio-muted');
+}
+
+function setVolume(e) {
+    const clickVolume = (e.offsetX / volume.offsetWidth);
+    audio.volume = clickVolume;
+    currentVolume.style.width = (clickVolume * 100) + '%';
+}
+
+function showMinutes() {
+    if (isNaN(audio.duration)) {
+        return;
+    }
+    let minCur = Math.floor(audio.currentTime / 60);
+    let secCur = Math.floor(audio.currentTime % 60);
+    let minTotal = Math.floor(audio.duration / 60);
+    let secTotal = Math.floor(audio.duration % 60);
+    if (secCur < 10) {
+        secCur = '0' + secCur.toString();
+    }
+    if (secTotal < 10) {
+        secTotal = '0' + secTotal.toString();
+    }
+    trackTime.innerHTML = minCur + ':' + secCur + ' / ' + minTotal + ':' + secTotal;
+}
+
+playItem.forEach(el => el.addEventListener('click', chooseTrack))
+
+function chooseTrack() {
+    playList.forEach(el => {
+        if (el.title === this.innerHTML && playNum == el.index) {
+            this.classList.toggle('item-played');
+            playAudio()
+        } else if (el.title === this.innerHTML) {
+            playListContainer.childNodes.forEach(el => el.classList.remove('item-played'));
+            this.classList.toggle('item-played');
+            playNum = +el.index;
+            isPlay = false;
+            playbackCurrentTime = 0;
+            playAudio()
+        }
+    });
+}

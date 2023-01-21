@@ -232,7 +232,6 @@ function playAudio() {
         pauseAudio();
     }
     playListSwitch()
-    chooseTrack()
 }
 
 function pauseAudio() {

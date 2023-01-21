@@ -232,6 +232,7 @@ function playAudio() {
         pauseAudio();
     }
     playListSwitch()
+    chooseTrack()
 }
 
 function pauseAudio() {
@@ -288,6 +289,11 @@ function playListSwitch() {
             el.classList.add('item-active');
         } else {
             el.classList.remove('item-active');
+        }
+        if (playList[playNum].title === el.textContent && isPlay == true) {
+            el.classList.add('item-played');
+        } else {
+            el.classList.remove('item-played');
         }
     });
 }
@@ -355,7 +361,7 @@ function chooseTrack() {
             this.classList.toggle('item-played');
             playAudio()
         } else if (el.title === this.innerHTML) {
-            playListContainer.childNodes.forEach(el => el.classList.remove('item-played'));
+            playItem.forEach(el => el.classList.remove('item-played'));
             this.classList.toggle('item-played');
             playNum = +el.index;
             isPlay = false;

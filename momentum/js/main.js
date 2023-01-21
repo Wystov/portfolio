@@ -110,14 +110,51 @@ function getRandomNum(min, max) {
 
 getRandomNum(1, 20);
 
-function setBg() {
+async function setUnsplashImg() {
     const timeOfDay = getTimeOfDay();
-    const bgNum = randomNum.toString().padStart(2, '0');
-    const bgLink = `https://raw.githubusercontent.com/Wystov/momentum-img/main/img/${timeOfDay}/${bgNum}.webp`;
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=$${timeOfDay}&client_id=iACCeWsc-4SZ87eKKf8UcfU-Z6Bd1iLAxt2OQ78OdoM`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const bgLink = data.urls.regular;
     const img = new Image();
     img.src = bgLink;
     img.onload = () => {      
-        document.body.style.backgroundImage = `url(${bgLink})`;
+    document.body.style.backgroundImage = `url(${bgLink})`;
+    }
+}
+
+async function setFlickrImg() {
+    const timeOfDay = getTimeOfDay();
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=987310a1ee8d1ff3e1e2b86eabe327d8&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const bgNum = randomNum.toString()
+    const bgLink = data.photos.photo[bgNum].url_l;
+    const img = new Image();
+    img.src = bgLink;
+    img.onload = () => {
+    document.body.style.backgroundImage = `url(${bgLink})`;
+    }
+}
+
+let bgSrc = 'unsplash';
+
+function setBg() {
+    if (bgSrc === 'github') {
+        const timeOfDay = getTimeOfDay();
+        const bgNum = randomNum.toString().padStart(2, '0');
+        const bgLink = `https://raw.githubusercontent.com/Wystov/momentum-img/main/img/${timeOfDay}/${bgNum}.webp`
+        const img = new Image();
+        img.src = bgLink;
+        img.onload = () => {      
+            document.body.style.backgroundImage = `url(${bgLink})`;
+        }
+    }
+    if (bgSrc === 'unsplash') {
+        setUnsplashImg()
+    }
+    if (bgSrc === 'flickr') {
+        setFlickrImg()
     }
 }
 
@@ -402,6 +439,8 @@ const settings = document.querySelector('.settings');
 settingsBtn.addEventListener('click', showSettings);
 const languageSelector = document.querySelectorAll('.language-value')
 languageSelector.forEach(lang => lang.addEventListener('click', changeLanguage));
+const imageSelectorSrc = document.querySelectorAll('.image-src-value');
+imageSelectorSrc.forEach(src => src.addEventListener('click', changeImgSrc))
 
 
 function showSettings() {
@@ -416,8 +455,23 @@ function changeLanguage() {
         return;
     }
     this.classList.contains('en') ? language = 'en' : language = 'ru';
+    name.placeholder = placeHolder[language];
     getWeather();
     getQuotes();
     showGreeting();
-    showDate();
+}
+
+function changeImgSrc() {
+    if (this.classList.contains('github') && bgSrc === 'github') {
+        return;
+    }
+    if (this.classList.contains('unsplash') && bgSrc === 'unsplash') {
+        return;
+    }
+    if (this.classList.contains('flickr') && bgSrc === 'flickr') {
+        return;
+    }
+    this.classList.contains('github') ? bgSrc = 'github' :
+    this.classList.contains('unsplash') ? bgSrc = 'unsplash' : bgSrc = 'flickr';
+    setBg();
 }

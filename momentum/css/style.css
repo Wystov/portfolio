@@ -141,8 +141,8 @@ body {
 .slider-icon:hover,
 .change-quote:hover,
 .settings-btn:hover,
-.rs-school:hover,
-.github:hover {
+.rs-school-logo:hover,
+.github-logo:hover {
   opacity: 1;
 }
 
@@ -150,8 +150,8 @@ body {
 .slider-icon:active,
 .change-quote:active,
 .settings-btn:active,
-.rs-school:active,
-.github:active {
+.rs-school-logo:active,
+.github-logo:active {
   border: 0;
   outline: 0;  
   transform: scale(1.1);
@@ -361,7 +361,8 @@ body {
   width: 300px;
 }
 
-.language {
+.language,
+.image-src {
   display: flex;
   gap: 10px
 }
@@ -402,13 +403,13 @@ body {
   flex-wrap: wrap;
 }
 
-.rs-school {
+.rs-school-logo {
   height: 40px;
   opacity: .8;
   transition: .3s;  
 }
 
-.github {
+.github-logo {
   height: 40px;
   opacity: .8;
   transition: .3s;  

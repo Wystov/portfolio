@@ -7,6 +7,11 @@ const name = document.querySelector('.name');
 name.addEventListener("keydown", nameBlur);
 window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
+let language = 'ru';
+const greetingTranslate = {'en': 'Good', 'ru': 'Добр'};
+const dateTranslate = {'en': 'en-US', 'ru': 'ru-RU'};
+const placeHolder = {'en': '[Enter your name]', 'ru': '[Введите ваше имя]'}
+name.placeholder = placeHolder[language];
 
 // 1. time
 
@@ -24,7 +29,7 @@ function showTime() {
 showTime()
 
 function showDate() {
-    const currentDate = newDate.toLocaleDateString('ru-RU', dateOptions);
+    const currentDate = newDate.toLocaleDateString(language, dateOptions);
     date.textContent = currentDate;
 }
 
@@ -43,11 +48,28 @@ function getTimeOfDay() {
 
 // 2. greeting
 
+
 function showGreeting() {
     const timeOfDay = getTimeOfDay();
-    const greetingText = `Good ${timeOfDay},`;
+    let ruGreetingText;
+    const greetingText = `${greetingTranslate[language]} ${timeOfDay},`;
     greeting.textContent = greetingText;
+    if (language === 'ru') {
+        if (timeOfDay === 'night') {
+            ruGreetingText = 'ой ночи';
+        } else if (timeOfDay === 'morning') {
+            ruGreetingText = 'ое утро';
+        } else if (timeOfDay === 'afternoon') {
+            ruGreetingText = 'ый день';
+        } else if (timeOfDay === 'evening') {
+            ruGreetingText = 'ый вечер';
+        }
+        const greetingText = `${greetingTranslate[language]}${ruGreetingText},`;
+        greeting.textContent = greetingText;
+    }
 }
+
+
 
 function setLocalStorage() {
     localStorage.setItem('name', name.value);
@@ -132,7 +154,8 @@ const city = document.querySelector('.city');
 const weatherError = document.querySelector('.weather-error');
 const weatherContainer = document.querySelector('.weather-container');
 
-const defaultValue = 'Minsk';
+const defaultCityTranslate = {'en': 'Minsk', 'ru': 'Минск'}
+const defaultValue = defaultCityTranslate[language];
 let storedValue = localStorage.getItem('city');
 
 function checkCity() {
@@ -153,7 +176,7 @@ city.addEventListener("keydown", nameBlur);
 
 async function getWeather() {  
     checkCity()
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${storedValue}&lang=en&appid=8bfa64d27e5adae6d9aa62bd0fc92a2c&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${storedValue}&lang=${language}&appid=8bfa64d27e5adae6d9aa62bd0fc92a2c&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
     if (data.cod === '404' || city.value === '') {
@@ -167,8 +190,9 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description.toUpperCase();
-    wind.textContent = `Wind: ${Math.round(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+    const weatherTranslate = {en: ['Wind: ', 'Humidity: '], ru: ['Ветер: ', 'Влажность: ']}
+    wind.textContent = `${weatherTranslate[language][0]}${Math.round(data.wind.speed)} m/s`;
+    humidity.textContent = `${weatherTranslate[language][1]}${Math.round(data.main.humidity)}%`;
 }
 
 getWeather()
@@ -179,6 +203,7 @@ const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 changeQuote.addEventListener('click', getQuotes);
+const quoteTranslate = {'en': 0, 'ru': 1};
 
 let randomQuoteNum;
 
@@ -192,9 +217,9 @@ async function getQuotes() {
     const quoteList = 'assets/data/quotes.json';
     const res = await fetch(quoteList);
     const data = await res.json(); 
-    getRandomQuoteNum(0, 102);
-    quote.textContent = data[randomQuoteNum].quote;
-    author.textContent = data[randomQuoteNum].author;
+    getRandomQuoteNum(0, 19);
+    quote.textContent = data[quoteTranslate[language]][randomQuoteNum].quote;
+    author.textContent = data[quoteTranslate[language]][randomQuoteNum].author;
 }
 
 getQuotes();

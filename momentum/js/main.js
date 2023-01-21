@@ -7,7 +7,7 @@ const name = document.querySelector('.name');
 name.addEventListener("keydown", nameBlur);
 window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
-let language = 'ru';
+let language = 'en';
 const greetingTranslate = {'en': 'Good', 'ru': 'Добр'};
 const dateTranslate = {'en': 'en-US', 'ru': 'ru-RU'};
 const placeHolder = {'en': '[Enter your name]', 'ru': '[Введите ваше имя]'}
@@ -29,7 +29,7 @@ function showTime() {
 showTime()
 
 function showDate() {
-    const currentDate = newDate.toLocaleDateString(language, dateOptions);
+    const currentDate = newDate.toLocaleDateString(dateTranslate[language], dateOptions);
     date.textContent = currentDate;
 }
 
@@ -393,4 +393,31 @@ function chooseTrack() {
             playAudio()
         }
     });
+}
+
+// settings
+
+const settingsBtn = document.querySelector('.settings-btn');
+const settings = document.querySelector('.settings');
+settingsBtn.addEventListener('click', showSettings);
+const languageSelector = document.querySelectorAll('.language-value')
+languageSelector.forEach(lang => lang.addEventListener('click', changeLanguage));
+
+
+function showSettings() {
+    settings.classList.toggle('settings-active');
+}
+
+function changeLanguage() {
+    if (this.classList.contains('en') && language === 'en') {
+        return;
+    }
+    if (this.classList.contains('ru') && language === 'ru') {
+        return;
+    }
+    this.classList.contains('en') ? language = 'en' : language = 'ru';
+    getWeather();
+    getQuotes();
+    showGreeting();
+    showDate();
 }

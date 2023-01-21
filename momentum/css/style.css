@@ -122,7 +122,8 @@ body {
 
 .player-icon,
 .slider-icon,
-.change-quote {
+.change-quote,
+.settings-btn {
   width: 32px;
   height: 32px;
   background-size: 32px 32px;
@@ -138,13 +139,19 @@ body {
 
 .player-icon:hover,
 .slider-icon:hover,
-.change-quote:hover {
+.change-quote:hover,
+.settings-btn:hover,
+.rs-school:hover,
+.github:hover {
   opacity: 1;
 }
 
 .player-icon:active,
 .slider-icon:active,
-.change-quote:active {
+.change-quote:active,
+.settings-btn:active,
+.rs-school:active,
+.github:active {
   border: 0;
   outline: 0;  
   transform: scale(1.1);
@@ -318,13 +325,59 @@ body {
 
 .footer {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
   width: 100%;
   height: 30vh;
   min-height: 160px;  
   padding: 20px;
+}
+
+.settings-container {
+  width: 20%;
+}
+.settings-btn {
+  background-image: url("../assets/svg/settings.svg");
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  bottom: 10px;
+  background-color: #303030;
+  height: 0;
+  width: 0;
+  border-radius: 5px;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.settings-active {
+  padding: 8px 15px;
+  height: 300px;
+  width: 300px;
+}
+
+.language {
+  display: flex;
+  gap: 10px
+}
+
+.language-value:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 60%;
 }
 
 .change-quote {
@@ -338,6 +391,27 @@ body {
 
 .author {
   min-height: 20px;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 20%;
+  flex-wrap: wrap;
+}
+
+.rs-school {
+  height: 40px;
+  opacity: .8;
+  transition: .3s;  
+}
+
+.github {
+  height: 40px;
+  opacity: .8;
+  transition: .3s;  
 }
 
 @media (max-width: 768px) {

@@ -475,3 +475,81 @@ function changeImgSrc() {
     this.classList.contains('unsplash') ? bgSrc = 'unsplash' : bgSrc = 'flickr';
     setBg();
 }
+
+// Links
+
+const linksBtn = document.querySelector('.links-btn');
+const links = document.querySelector('.links');
+linksBtn.addEventListener('click', showLinks);
+const linkAdd = document.querySelector('.link-add');
+linkAdd.addEventListener('click', showNewBookmark);
+const linkInput = document.querySelector('.link-add-input');
+let newBookmarkName = document.querySelector('.new-bookmark-name');
+let newBookmarkSrc = document.querySelector('.new-bookmark-src');
+const linksContent = document.querySelector('.links-content');
+const newLinkBtn = document.querySelector('.add-new-link');
+newLinkBtn.addEventListener('click', createBookmark);
+newLinkBtn.addEventListener('click', toLocalStorageBookmark);
+
+
+function showLinks() {
+    links.classList.toggle('links-active');
+}
+
+function showNewBookmark() {
+    linkInput.classList.toggle('link-add-input-active');
+}
+
+function createBookmark() {
+    const newLi = document.createElement('li');
+    newLi.classList.add('users-link');
+    const newA = document.createElement('a');
+    const trashBtn = document.createElement('i');
+    trashBtn.classList.add('trash-btn');
+    trashBtn.addEventListener('click', deleteBookmark);
+    newA.href = `https://${newBookmarkSrc.value}`;
+    newA.textContent = newBookmarkName.value;
+    linksContent.append(newLi);
+    newLi.append(newA);
+    newLi.appendChild(trashBtn);
+}
+
+function toLocalStorageBookmark() {
+    const newBookmark = JSON.parse(localStorage.getItem('bookmark')) || [];
+    newBookmark.push({name: `${newBookmarkName.value}`, src: `${newBookmarkSrc.value}`});
+    localStorage.setItem('bookmark', JSON.stringify(newBookmark));
+    newBookmarkName.value = '';
+    newBookmarkSrc.value = '';
+    showNewBookmark()
+}
+
+function deleteBookmark() {
+    if (confirm('Delete bookmark?')) {
+        this.parentNode.remove();
+        let storedBookmarks = JSON.parse(localStorage.getItem('bookmark'));
+        for (let i = 0; i < storedBookmarks.length; i++) {
+            let bookmarkName = storedBookmarks[i].name;
+            if (bookmarkName === this.previousSibling.textContent) {
+                storedBookmarks.splice([i], 1);
+                localStorage.setItem('bookmark', JSON.stringify(storedBookmarks));
+                return;
+            }
+        }
+        
+    }
+}
+
+function getBookmarks() {
+    const loadBookmarks = JSON.parse(localStorage.getItem('bookmark')) || [];
+    for (let i = 0; i < loadBookmarks.length; i++) {
+        newBookmarkName.value = loadBookmarks[i].name;
+        newBookmarkSrc.value = loadBookmarks[i].src;
+        createBookmark()
+    }
+    newBookmarkName.value = '';
+    newBookmarkSrc.value = '';
+}
+
+getBookmarks()
+
+

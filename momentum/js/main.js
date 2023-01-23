@@ -7,13 +7,29 @@ const name = document.querySelector('.name');
 name.addEventListener("keydown", nameBlur);
 window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
-let language = 'en';
 const greetingTranslate = {'en': 'Good', 'ru': 'Добр'};
 const dateTranslate = {'en': 'en-US', 'ru': 'ru-RU'};
 const placeHolder = {'en': '[Enter your name]', 'ru': '[Введите ваше имя]'}
+
+let language;
+let bgSrc;
 name.placeholder = placeHolder[language];
 
-// 1. time
+function getStoredSettings() {
+    if (localStorage.getItem('language')) {
+        language = localStorage.getItem('language');
+    } else {
+        language = 'en';
+    }
+    name.placeholder = placeHolder[language];
+    if (localStorage.getItem('bgSrc')) {
+        bgSrc = localStorage.getItem('bgSrc');
+    } else {
+        bgSrc = 'github';
+    }
+}
+getStoredSettings()
+
 
 function showTime() {
     newDate = new Date();
@@ -68,8 +84,6 @@ function showGreeting() {
         greeting.textContent = greetingText;
     }
 }
-
-
 
 function setLocalStorage() {
     localStorage.setItem('name', name.value);
@@ -136,8 +150,6 @@ async function setFlickrImg() {
     document.body.style.backgroundImage = `url(${bgLink})`;
     }
 }
-
-let bgSrc = 'github';
 
 function setBg() {
     if (bgSrc === 'github') {
@@ -455,6 +467,7 @@ function changeLanguage() {
         return;
     }
     this.classList.contains('en') ? language = 'en' : language = 'ru';
+    localStorage.setItem('language', this.classList[1]);
     name.placeholder = placeHolder[language];
     getWeather();
     getQuotes();
@@ -473,6 +486,7 @@ function changeImgSrc() {
     }
     this.classList.contains('github') ? bgSrc = 'github' :
     this.classList.contains('unsplash') ? bgSrc = 'unsplash' : bgSrc = 'flickr';
+    localStorage.setItem('bgSrc', this.classList[1]);
     setBg();
 }
 

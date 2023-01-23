@@ -375,7 +375,7 @@ body {
   position: relative;
   bottom: 10px;
   background-color: #303030;
-  height: 0;
+  max-height: 0;
   width: 0;
   border-radius: 5px;
   z-index: 1;
@@ -384,7 +384,7 @@ body {
 
 .links-active {
   padding: 8px 15px;
-  height: 300px;
+  max-height: 500px;
   width: 300px;
 }
 
@@ -407,27 +407,34 @@ body {
 
 .link-add {
   margin-top: 15px;
+  padding-top: 140px;
 }
 
 .link-add-input {
+  max-height: 0;
   padding-left: 500px;
   padding-top: 15px;
-  max-height: 0px;
   overflow: hidden;
   transition: .3s;
 }
 
 .link-add-input-active {
-  max-height: 100px;
-  padding-left: 40px;
+  max-height: 140px;
+  padding-left: 27px;
 }
 
-.add-new-link {
+.add-new-link,
+.edit-link {
+  display: block;
   background-color: white;
-  border-radius: 50px;
+  border-radius: 10px;
   margin-top: 10px;
   padding: 5px 10px;
 
+}
+
+.link-btn-hide {
+  display: none;
 }
 
 .new-bookmark-name,
@@ -448,6 +455,16 @@ body {
 
 .trash-btn {
   background-image: url('../assets/svg/trash.svg');
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  background-size: 15px;
+  height: 15px;
+  width: 15px;
+}
+
+.edit-btn {
+  background-image: url('../assets/svg/edit.svg');
   display: inline-block;
   position: relative;
   left: 10px;

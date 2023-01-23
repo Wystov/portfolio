@@ -137,7 +137,7 @@ async function setFlickrImg() {
     }
 }
 
-let bgSrc = 'unsplash';
+let bgSrc = 'github';
 
 function setBg() {
     if (bgSrc === 'github') {
@@ -490,7 +490,8 @@ const linksContent = document.querySelector('.links-content');
 const newLinkBtn = document.querySelector('.add-new-link');
 newLinkBtn.addEventListener('click', createBookmark);
 newLinkBtn.addEventListener('click', toLocalStorageBookmark);
-
+const confirmEditBtn = document.querySelector('.edit-link');
+confirmEditBtn.addEventListener('click', editBookmark);
 
 function showLinks() {
     links.classList.toggle('links-active');
@@ -500,6 +501,9 @@ function showNewBookmark() {
     linkInput.classList.toggle('link-add-input-active');
 }
 
+let fromLS = 0;
+let fromLSindex;
+
 function createBookmark() {
     const newLi = document.createElement('li');
     newLi.classList.add('users-link');
@@ -507,16 +511,25 @@ function createBookmark() {
     const trashBtn = document.createElement('i');
     trashBtn.classList.add('trash-btn');
     trashBtn.addEventListener('click', deleteBookmark);
+    const editBtn = document.createElement('i');
+    editBtn.classList.add('edit-btn');
+    editBtn.addEventListener('click', openEditBookmark);
     newA.href = `https://${newBookmarkSrc.value}`;
     newA.textContent = newBookmarkName.value;
     linksContent.append(newLi);
+    if (fromLS) {
+        newLi.classList.add(fromLSindex)
+    } else {
+        newLi.classList.add(Date.now().toString().slice(0, -2))
+    }
     newLi.append(newA);
+    newLi.appendChild(editBtn);
     newLi.appendChild(trashBtn);
 }
 
 function toLocalStorageBookmark() {
     const newBookmark = JSON.parse(localStorage.getItem('bookmark')) || [];
-    newBookmark.push({name: `${newBookmarkName.value}`, src: `${newBookmarkSrc.value}`});
+    newBookmark.push({index: `${Date.now().toString().slice(0, -2)}`, name: `${newBookmarkName.value}`, src: `${newBookmarkSrc.value}`});
     localStorage.setItem('bookmark', JSON.stringify(newBookmark));
     newBookmarkName.value = '';
     newBookmarkSrc.value = '';
@@ -525,17 +538,17 @@ function toLocalStorageBookmark() {
 
 function deleteBookmark() {
     if (confirm('Delete bookmark?')) {
-        this.parentNode.remove();
-        let storedBookmarks = JSON.parse(localStorage.getItem('bookmark'));
+        const storedBookmarks = JSON.parse(localStorage.getItem('bookmark'));
+        const id = this.parentNode.classList[1];
         for (let i = 0; i < storedBookmarks.length; i++) {
-            let bookmarkName = storedBookmarks[i].name;
-            if (bookmarkName === this.previousSibling.textContent) {
+            const bookmarkIndex = storedBookmarks[i].index;
+            if (bookmarkIndex === id) {
                 storedBookmarks.splice([i], 1);
                 localStorage.setItem('bookmark', JSON.stringify(storedBookmarks));
+                this.parentNode.remove();
                 return;
             }
         }
-        
     }
 }
 
@@ -544,12 +557,44 @@ function getBookmarks() {
     for (let i = 0; i < loadBookmarks.length; i++) {
         newBookmarkName.value = loadBookmarks[i].name;
         newBookmarkSrc.value = loadBookmarks[i].src;
+        fromLS = 1;
+        fromLSindex = loadBookmarks[i].index;
         createBookmark()
     }
     newBookmarkName.value = '';
     newBookmarkSrc.value = '';
+    fromLS = 0;
 }
 
 getBookmarks()
 
+let editBookmarkId;
 
+function openEditBookmark() {
+    showNewBookmark()
+    linkAdd.textContent = 'Edit Link';
+    editBookmarkId = this.parentNode.classList[1];
+    console.log(typeof editBookmarkId)
+    newBookmarkName.value = this.parentNode.firstChild.textContent;
+    newBookmarkSrc.value = this.parentNode.firstChild.href;
+}
+
+
+function editBookmark() {
+    const editLi = document.querySelector(`.${CSS.escape(editBookmarkId)}`);
+    console.log(editLi)
+    editLi.firstChild.textContent = newBookmarkName.value;
+    editLi.firstChild.href = newBookmarkSrc.value;
+    const storedBookmarks = JSON.parse(localStorage.getItem('bookmark'));
+    for (let i = 0; i < storedBookmarks.length; i++) {
+        const bookmarkIndex = storedBookmarks[i].index;
+        if (bookmarkIndex === editBookmarkId) {
+            storedBookmarks[i].name = newBookmarkName.value;
+            storedBookmarks[i].src = newBookmarkSrc.value;
+            localStorage.setItem('bookmark', JSON.stringify(storedBookmarks));
+            newBookmarkName.value = '';
+            newBookmarkSrc.value = '';
+            return;
+        }
+    }
+}

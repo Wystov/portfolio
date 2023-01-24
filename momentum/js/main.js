@@ -90,7 +90,7 @@ function setLocalStorage() {
         return
     } else {
         localStorage.setItem('city', city.value);
-        storedValue = localStorage.getItem('city')
+        storedValue = localStorage.getItem('city');
     }
 }
 
@@ -462,6 +462,8 @@ function changeLanguage() {
     this.classList.contains('en') ? language = 'en' : language = 'ru';
     localStorage.setItem('language', this.classList[1]);
     name.placeholder = placeHolder[language];
+    Array.from(this.parentNode.children).forEach(el => el.classList.remove('settings-value-active'));
+    this.classList.add('settings-value-active');
     getWeather();
     getQuotes();
     showGreeting();
@@ -480,8 +482,19 @@ function changeImgSrc() {
     this.classList.contains('github') ? bgSrc = 'github' :
     this.classList.contains('unsplash') ? bgSrc = 'unsplash' : bgSrc = 'flickr';
     localStorage.setItem('bgSrc', this.classList[1]);
+    Array.from(this.parentNode.children).forEach(el => el.classList.remove('settings-value-active'));
+    this.classList.add('settings-value-active');
     setBg();
 }
+
+function setSettingsOnLoad() {
+    const lang = document.querySelector(`.${CSS.escape(language)}`);
+    lang.classList.add('settings-value-active');
+    const bgSource = document.querySelector(`.${CSS.escape(bgSrc)}`);
+    bgSource.classList.add('settings-value-active');
+}
+
+setSettingsOnLoad()
 
 // Links
 
@@ -579,19 +592,19 @@ let editBookmarkId;
 
 function openEditBookmark() {
     showNewBookmark()
-    linkAdd.textContent = 'Edit Link';
+    linkAdd.innerHTML = '  Edit Link';
     editBookmarkId = this.parentNode.classList[1];
-    console.log(typeof editBookmarkId)
     newBookmarkName.value = this.parentNode.firstChild.textContent;
     newBookmarkSrc.value = this.parentNode.firstChild.href;
 }
 
 function editBookmark() {
     const editLi = document.querySelector(`.${CSS.escape(editBookmarkId)}`);
-    console.log(editLi)
     editLi.firstChild.textContent = newBookmarkName.value;
     editLi.firstChild.href = newBookmarkSrc.value;
     const storedBookmarks = JSON.parse(localStorage.getItem('bookmark'));
+    linkAdd.textContent = '  New Link';
+    showNewBookmark()
     for (let i = 0; i < storedBookmarks.length; i++) {
         const bookmarkIndex = storedBookmarks[i].index;
         if (bookmarkIndex === editBookmarkId) {

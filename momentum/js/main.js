@@ -507,11 +507,30 @@ function changeImgSrc() {
     setBg();
 }
 
+const visibilityCheckbox = document.querySelectorAll('.visibility-checkbox');
+visibilityCheckbox.forEach(cb => cb.addEventListener('click', hideElement));
+
+function hideElement() {
+    const element = document.querySelector(`.${this.value}`);
+    element.classList.toggle('hide-element');
+    localStorage.setItem(this.value, this.checked);
+}
+
+function loadVisibilityState() {
+    visibilityCheckbox.forEach(cb => {
+        if (localStorage.getItem(cb.value) === 'true') {
+            cb.checked = true;
+            document.querySelector(`.${cb.value}`).classList.add('hide-element');
+        }
+    })
+}
+
 function setSettingsOnLoad() {
     const lang = document.querySelector(`.${CSS.escape(language)}`);
     lang.classList.add('settings-value-active');
     const bgSource = document.querySelector(`.${CSS.escape(bgSrc)}`);
     bgSource.classList.add('settings-value-active');
+    loadVisibilityState()
 }
 
 setSettingsOnLoad()

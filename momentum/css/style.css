@@ -34,6 +34,7 @@ body {
 .player {
   display: flex;
   flex-direction: column;
+  transition: .5s;
 }
 
 .player-info {
@@ -200,6 +201,7 @@ body {
   min-height: 70px;  
   text-align: left;
   line-height: 30px;
+  transition: .5s;
 }
 
 .weather-error {
@@ -282,13 +284,15 @@ body {
   margin-bottom: 10px;
   font-family: 'Arial-MT';
   font-size: 100px;
-  letter-spacing: -4px;  
+  letter-spacing: -4px;
+  transition: .5s; 
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  transition: .5s;
 }
 
 .greeting-container {
@@ -299,6 +303,7 @@ body {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  transition: .5s;
 }
 
 .greeting {
@@ -359,26 +364,37 @@ body {
 
 .settings-active {
   padding: 15px 15px 30px;
-  max-height: 500px;
+  max-height: 650px;
   width: 300px;
 }
 
 .language,
 .image-src,
-.current-tag {
+.current-tag,
+.element-visibility {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+.element-visibility {
+  gap: 15px;
+}
+
+.element-visibility label {
+  font-size: 18px;
+}
+
 .language-title,
 .image-src-title,
-.current-tag-title {
+.current-tag-title,
+.element-visibility-title {
   width: 100%;
   font-size: 22px;
 }
 
-.current-tag-title {
+.current-tag-title,
+.element-visibility-title {
   padding-bottom: 10px;
 }
 
@@ -425,6 +441,7 @@ body {
 .links-container {
   width: 10%;
   text-align: left;
+  transition: .5s;
 }
 
 .links-btn {
@@ -447,12 +464,11 @@ body {
   width: 0;
   border-radius: 5px;
   z-index: 1;
-  transition: 0.5s;
 }
 
 .links-active {
   padding: 8px 15px;
-  max-height: 500px;
+  max-height: 600px;
   width: 200px;
 }
 
@@ -556,6 +572,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   width: 60%;
+  transition: .5s;
 }
 
 .change-quote {
@@ -592,6 +609,12 @@ body {
   height: 40px;
   opacity: .8;
   transition: .3s;  
+}
+
+.hide-element {
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
 }
 
 @media (max-width: 768px) {

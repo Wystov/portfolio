@@ -117,8 +117,22 @@ const prevBtn = document.querySelector('.slide-prev');
 prevBtn.addEventListener('click', getSlidePrev);
 const nextBtn = document.querySelector('.slide-next');
 nextBtn.addEventListener('click', getSlideNext);
+const currentTag = document.querySelector('.current-tag-value');
+currentTag.textContent = getTimeOfDay();
+const tagInput = document.querySelector('.bg-src-tag-input');
+tagInput.addEventListener('change', setBgTag);
 
 let randomNum;
+let usersTag = localStorage.getItem('tag');
+
+function setBgTag() {
+    usersTag = tagInput.value;
+    currentTag.textContent = usersTag;
+    localStorage.setItem('tag', usersTag);
+    tagInput.value = '';
+    tagInput.blur();
+    setBg();
+}
 
 function getRandomNum(min, max) {
     min = Math.ceil(min);
@@ -129,7 +143,9 @@ function getRandomNum(min, max) {
 getRandomNum(1, 20);
 
 async function setUnsplashImg() {
-    const timeOfDay = getTimeOfDay();
+    const timeOfDay = usersTag || getTimeOfDay();
+    currentTag.textContent = timeOfDay;
+    tagInput.classList.remove('bg-src-tag-input-hide');
     const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=$${timeOfDay}&client_id=iACCeWsc-4SZ87eKKf8UcfU-Z6Bd1iLAxt2OQ78OdoM`;
     const res = await fetch(url);
     const data = await res.json();
@@ -142,7 +158,9 @@ async function setUnsplashImg() {
 }
 
 async function setFlickrImg() {
-    const timeOfDay = getTimeOfDay();
+    const timeOfDay = usersTag || getTimeOfDay();
+    currentTag.textContent = timeOfDay;
+    tagInput.classList.remove('bg-src-tag-input-hide');
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=987310a1ee8d1ff3e1e2b86eabe327d8&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
@@ -158,6 +176,8 @@ async function setFlickrImg() {
 function setBg() {
     if (bgSrc === 'github') {
         const timeOfDay = getTimeOfDay();
+        currentTag.textContent = timeOfDay;
+        tagInput.classList.add('bg-src-tag-input-hide');
         const bgNum = randomNum.toString().padStart(2, '0');
         const bgLink = `https://raw.githubusercontent.com/Wystov/momentum-img/main/img/${timeOfDay}/${bgNum}.webp`
         const img = new Image();

@@ -358,26 +358,33 @@ body {
 }
 
 .settings-active {
-  padding: 8px 15px;
-  max-height: 300px;
+  padding: 15px 15px 30px;
+  max-height: 500px;
   width: 300px;
 }
 
 .language,
-.image-src {
+.image-src,
+.current-tag {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .language-title,
-.image-src-title {
+.image-src-title,
+.current-tag-title {
   width: 100%;
   font-size: 25px;
 }
 
+.current-tag-title {
+  padding-bottom: 10px;
+}
+
 .language-value,
-.image-src-value {
+.image-src-value,
+.current-tag-value {
   background-color: transparent;
   color: grey;
   border: 1px solid white;
@@ -401,7 +408,17 @@ body {
 }
 
 .bg-src-tag-input {
-  margin: 0 20px;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #fff;
+  width: 30%;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.bg-src-tag-input-hide {
+  display: none;
 }
 
 .links-container {

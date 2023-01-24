@@ -142,7 +142,8 @@ body {
 .change-quote:hover,
 .settings-btn:hover,
 .rs-school-logo:hover,
-.github-logo:hover {
+.github-logo:hover,
+.links-btn:hover {
   opacity: 1;
 }
 
@@ -349,7 +350,6 @@ body {
   position: relative;
   bottom: 10px;
   background-color: #303030;
-  font-size: 20px;
   max-height: 0;
   width: 0;
   border-radius: 5px;
@@ -375,7 +375,7 @@ body {
 .image-src-title,
 .current-tag-title {
   width: 100%;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .current-tag-title {
@@ -390,6 +390,7 @@ body {
   border: 1px solid white;
   border-radius: 10px;
   padding: 5px 10px;
+  font-size: 18px;
 }
 
 .language-value:hover,
@@ -424,6 +425,13 @@ body {
 .links-container {
   width: 10%;
   text-align: left;
+}
+
+.links-btn {
+  font-size: 26px;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
 }
 
 .links {
@@ -494,7 +502,6 @@ body {
   border-radius: 10px;
   margin-top: 10px;
   padding: 5px 10px;
-
 }
 
 .link-btn-hide {
@@ -566,19 +573,21 @@ body {
 
 .gt-rs-logo {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-end;
+  max-height: 40px;
   width: 20%;
-  flex-wrap: wrap;
+  overflow: hidden;
+  transition: 0.3s;
 }
 
-.rs-school-logo {
-  height: 40px;
-  opacity: .8;
-  transition: .3s;  
+.gt-rs-logo:hover {
+  max-height: 150px;
 }
 
+.rs-school-logo,
 .github-logo {
   height: 40px;
   opacity: .8;

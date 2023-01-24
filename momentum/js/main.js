@@ -28,8 +28,8 @@ function getStoredSettings() {
         bgSrc = 'github';
     }
 }
-getStoredSettings()
 
+getStoredSettings()
 
 function showTime() {
     newDate = new Date();
@@ -53,7 +53,7 @@ function getTimeOfDay() {
     const hours = newDate.getHours();
     if (hours >= 0 && hours <= 5) {
         return 'night';
-    } else if (hours >= 6 && hours <= 1) {
+    } else if (hours >= 6 && hours <= 11) {
         return 'morning';
     } else if (hours >= 12 && hours <= 17) {
         return 'afternoon';
@@ -63,7 +63,6 @@ function getTimeOfDay() {
 }
 
 // 2. greeting
-
 
 function showGreeting() {
     const timeOfDay = getTimeOfDay();
@@ -87,7 +86,12 @@ function showGreeting() {
 
 function setLocalStorage() {
     localStorage.setItem('name', name.value);
-    localStorage.setItem('city', city.value);
+    if (city.value === 'Minsk' || city.value === 'Минск') {
+        return
+    } else {
+        localStorage.setItem('city', city.value);
+        storedValue = localStorage.getItem('city')
+    }
 }
 
 function getLocalStorage() {
@@ -204,26 +208,21 @@ const weatherError = document.querySelector('.weather-error');
 const weatherContainer = document.querySelector('.weather-container');
 
 const defaultCityTranslate = {'en': 'Minsk', 'ru': 'Минск'}
-const defaultValue = defaultCityTranslate[language];
+
 let storedValue = localStorage.getItem('city');
 
 function checkCity() {
-    if (!storedValue) {
-        storedValue = defaultValue;
-        city.value = storedValue;
-    } else {
-        storedValue = localStorage.getItem('city');
-        city.value = storedValue;
-    }
+    let defaultValue = defaultCityTranslate[language];
+    storedValue ?  
+    storedValue = localStorage.getItem('city') : storedValue = defaultValue;
+    city.value = storedValue;
 }
-
 
 city.addEventListener('change', setLocalStorage);
 city.addEventListener('change', getWeather);
 city.addEventListener("keydown", nameBlur);
 
-
-async function getWeather() {  
+async function getWeather() {
     checkCity()
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${storedValue}&lang=${language}&appid=8bfa64d27e5adae6d9aa62bd0fc92a2c&units=metric`;
     const res = await fetch(url);
@@ -242,6 +241,7 @@ async function getWeather() {
     const weatherTranslate = {en: ['Wind: ', 'Humidity: '], ru: ['Ветер: ', 'Влажность: ']}
     wind.textContent = `${weatherTranslate[language][0]}${Math.round(data.wind.speed)} m/s`;
     humidity.textContent = `${weatherTranslate[language][1]}${Math.round(data.main.humidity)}%`;
+    storedValue = localStorage.getItem('city');
 }
 
 getWeather()
@@ -262,7 +262,7 @@ function getRandomQuoteNum(min, max) {
     randomQuoteNum = Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-async function getQuotes() {  
+async function getQuotes() {
     const quoteList = 'assets/data/quotes.json';
     const res = await fetch(quoteList);
     const data = await res.json(); 
@@ -285,7 +285,6 @@ playNextBtn.addEventListener('click', playNext);
 const playListContainer = document.querySelector('.play-list');
 audio.addEventListener('ended', playNext);
 const currentTitle = document.querySelector('.track-title');
-
 
 let isPlay = false;
 let playNum = 0;
@@ -322,7 +321,6 @@ function toggleBtn() {
     }
 }
 
-
 function playNext() {
     if (playNum === 3) {
         playNum = 0;
@@ -352,9 +350,7 @@ playList.forEach(el => {
     playListContainer.append(li);
 });
 
-
 const playItem = playListContainer.querySelectorAll('.play-item');
-
 
 function playListSwitch() {
     playItem.forEach(el => {
@@ -383,8 +379,6 @@ audioMuteBtn.addEventListener('click', audioMute);
 const volume = document.querySelector('.volume');
 const currentVolume = document.querySelector('.current-volume');
 volume.addEventListener('click', setVolume);
-
-
 
 function setPlaybackCurrentTime() {
     showMinutes()
@@ -453,7 +447,6 @@ const languageSelector = document.querySelectorAll('.language-value')
 languageSelector.forEach(lang => lang.addEventListener('click', changeLanguage));
 const imageSelectorSrc = document.querySelectorAll('.image-src-value');
 imageSelectorSrc.forEach(src => src.addEventListener('click', changeImgSrc))
-
 
 function showSettings() {
     settings.classList.toggle('settings-active');
@@ -592,7 +585,6 @@ function openEditBookmark() {
     newBookmarkName.value = this.parentNode.firstChild.textContent;
     newBookmarkSrc.value = this.parentNode.firstChild.href;
 }
-
 
 function editBookmark() {
     const editLi = document.querySelector(`.${CSS.escape(editBookmarkId)}`);

@@ -467,6 +467,31 @@ const languageSelector = document.querySelectorAll('.language-value')
 languageSelector.forEach(lang => lang.addEventListener('click', changeLanguage));
 const imageSelectorSrc = document.querySelectorAll('.image-src-value');
 imageSelectorSrc.forEach(src => src.addEventListener('click', changeImgSrc))
+const languageTitle = document.querySelector('.language-title');
+const imageTitle = document.querySelector('.image-src-title');
+const tagTitle = document.querySelector('.current-tag-title');
+const visibilityTitle = document.querySelector('.element-visibility-title');
+const settingsTranslate = { 
+    'language':
+        {'en': 'Language:',
+        'ru': 'Язык:'},
+    'image':
+        {'en': 'Image source:',
+        'ru': 'Источник фона:'},
+    'tag':
+        {'en': 'Picture tag:',
+        'ru': 'Тэг фона:'},
+    'visibility':
+        {'en': 'Hide elements:',
+        'ru': 'Спрятать элементы:'}
+    };
+
+function settingsLanguage() {
+    languageTitle.textContent = settingsTranslate.language[language];
+    imageTitle.textContent = settingsTranslate.image[language];
+    tagTitle.textContent = settingsTranslate.tag[language];
+    visibilityTitle.textContent = settingsTranslate.visibility[language];
+}
 
 function showSettings() {
     settings.classList.toggle('settings-active');
@@ -484,6 +509,7 @@ function changeLanguage() {
     name.placeholder = placeHolder[language];
     Array.from(this.parentNode.children).forEach(el => el.classList.remove('settings-value-active'));
     this.classList.add('settings-value-active');
+    settingsLanguage()
     getWeather();
     getQuotes();
     showGreeting();
@@ -531,6 +557,7 @@ function setSettingsOnLoad() {
     const bgSource = document.querySelector(`.${CSS.escape(bgSrc)}`);
     bgSource.classList.add('settings-value-active');
     loadVisibilityState()
+    settingsLanguage()
 }
 
 setSettingsOnLoad()

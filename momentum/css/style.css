@@ -52,32 +52,52 @@ body {
 
 .progress-bar {
   height: 5px;
-  background-color: white;
+  background-color: #717171;
+  opacity: .7;
   margin-top: 10px;
   border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .timeline {
   width: 0%;
-  height: 5px;
-  background-color: #C5B358;
+  height: 100%;
+  background-color: white;
   border-radius: 5px;
+  transition: 0.3s;
+}
+
+.progress-bar:hover {
+  margin-top: 5px;
+  height: 15px;
+  opacity: 1;
 }
 
 .volume {
   position: relative;
   width: 70px;
+  margin-top: 5px;
   height: 5px;
-  background-color: white;
+  background-color: #717171;
+  opacity: .7;
   border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
-
 
 .current-volume {
   width: 100%;
   height: 100%;
-  background-color: #C5B358;
+  background-color: white;
   border-radius: 5px;
+  transition: 0.3s;
+}
+
+.volume:hover {
+  margin-top: -5px;
+  height: 15px;
+  opacity: 1;
 }
 
 .play-list {
@@ -341,7 +361,7 @@ body {
 }
 
 .settings-container {
-  width: 10%;
+  width: 3%;
 }
 .settings-btn {
   background-image: url("../assets/svg/settings.svg");
@@ -356,16 +376,16 @@ body {
   bottom: 10px;
   background-color: #303030;
   max-height: 0;
-  width: 0;
+  width: 300px;
   border-radius: 5px;
   z-index: 1;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .settings-active {
   padding: 15px 15px 30px;
-  max-height: 650px;
-  width: 300px;
+  max-height: 500px;
+
 }
 
 .language,
@@ -393,8 +413,7 @@ body {
   font-size: 22px;
 }
 
-.current-tag-title,
-.element-visibility-title {
+.current-tag-title {
   padding-bottom: 10px;
 }
 
@@ -439,7 +458,7 @@ body {
 }
 
 .links-container {
-  width: 10%;
+  width: 17%;
   text-align: left;
   transition: .5s;
 }
@@ -461,15 +480,15 @@ body {
   bottom: 10px;
   background-color: #303030;
   max-height: 0;
-  width: 0;
+  width: 200px;
   border-radius: 5px;
   z-index: 1;
+  transition: 0.3s;
 }
 
 .links-active {
   padding: 8px 15px;
-  max-height: 600px;
-  width: 200px;
+  max-height: 800px;
 }
 
 .links-content {
@@ -490,8 +509,9 @@ body {
 }
 
 .link-add {
-  margin-top: 15px;
-  padding-top: 140px;
+  margin-top: 30px;
+
+  transition: .3s;
 }
 
 .link-add::before {
@@ -500,15 +520,15 @@ body {
 
 .link-add-input {
   max-height: 0;
-  padding-left: 500px;
   padding-top: 15px;
   overflow: hidden;
   transition: .3s;
+  opacity: 0;
 }
 
 .link-add-input-active {
   max-height: 140px;
-  padding-left: 27px;
+  opacity: 1;
 }
 
 .add-new-link,
@@ -518,6 +538,11 @@ body {
   border-radius: 10px;
   margin-top: 10px;
   padding: 5px 10px;
+  margin-bottom: 15px;
+}
+
+.add-edit-btn-hide {
+  display: none;
 }
 
 .link-btn-hide {
@@ -538,6 +563,10 @@ body {
 .users-link:before {
   content: '\2605\00a0\00a0';
   padding-left: 2px;
+}
+
+.link-add:before {
+  padding-left: 5px;
 }
 
 .trash-btn {

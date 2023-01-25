@@ -486,11 +486,14 @@ const settingsTranslate = {
         'ru': 'Спрятать элементы:'}
     };
 
+const linksBtn = document.querySelector('.links-btn');
+
 function settingsLanguage() {
     languageTitle.textContent = settingsTranslate.language[language];
     imageTitle.textContent = settingsTranslate.image[language];
     tagTitle.textContent = settingsTranslate.tag[language];
     visibilityTitle.textContent = settingsTranslate.visibility[language];
+    linksBtn.textContent = language === 'en' ? 'Links' : 'Ссылки';
 }
 
 function showSettings() {
@@ -564,7 +567,6 @@ setSettingsOnLoad()
 
 // Links
 
-const linksBtn = document.querySelector('.links-btn');
 const links = document.querySelector('.links');
 linksBtn.addEventListener('click', showLinks);
 const linkAdd = document.querySelector('.link-add');
@@ -657,6 +659,8 @@ getBookmarks()
 let editBookmarkId;
 
 function openEditBookmark() {
+    newLinkBtn.classList.add('add-edit-btn-hide');
+    confirmEditBtn.classList.remove('add-edit-btn-hide');
     showNewBookmark()
     linkAdd.innerHTML = '  Edit Link';
     editBookmarkId = this.parentNode.classList[1];
@@ -671,6 +675,8 @@ function editBookmark() {
     const storedBookmarks = JSON.parse(localStorage.getItem('bookmark'));
     linkAdd.textContent = '  New Link';
     showNewBookmark()
+    confirmEditBtn.classList.add('add-edit-btn-hide');
+    newLinkBtn.classList.remove('add-edit-btn-hide');
     for (let i = 0; i < storedBookmarks.length; i++) {
         const bookmarkIndex = storedBookmarks[i].index;
         if (bookmarkIndex === editBookmarkId) {

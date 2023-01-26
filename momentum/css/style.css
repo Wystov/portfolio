@@ -666,3 +666,31 @@ body {
     padding: 5px;
   }
 }
+
+@media (max-width: 500px) {
+  body {
+    min-width: 320px;
+  }
+  .header {
+    min-height: 180px;
+  }
+  .weather,
+  .city {
+    width: 105px;
+  }
+  .player {
+    width: 200px;
+  }
+  .player-controls {
+    width: 200px;
+  }
+  .play-list {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .header {
+    padding: 0;
+  }
+}

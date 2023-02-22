@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+<body>
+  <header class="header">
+    <div class="player">
+      <div class="player-info">
+        <div class="track-title">title</div>
+        <div class="track-time">0:00 / 0:00</div>
+      </div>
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+        <div class="volume-container">
+          <button class="audio-active invert player-icon"></button>
+          <div class="volume">
+            <div class="current-volume"></div>
+          </div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="timeline"></div>
+      </div>
+      <ul class="play-list"></ul>
+    </div>
+    <div class="weather">
+      <input type="text" class="city"/>
+      <div class="weather-error hide">
+        <span>No such city found</span>
+      </div>
+      <div class="weather-container">
+        <div class="icon-temp-container">
+          <i class="weather-icon owf"></i>
+          <div class="temperature"></div>
+        </div>
+        <div class="weather-description"></div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" autofocus/>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="settings-container">
+      <div class="settings">
+        <div class="language">
+          <div class="language-title"></div>
+          <div class="language-value en">English</div>
+          <div class="language-value ru">Русский</div>
+        </div>
+        <div class="image-src">
+          <div class="image-src-title"></div>
+          <div class="image-src-value github">GitHub</div>
+          <div class="image-src-value unsplash">Unsplash API</div>
+          <div class="image-src-value flickr">Flickr API</div>
+        </div>
+        <div class="current-tag">
+          <div class="current-tag-title"></div>
+          <div class="current-tag-value settings-value-active"></div>
+          <input class="bg-src-tag-input" type="text" placeholder="tag">
+        </div>
+        <div class="element-visibility">
+          <div class="element-visibility-title"></div>
+          <label>Player
+            <input type="checkbox" class="visibility-checkbox" name="player" value="player">
+          </label>
+          <label>Weather
+            <input type="checkbox" class="visibility-checkbox" name="weather" value="weather">
+          </label>
+          <label>Time
+            <input type="checkbox" class="visibility-checkbox" name="time" value="time">
+          </label>
+          <label>Date
+            <input type="checkbox" class="visibility-checkbox" name="date" value="date">
+          </label>
+          <label>Greeting
+            <input type="checkbox" class="visibility-checkbox" name="greeting-container" value="greeting-container">
+          </label>
+          <label>Links
+            <input type="checkbox" class="visibility-checkbox" name="links-container" value="links-container">
+          </label>
+          <label>Quote
+            <input type="checkbox" class="visibility-checkbox" name="quote-container" value="quote-container">
+          </label>
+        </div>
+      </div>
+      <div class="settings-btn invert"></div>
+    </div>
+    <div class="links-container">
+      <div class="links">
+        <ul class="links-content">
+          <li id="chrome-tab">
+            <a href="chrome-search://local-ntp/local-ntp.html">
+              <img src="assets/svg/chrome.svg" alt="icon">Chrome Tab
+            </a>
+          </li>
+          <li class="apps-tab">
+            <a href="chrome://apps/">
+              <img src="assets/svg/apps.svg" alt="icon">Apps
+            </a>
+          </li>
+        </ul>
+        <div class="link-add">
+          New Link
+        </div>
+        <div class="link-add-input">
+          <input type="text" class="new-bookmark-name" placeholder="google">
+          <input type="text" class="new-bookmark-src" placeholder="google.com">
+          <button class="add-new-link">ADD</button>
+          <button class="edit-link add-edit-btn-hide">EDIT</button>
+        </div>
+      </div>
+      <span class="links-btn">Links</span>
+    </div>
+    <div class="quote-container">
+      <button class="change-quote"></button>
+      <div>
+        <div class="quote"></div>
+        <div class="author"></div>
+      </div>
+    </div>
+    <div class="gt-rs-logo">
+      <a href="https://github.com/Wystov" target="_blank"><img class="github-logo invert" src="assets/svg/github.svg" alt="github"></a>
+      <div>© 2023</div>
+      <a href="https://rs.school/js/" target="_blank"><img class="rs-school-logo invert" src="assets/svg/rs_school_js.svg" alt="rs school"></a>
+    </div>
+  </footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -473,4 +473,38 @@ template {
   background-position: bottom right;
 }
 
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  margin: 80px auto 100px;
+}
+.about__left-col {
+  min-height: 408px;
+  width: 25%;
+  background: url("../../assets/images/about-pets.png");
+}
+.about__right-col {
+  display: flex;
+  flex-direction: column;
+  width: 35.9%;
+  gap: 25px;
+}
+.about__title {
+  margin: 0;
+  font-family: "Georgia Regular";
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+.about__text-1, .about__text-2 {
+  margin: 0;
+  font-family: "Arial Regular";
+  font-size: 15px;
+  line-height: 160%;
+  color: #4C4C4C;
+}
+
 /*# sourceMappingURL=styles.css.map */

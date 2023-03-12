@@ -32,7 +32,7 @@
     }
 
     &__title {
-        font-family: 'Arial Regular';
+        font-family: 'Arial regular';
         font-size: 13px;
         line-height: 15px;
         letter-spacing: 0.1em;
@@ -62,7 +62,57 @@
             color: #FAFAFA;
             padding-bottom: 5px;
             border-bottom: 3px solid #F1CDB3;
-            ;
         }
     }
+}
+
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left-col {
+        display: flex;
+        margin-bottom: 40px;
+        flex-direction: column;
+        gap: 42px;
+        width: 38.33%;
+    }
+
+    &__title {
+        width: 67%;
+        margin: 0;
+        font-family: 'Georgia Regular';
+        font-size: 44px;
+        line-height: 130%;
+        color: #FFFFFF;
+    }
+
+    &__text {
+        margin: 0;
+        font-family: 'Arial Regular';
+        font-size: 15px;
+        line-height: 160%;
+        color: #CDCDCD;
+    }
+
+    &__right-col {
+        min-height: 728px;
+        width: 58.16%;
+        background: url("../../assets/images/start-screen-puppy.png") no-repeat;
+        background-position: bottom right;
+    }
+}
+
+.button {
+    width: max-content;
+    padding: 15px 45px;
+    background: #F1CDB3;
+    border-radius: 100px;
+    font-family: 'Georgia Regular';
+    font-size: 17px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: #292929;
 }

@@ -1,0 +1,41 @@
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__bg {
+        background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+    }
+
+    &__left-col {
+        display: flex;
+        margin-bottom: 40px;
+        flex-direction: column;
+        gap: 42px;
+        width: 38.33%;
+    }
+
+    &__title {
+        width: 67%;
+        margin: 0;
+        font-family: 'Georgia Regular';
+        font-size: 44px;
+        line-height: 130%;
+        color: #FFFFFF;
+    }
+
+    &__text {
+        margin: 0;
+        font-family: 'Arial Regular';
+        font-size: 15px;
+        line-height: 160%;
+        color: #CDCDCD;
+    }
+
+    &__right-col {
+        min-height: 728px;
+        width: 58.16%;
+        background: url("../../assets/images/start-screen-puppy.png") no-repeat;
+        background-position: bottom right;
+    }
+}

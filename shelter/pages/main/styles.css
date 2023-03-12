@@ -367,8 +367,23 @@ template {
   display: none;
 }
 
-.intro__bg {
-  background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+.wrapper {
+  width: 1200px;
+  padding: 0 40px;
+  margin: auto;
+}
+
+.button {
+  width: max-content;
+  padding: 15px 45px;
+  background: #F1CDB3;
+  border-radius: 100px;
+  font-family: "Georgia Regular";
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: #292929;
 }
 
 .header {
@@ -377,11 +392,8 @@ template {
   align-items: center;
   padding: 60px 0;
 }
-
-.wrapper {
-  width: 1200px;
-  padding: 0 40px;
-  margin: auto;
+.header__bg {
+  background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
 }
 
 .logo {
@@ -429,6 +441,9 @@ template {
   justify-content: space-between;
   align-items: center;
 }
+.intro__bg {
+  background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+}
 .intro__left-col {
   display: flex;
   margin-bottom: 40px;
@@ -456,19 +471,6 @@ template {
   width: 58.16%;
   background: url("../../assets/images/start-screen-puppy.png") no-repeat;
   background-position: bottom right;
-}
-
-.button {
-  width: max-content;
-  padding: 15px 45px;
-  background: #F1CDB3;
-  border-radius: 100px;
-  font-family: "Georgia Regular";
-  font-size: 17px;
-  line-height: 130%;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  color: #292929;
 }
 
 /*# sourceMappingURL=styles.css.map */

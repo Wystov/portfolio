@@ -655,4 +655,63 @@ template {
   color: #545454;
 }
 
+.donation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 80px 0 100px;
+}
+.donation__bg {
+  background: #F6F6F6;
+}
+.donation__left {
+  height: 261px;
+  width: 505px;
+  background: url("../../assets/images/donation-dog.png");
+}
+.donation__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 380px;
+}
+.donation__title {
+  font-family: "Georgia Regular";
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin: 0;
+}
+.donation__bank {
+  font-family: "Georgia Regular";
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  margin: 0;
+}
+.donation__button {
+  position: relative;
+  border-radius: 9px;
+  padding: 10px 15px 10px 60px;
+}
+.donation__button::before {
+  position: absolute;
+  left: 15px;
+  display: block;
+  content: "";
+  width: 30px;
+  height: 23px;
+  background: url("../../assets/icons/credit-card.svg");
+}
+.donation__text {
+  font-family: "Arial Italic";
+  font-size: 12px;
+  line-height: 18px;
+  color: #B2B2B2;
+  margin: 0;
+}
+
 /*# sourceMappingURL=styles.css.map */

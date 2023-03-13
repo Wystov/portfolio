@@ -5,21 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../../assets/icons/icon-sleeping-areas.svg">
     <title>Cozy House</title>
 </head>
 <body>
     <div class="intro__bg">
         <header class="header wrapper">
-            <h1 class="logo">
-                <span class="logo__name">Cozy House</span>
-                <span class="logo__title">Shelter for pets in Boston</span>
-            </h1>
+            <a class="header__logo" href="">
+                <h1 class="logo">
+                    <span class="logo__name">Cozy House</span>
+                    <span class="logo__title">Shelter for pets in Boston</span>
+                </h1>
+            </a>
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link nav__link--active" href="#">About the shelter</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Our pets</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Help the shelter</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Contacts</a></li>
+                    <li class="nav__item"><a class="nav__link nav__link--active" href="../main/index.html">About the
+                            shelter</a></li>
+                    <li class="nav__item"><a class="nav__link" href="../pets/index.html">Our pets</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#help">Help the shelter</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#contacts">Contacts</a></li>
                 </ul>
             </nav>
         </header>
@@ -28,8 +32,7 @@
                 <h2 class="intro__title">Not only people need a house</h2>
                 <p class="intro__text">We offer to give a chance to a little and nice puppy with an extremely wide and
                     open heart. He or she will love you more than anybody else in the world, you will see!</p>
-                <a class="button" href="#">Make a friend</a>
-
+                <a class="button" href="#friends">Make a friend</a>
             </div>
             <div class="intro__right-col"></div>
         </section>
@@ -47,31 +50,35 @@
                 of the animals, they become attached to the pets and would hardly ever leave them alone.</div>
         </div>
     </section>
-    <section class="pets__bg">
+    <section class="pets__bg" id="friends">
         <div class="pets wrapper">
             <h2 class="pets__title">Our friends who <span class="no-wrap">are looking for a house</span></h2>
-            <div class="pets__slider">
-                <div class="pets__card">
-                    <div class="card__img card__img--katrine"></div>
-                    <div class="card__name">Katrine</div>
-                    <a class="card__button button" href="#">Learn more</a>
-                </div>
-                <div class="pets__card">
-                    <div class="card__img card__img--jennifer"></div>
-                    <div class="card__name">Jennifer</div>
-                    <a class="card__button button" href="#">Learn more</a>
-                </div>
-                <div class="pets__card">
-                    <div class="card__img card__img--woody"></div>
-                    <div class="card__name">Woody</div>
-                    <a class="button card__button" href="#">Learn more</a>
+            <div class="pets__container">
+                <div class="pets__slider">
+                    <i class="slider__left"></i>
+                    <i class="slider__right"></i>
+                    <div class="pets__card card">
+                        <div class="card__img card__img--katrine"></div>
+                        <div class="card__name">Katrine</div>
+                        <a class="card__button button" href="#">Learn more</a>
+                    </div>
+                    <div class="pets__card card">
+                        <div class="card__img card__img--jennifer"></div>
+                        <div class="card__name">Jennifer</div>
+                        <a class="card__button button" href="#">Learn more</a>
+                    </div>
+                    <div class="pets__card card">
+                        <div class="card__img card__img--woody"></div>
+                        <div class="card__name">Woody</div>
+                        <a class="button card__button" href="#">Learn more</a>
+                    </div>
                 </div>
             </div>
-            <a class="button" href="#">Get to know the rest</a>
+            <a class="button" href="../pets/index.html">Get to know the rest</a>
         </div>
     </section>
-    <section class="help wrapper">
-        <h1 class="help__title">How you can help our shelter</h1>
+    <section class="help wrapper" id="help">
+        <h2 class="help__title">How you can help our shelter</h2>
         <div class="help__container">
             <div class="help__item">
                 <i class="help__icon help__icon--pet-food"></i>
@@ -124,19 +131,19 @@
             </div>
         </div>
     </section>
-    <footer class="footer__bg">
+    <footer class="footer__bg" id="contacts">
         <div class="footer wrapper">
             <div class="footer__contacts">
                 <h2 class="footer__title">For questions and suggestions</h2>
                 <a class="footer__text" href="mailto:email@shelter.com"><i class="mail-icon"></i>email@shelter.com</a>
-                <a class="footer__text" href="tel:+13 674 567 75 54"><i class="phone-icon"></i>+13 674 567 75 54</a>
+                <a class="footer__text" href="tel:+136745677554"><i class="phone-icon"></i>+13 674 567 75 54</a>
             </div>
             <div class="footer__location">
                 <h2 class="footer__title">We are waiting for your visit</h2>
-                <a class="footer__text" href="http://maps.google.com/?q=1 Central Street, Boston" target="_blank"><i
+                <a class="footer__text" href="http://maps.google.com/?q=1CentralStreet,Boston" target="_blank"><i
                         class="location-icon"></i><span class="text">1 Central Street, Boston (entrance from the
                         store)</span></a>
-                <a class="footer__text" href="http://maps.google.com/?q= 18 South Park, London" target="_blank"><i
+                <a class="footer__text" href="http://maps.google.com/?q=18SouthPark,London" target="_blank"><i
                         class="location-icon"></i>18 South Park, London</a>
             </div>
             <div class="footer__img"></div>

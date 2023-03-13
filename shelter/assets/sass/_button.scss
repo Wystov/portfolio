@@ -10,4 +10,9 @@
     letter-spacing: 0.06em;
     text-decoration: none;
     color: #292929;
+    transition: 0.3s;
+
+    &:hover {
+        background: #FDDCC4;
+    }
 }

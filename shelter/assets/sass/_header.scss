@@ -7,6 +7,10 @@
     &__bg {
         background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
     }
+
+    &__logo {
+        text-decoration: none;
+    }
 }
 
 .logo {
@@ -49,10 +53,20 @@
         color: #CDCDCD;
         text-decoration: none;
 
-        &--active {
+        &--active,
+        &:active {
+            cursor: default;
             color: #FAFAFA;
             padding-bottom: 5px;
             border-bottom: 3px solid #F1CDB3;
+        }
+
+        &:active {
+            cursor: pointer;
+        }
+
+        &:hover {
+            color: #FAFAFA;
         }
     }
 }

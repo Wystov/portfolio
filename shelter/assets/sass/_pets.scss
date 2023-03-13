@@ -20,34 +20,16 @@
         margin: 0;
     }
 
+    &__container {
+        position: relative;
+    }
+
     &__slider {
         position: relative;
         display: flex;
         width: 990px;
         gap: 90px;
         justify-content: space-between;
-
-        &::before,
-        &::after {
-            position: absolute;
-            top: 192px;
-            content: '';
-            cursor: pointer;
-            width: 52px;
-            height: 52px;
-            border: 2px solid #F1CDB3;
-            border-radius: 100px;
-            background: url("../../assets/icons/Arrow.svg") center no-repeat;
-        }
-
-        &::before {
-            left: -105px;
-        }
-
-        &::after {
-            transform: rotate(180deg);
-            right: -105px;
-        }
     }
 
     &__card {
@@ -58,26 +40,57 @@
     }
 }
 
+.slider__left,
+.slider__right {
+    position: absolute;
+    top: 192px;
+    content: '';
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+    background: url("../../assets/icons/Arrow.svg") center no-repeat;
+    transition: 0.3s;
+
+    &:hover {
+        background: url("../../assets/icons/Arrow.svg") center no-repeat, #FDDCC4;
+        border: 2px solid #FDDCC4;
+    }
+}
+
+.slider__left {
+    left: -105px;
+}
+
+.slider__right {
+    transform: rotate(180deg);
+    right: -105px;
+}
+
+
 .no-wrap {
     white-space: nowrap;
 }
 
 .card {
+    background: #FAFAFA;
+    transition: 0.3s;
 
     &__img {
         width: 100%;
         height: 270px;
 
         &--katrine {
-            background: url("../../assets/images/pets-katrine.png");
+            background: url("../../assets/images/pets-katrine.png"), #FAFAFA;
         }
 
         &--jennifer {
-            background: url("../../assets/images/pets-jennifer.png");
+            background: url("../../assets/images/pets-jennifer.png"), #FAFAFA;
         }
 
         &--woody {
-            background: url("../../assets/images/pets-woody.png");
+            background: url("../../assets/images/pets-woody.png"), #FAFAFA;
         }
     }
 
@@ -95,5 +108,15 @@
         margin: 30px auto;
         border: 2px solid #F1CDB3;
         background: none;
+        transition: 0.3s;
+    }
+
+    &:hover {
+        background-color: #ffffff;
+    }
+
+    &:hover .card__button {
+        background: #FDDCC4;
+        border: 2px solid #FDDCC4;
     }
 }

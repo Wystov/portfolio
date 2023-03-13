@@ -1,0 +1,26 @@
+.logo {
+
+    &__name {
+        color: #545454;
+    }
+
+    &__title {
+        color: #292929;
+    }
+}
+
+.nav {
+
+    &__link {
+        color: #545454;
+
+        &--active,
+        &:active {
+            color: #292929;
+        }
+
+        &:hover {
+            color: #292929;
+        }
+    }
+}

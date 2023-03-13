@@ -7,7 +7,7 @@
     }
 
     &__contacts {
-        margin: 56px 0 20px;
+        margin: 56px 0 0;
         width: 25%;
     }
 
@@ -41,15 +41,21 @@
     }
 
     &__location {
-        margin: 56px 0 20px;
-        width: 25%;
+        margin: 56px 0 0;
+        width: 26.8%;
+
+        .footer__text {
+            margin: 33px 0;
+        }
     }
 
     &__img {
-        align-self: last baseline;
+        align-self: flex-end;
         width: 25%;
         height: 310px;
         background-image: url("../../assets/images/footer-puppy.png");
+        background-position: top 20px right;
+        background-repeat: no-repeat;
     }
 }
 

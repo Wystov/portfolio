@@ -27,42 +27,43 @@
         width: 60px;
         height: 60px;
         background-position: center;
+        background-size: cover;
         background-repeat: no-repeat;
 
         &--pet-food {
-            background: url("../../assets/icons/icon-pet-food.svg");
+            background-image: url("../../assets/icons/icon-pet-food.svg");
         }
 
         &--transportation {
-            background: url("../../assets/icons/icon-transportation.svg");
+            background-image: url("../../assets/icons/icon-transportation.svg");
         }
 
         &--toys {
-            background: url("../../assets/icons/icon-toys.svg");
+            background-image: url("../../assets/icons/icon-toys.svg");
         }
 
         &--bowls-and-cups {
-            background: url("../../assets/icons/icon-bowls-and-cups.svg") top no-repeat;
+            background: url("../../assets/icons/icon-bowls-and-cups.svg") top / 50px no-repeat;
         }
 
         &--shampoos {
-            background: url("../../assets/icons/icon-shampoos.svg");
+            background-image: url("../../assets/icons/icon-shampoos.svg");
         }
 
         &--vitamins {
-            background: url("../../assets/icons/icon-vitamins.svg");
+            background-image: url("../../assets/icons/icon-vitamins.svg");
         }
 
         &--medicines {
-            background: url("../../assets/icons/icon-medicines.svg");
+            background-image: url("../../assets/icons/icon-medicines.svg");
         }
 
         &--collars-leashes {
-            background: url("../../assets/icons/icon-collars-leashes.svg");
+            background-image: url("../../assets/icons/icon-collars-leashes.svg");
         }
 
         &--sleeping-areas {
-            background: url("../../assets/icons/icon-sleeping-areas.svg");
+            background-image: url("../../assets/icons/icon-sleeping-areas.svg");
         }
     }
 
@@ -75,5 +76,44 @@
         line-height: 115%;
         letter-spacing: 0.06em;
         color: #545454;
+    }
+
+    @media (max-width: 878px) {
+        &__container {
+            column-gap: 60px;
+            row-gap: 55px;
+        }
+
+        &__item {
+            flex-basis: 24%;
+        }
+    }
+
+    @media (max-width: 580px) {
+        &__title {
+            margin: 41px 0;
+            font-size: 25px;
+            letter-spacing: 0.06em;
+        }
+
+        &__container {
+            margin-bottom: 42px;
+            justify-content: flex-start;
+            gap: 30px;
+        }
+
+        &__item {
+            flex-basis: 45%;
+        }
+
+        &__icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        &__description {
+            margin-top: 20px;
+            font-size: 15px;
+        }
     }
 }

@@ -381,7 +381,7 @@ html {
     padding: 0 30px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   .wrapper {
     padding: 0 10px;
   }

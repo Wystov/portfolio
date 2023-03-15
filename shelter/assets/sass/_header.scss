@@ -7,6 +7,10 @@
     &__logo {
         text-decoration: none;
     }
+
+    @media (max-width: 1260px) {
+        padding: 30px;
+    }
 }
 
 .logo {
@@ -68,5 +72,27 @@
         &:hover {
             color: #FAFAFA;
         }
+    }
+
+    @media (max-width: 750px) {
+        display: none;
+    }
+}
+
+.burger {
+    display: none;
+    margin-right: 43px;
+    transform: rotate(90deg);
+
+    &__tab {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #F1CDB3;
+        margin: 5px 0;
+    }
+
+    @media (max-width: 750px) {
+        display: block;
     }
 }

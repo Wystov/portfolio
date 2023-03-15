@@ -405,6 +405,11 @@ html {
 .header__logo {
   text-decoration: none;
 }
+@media (max-width: 1260px) {
+  .header {
+    padding: 30px;
+  }
+}
 
 .logo {
   display: flex;
@@ -455,6 +460,29 @@ html {
 }
 .nav__link:hover {
   color: #FAFAFA;
+}
+@media (max-width: 750px) {
+  .nav {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+  margin-right: 43px;
+  transform: rotate(90deg);
+}
+.burger__tab {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: #F1CDB3;
+  margin: 5px 0;
+}
+@media (max-width: 750px) {
+  .burger {
+    display: block;
+  }
 }
 
 .header {

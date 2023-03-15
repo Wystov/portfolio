@@ -372,7 +372,7 @@ html {
 }
 
 .wrapper {
-  width: 1200px;
+  max-width: 1200px;
   padding: 0 40px;
   margin: auto;
 }
@@ -400,7 +400,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
+  padding: 60px 40px;
 }
 .header__logo {
   text-decoration: none;
@@ -455,6 +455,10 @@ html {
 }
 .nav__link:hover {
   color: #FAFAFA;
+}
+
+.header {
+  padding: 30px 40px;
 }
 
 .logo__name {

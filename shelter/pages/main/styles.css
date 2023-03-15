@@ -372,7 +372,7 @@ html {
 }
 
 .wrapper {
-  width: 1200px;
+  max-width: 1200px;
   padding: 0 40px;
   margin: auto;
 }
@@ -400,10 +400,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 0;
-}
-.header__bg {
-  background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
+  padding: 60px 40px;
 }
 .header__logo {
   text-decoration: none;

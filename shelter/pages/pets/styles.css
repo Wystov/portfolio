@@ -376,6 +376,16 @@ html {
   padding: 0 40px;
   margin: auto;
 }
+@media (max-width: 878px) {
+  .wrapper {
+    padding: 0 30px;
+  }
+}
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+}
 
 .button {
   display: block;
@@ -405,9 +415,14 @@ html {
 .header__logo {
   text-decoration: none;
 }
-@media (max-width: 1260px) {
+@media (max-width: 878px) {
   .header {
-    padding: 30px;
+    padding: 30px 30px 60px;
+  }
+}
+@media (max-width: 580px) {
+  .header {
+    padding: 30px 10px 60px;
   }
 }
 
@@ -432,6 +447,7 @@ html {
   line-height: 15px;
   letter-spacing: 0.1em;
   color: #FFFFFF;
+  padding-left: 4px;
 }
 
 .nav__list {
@@ -470,14 +486,13 @@ html {
 .burger {
   display: none;
   margin-right: 43px;
-  transform: rotate(90deg);
 }
 .burger__tab {
   display: block;
   width: 30px;
   height: 2px;
   background-color: #F1CDB3;
-  margin: 5px 0;
+  margin: 9px 0;
 }
 @media (max-width: 750px) {
   .burger {

@@ -376,6 +376,16 @@ html {
   padding: 0 40px;
   margin: auto;
 }
+@media (max-width: 878px) {
+  .wrapper {
+    padding: 0 30px;
+  }
+}
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+}
 
 .button {
   display: block;
@@ -405,9 +415,14 @@ html {
 .header__logo {
   text-decoration: none;
 }
-@media (max-width: 1260px) {
+@media (max-width: 878px) {
   .header {
-    padding: 30px;
+    padding: 30px 30px 60px;
+  }
+}
+@media (max-width: 580px) {
+  .header {
+    padding: 30px 10px 60px;
   }
 }
 
@@ -432,6 +447,7 @@ html {
   line-height: 15px;
   letter-spacing: 0.1em;
   color: #FFFFFF;
+  padding-left: 4px;
 }
 
 .nav__list {
@@ -470,14 +486,13 @@ html {
 .burger {
   display: none;
   margin-right: 43px;
-  transform: rotate(90deg);
 }
 .burger__tab {
   display: block;
   width: 30px;
   height: 2px;
   background-color: #F1CDB3;
-  margin: 5px 0;
+  margin: 9px 0;
 }
 @media (max-width: 750px) {
   .burger {
@@ -489,6 +504,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 42px;
 }
 .intro__bg {
   background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
@@ -501,7 +517,7 @@ html {
   width: 38.33%;
 }
 .intro__title {
-  width: 67%;
+  max-width: 310px;
   margin: 0;
   font-family: "Georgia Regular";
   font-weight: 400;
@@ -518,10 +534,47 @@ html {
   color: #CDCDCD;
 }
 .intro__right-col {
-  min-height: 728px;
+  padding-bottom: 60.66%;
   width: 58.16%;
   background: url("../../assets/images/start-screen-puppy.png") no-repeat;
+  background-size: contain;
   background-position: bottom right;
+}
+@media (max-width: 878px) {
+  .intro {
+    flex-direction: column;
+    gap: 100px;
+  }
+  .intro__left-col {
+    width: 65%;
+    margin-bottom: 0;
+  }
+  .intro__left-col .button {
+    align-self: center;
+  }
+  .intro__right-col {
+    width: 80%;
+    padding-bottom: 83.58%;
+    align-self: flex-end;
+  }
+}
+@media (max-width: 580px) {
+  .intro {
+    gap: 105px;
+  }
+  .intro__left-col {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .intro__title {
+    font-size: 25px;
+    letter-spacing: 0.06em;
+  }
+  .intro__right-col {
+    width: 86.67%;
+    padding-bottom: 90.1%;
+  }
 }
 
 .about {

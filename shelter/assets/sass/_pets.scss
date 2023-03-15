@@ -3,10 +3,19 @@
     flex-direction: column;
     align-items: center;
     gap: 60px;
-    padding: 80px 0 100px;
+    padding-top: 80px;
+    padding-bottom: 100px;
 
     &__bg {
         background-color: #F6F6F6;
+    }
+
+    &__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 53px;
+
     }
 
     &__title {
@@ -21,57 +30,102 @@
         margin: 0;
     }
 
-    &__container {
-        position: relative;
-    }
-
-    &__slider {
-        position: relative;
-        display: flex;
-        width: 990px;
-        gap: 90px;
-        justify-content: space-between;
-    }
-
     &__card {
         width: 270px;
         height: 435px;
         background: #FAFAFA;
         border-radius: 9px;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 1240px) {
+        &__container {
+            gap: 12px;
+        }
+    }
+
+    @media (max-width: 580px) {
+        padding-top: 42px;
+        padding-bottom: 42px;
+        gap: 42px;
+
+        &__container {
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 20px;
+            column-gap: 80px;
+        }
+
+        &__title {
+            font-size: 25px;
+        }
     }
 }
 
-.slider__left,
-.slider__right {
-    position: absolute;
-    top: 190px;
-    content: '';
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #F1CDB3;
-    border-radius: 100px;
-    background: url("../../assets/icons/Arrow.svg") center no-repeat;
-    transition: 0.3s;
+.slider {
 
-    &:hover {
-        background: url("../../assets/icons/Arrow.svg") center no-repeat, #FDDCC4;
-        border: 2px solid #FDDCC4;
+    &__container {
+        width: 990px;
+        overflow: hidden;
     }
-}
 
-.slider__left {
-    left: -106px;
-}
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.slider__right {
-    transform: rotate(180deg);
-    right: -106px;
-}
+    &__left,
+    &__right {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #F1CDB3;
+        border-radius: 100px;
+        background: url("../../assets/icons/Arrow.svg") center no-repeat;
+        transition: 0.3s;
 
+        &:hover {
+            background: url("../../assets/icons/Arrow.svg") center no-repeat, #FDDCC4;
+            border: 2px solid #FDDCC4;
+        }
+    }
 
-.no-wrap {
-    white-space: nowrap;
+    &__right {
+        transform: rotate(180deg);
+    }
+
+    @media (max-width: 1240px) {
+
+        &__container {
+            width: 580px;
+
+        }
+
+        &__content {
+            gap: 40px;
+        }
+    }
+
+    @media (max-width: 750px) {
+        &__container {
+            width: 270px;
+        }
+    }
+
+    @media (max-width: 580px) {
+        &__left {
+            order: 2;
+            position: relative;
+            left: -65px;
+        }
+
+        &__right {
+            order: 2;
+            position: absolute;
+            bottom: 0;
+            right: 42px;
+        }
+    }
 }
 
 .card {

@@ -387,6 +387,10 @@ html {
   }
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 .button {
   display: block;
   width: max-content;
@@ -526,10 +530,17 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 60px;
-  padding: 80px 0 100px;
+  padding-top: 80px;
+  padding-bottom: 100px;
 }
 .pets__bg {
   background-color: #F6F6F6;
+}
+.pets__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 53px;
 }
 .pets__title {
   width: 400px;
@@ -542,28 +553,44 @@ html {
   color: #545454;
   margin: 0;
 }
-.pets__container {
-  position: relative;
-}
-.pets__slider {
-  position: relative;
-  display: flex;
-  width: 990px;
-  gap: 90px;
-  justify-content: space-between;
-}
 .pets__card {
   width: 270px;
   height: 435px;
   background: #FAFAFA;
   border-radius: 9px;
+  flex-shrink: 0;
+}
+@media (max-width: 1240px) {
+  .pets__container {
+    gap: 12px;
+  }
+}
+@media (max-width: 580px) {
+  .pets {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    gap: 42px;
+  }
+  .pets__container {
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 80px;
+  }
+  .pets__title {
+    font-size: 25px;
+  }
 }
 
-.slider__left,
-.slider__right {
-  position: absolute;
-  top: 190px;
-  content: "";
+.slider__container {
+  width: 990px;
+  overflow: hidden;
+}
+.slider__content {
+  display: flex;
+  justify-content: space-between;
+}
+.slider__left, .slider__right {
   cursor: pointer;
   width: 50px;
   height: 50px;
@@ -572,23 +599,38 @@ html {
   background: url("../../assets/icons/Arrow.svg") center no-repeat;
   transition: 0.3s;
 }
-.slider__left:hover,
-.slider__right:hover {
+.slider__left:hover, .slider__right:hover {
   background: url("../../assets/icons/Arrow.svg") center no-repeat, #FDDCC4;
   border: 2px solid #FDDCC4;
 }
-
-.slider__left {
-  left: -106px;
-}
-
 .slider__right {
   transform: rotate(180deg);
-  right: -106px;
 }
-
-.no-wrap {
-  white-space: nowrap;
+@media (max-width: 1240px) {
+  .slider__container {
+    width: 580px;
+  }
+  .slider__content {
+    gap: 40px;
+  }
+}
+@media (max-width: 750px) {
+  .slider__container {
+    width: 270px;
+  }
+}
+@media (max-width: 580px) {
+  .slider__left {
+    order: 2;
+    position: relative;
+    left: -65px;
+  }
+  .slider__right {
+    order: 2;
+    position: absolute;
+    bottom: 0;
+    right: 42px;
+  }
 }
 
 .card {

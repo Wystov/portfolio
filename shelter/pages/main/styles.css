@@ -904,21 +904,23 @@ html {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  padding: 77px 0 100px;
+  padding-top: 77px;
+  padding-bottom: 100px;
 }
 .donation__bg {
   background: #F6F6F6;
 }
 .donation__left {
-  height: 261px;
-  width: 505px;
-  background: url("../../assets/images/donation-dog.png");
+  padding-bottom: 21.7%;
+  width: 42%;
+  background: url("../../assets/images/donation-dog.png") no-repeat;
+  background-size: contain;
 }
 .donation__right {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 380px;
+  width: 31.6%;
 }
 .donation__title {
   font-family: "Georgia Regular";
@@ -966,6 +968,56 @@ html {
   line-height: 18px;
   color: #B2B2B2;
   margin: 0;
+}
+@media (max-width: 878px) {
+  .donation {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+  }
+  .donation__right {
+    order: -1;
+    width: 49.5%;
+  }
+  .donation__left {
+    width: 65%;
+    padding-bottom: 33.6%;
+  }
+}
+@media (max-width: 580px) {
+  .donation {
+    padding-top: 40px;
+    padding-bottom: 42px;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .donation__right {
+    width: 93%;
+    gap: 23px;
+  }
+  .donation__title {
+    font-size: 25px;
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+  .donation__bank {
+    letter-spacing: normal;
+  }
+  .donation__button {
+    font-size: 15px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  .donation__button:before {
+    top: 10px;
+  }
+  .donation__text {
+    text-align: justify;
+  }
+  .donation__left {
+    width: 86.66%;
+    padding-bottom: 45%;
+  }
 }
 
 .footer {

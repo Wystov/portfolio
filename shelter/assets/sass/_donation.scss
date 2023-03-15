@@ -3,23 +3,25 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    padding: 77px 0 100px;
+    padding-top: 77px;
+    padding-bottom: 100px;
 
     &__bg {
         background: #F6F6F6;
     }
 
     &__left {
-        height: 261px;
-        width: 505px;
-        background: url("../../assets/images/donation-dog.png");
+        padding-bottom: 21.7%;
+        width: 42%;
+        background: url("../../assets/images/donation-dog.png") no-repeat;
+        background-size: contain;
     }
 
     &__right {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        width: 380px;
+        width: 31.6%;
     }
 
     &__title {
@@ -72,5 +74,62 @@
         line-height: 18px;
         color: #B2B2B2;
         margin: 0;
+    }
+
+    @media (max-width: 878px) {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 60px;
+
+        &__right {
+            order: -1;
+            width: 49.5%;
+        }
+
+        &__left {
+            width: 65%;
+            padding-bottom: 33.6%;
+        }
+    }
+
+    @media (max-width: 580px) {
+        padding-top: 40px;
+        padding-bottom: 42px;
+        justify-content: flex-start;
+        gap: 40px;
+
+        &__right {
+            width: 93%;
+            gap: 23px;
+        }
+
+        &__title {
+            font-size: 25px;
+            letter-spacing: 0.06em;
+            text-align: center;
+        }
+
+        &__bank {
+            letter-spacing: normal;
+        }
+
+        &__button {
+            font-size: 15px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+
+            &:before {
+                top: 10px;
+            }
+        }
+
+        &__text {
+            text-align: justify;
+        }
+
+        &__left {
+            width: 86.66%;
+            padding-bottom: 45%;
+        }
     }
 }

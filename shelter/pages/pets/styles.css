@@ -375,6 +375,7 @@ html {
   max-width: 1200px;
   padding: 0 40px;
   margin: auto;
+  overflow-x: hidden;
 }
 @media (max-width: 878px) {
   .wrapper {
@@ -505,7 +506,8 @@ html {
 }
 
 .header {
-  padding: 30px 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .logo__name {
@@ -680,6 +682,22 @@ html {
   width: 100%;
   column-gap: 40px;
   row-gap: 30px;
+  justify-content: center;
+  max-height: 1365px;
+  overflow: hidden;
+}
+@media (max-width: 878px) {
+  .pets {
+    max-width: 580px;
+    gap: 28px;
+    padding-bottom: 70px;
+  }
+}
+@media (max-width: 580px) {
+  .pets {
+    gap: 42px;
+    padding-bottom: 39px;
+  }
 }
 
 .card__img--sophia {
@@ -743,6 +761,17 @@ html {
 .slider-btns__current:hover, .slider-btns__current:active {
   background-color: #F1CDB3;
   border-color: #F1CDB3;
+}
+@media (max-width: 878px) {
+  .slider-btns {
+    margin-top: 12px;
+  }
+}
+@media (max-width: 580px) {
+  .slider-btns {
+    margin-top: 0;
+    gap: 10px;
+  }
 }
 
 .footer {

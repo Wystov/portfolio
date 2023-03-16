@@ -6,6 +6,20 @@
         width: 100%;
         column-gap: 40px;
         row-gap: 30px;
+        justify-content: center;
+        max-height: 1365px;
+        overflow: hidden;
+    }
+
+    @media (max-width: 878px) {
+        max-width: 580px;
+        gap: 28px;
+        padding-bottom: 70px;
+    }
+
+    @media (max-width: 580px) {
+        gap: 42px;
+        padding-bottom: 39px;
     }
 }
 
@@ -92,5 +106,14 @@
             background-color: #F1CDB3;
             border-color: #F1CDB3;
         }
+    }
+
+    @media (max-width: 878px) {
+        margin-top: 12px;
+    }
+
+    @media (max-width: 580px) {
+        margin-top: 0;
+        gap: 10px;
     }
 }

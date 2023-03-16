@@ -1,14 +1,27 @@
 .footer {
     display: flex;
     justify-content: space-between;
+    column-gap: 20px;
 
     &__bg {
         background-image: url("../../assets/images/intro-bg-pattern.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
     }
 
+    &__contacts,
+    &__location {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 56px 0 60px;
+    }
+
     &__contacts {
-        margin: 56px 0 0;
-        width: 25%;
+        width: 280px;
+        row-gap: 40px;
+
+        .footer__text-container {
+            row-gap: 40px;
+        }
     }
 
     &__title {
@@ -25,7 +38,6 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        margin: 40px 0;
         font-family: 'Georgia Regular';
         font-weight: 400;
         font-size: 20px;
@@ -40,22 +52,72 @@
         }
     }
 
-    &__location {
-        margin: 56px 0 0;
-        width: 26.8%;
+    &__text-container {
+        display: flex;
+        flex-direction: column;
+        row-gap: 32px;
+    }
 
-        .footer__text {
-            margin: 33px 0;
-        }
+    &__location {
+        width: 302px;
+        row-gap: 34px;
     }
 
     &__img {
+        margin-top: 40px;
         align-self: flex-end;
-        width: 25%;
-        height: 310px;
+        width: 300px;
+        padding-bottom: 310px;
         background-image: url("../../assets/images/footer-puppy.png");
-        background-position: top 20px right;
+        background-position: contain;
         background-repeat: no-repeat;
+    }
+
+    @media (max-width: 980px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 60px;
+
+        &__img {
+            margin-top: 5px;
+        }
+    }
+
+    @media (max-width: 580px) {
+        flex-direction: column;
+        align-items: center;
+
+        &__contacts {
+            margin-top: 30px;
+            margin-bottom: 40px;
+
+            .footer__text-container {
+                align-items: center;
+            }
+        }
+
+        &__location {
+            align-items: center;
+            margin-top: 0;
+            margin-bottom: 35px;
+
+            .footer__text-container {
+                row-gap: 40px;
+            }
+        }
+
+        &__title {
+            width: 270px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        &__img {
+            align-self: center;
+            width: 260px;
+            padding-bottom: 269px;
+            background-size: contain;
+        }
     }
 }
 

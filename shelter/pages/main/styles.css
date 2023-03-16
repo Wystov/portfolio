@@ -1089,7 +1089,7 @@ html {
   width: 300px;
   padding-bottom: 310px;
   background-image: url("../../assets/images/footer-puppy.png");
-  background-position: contain;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 @media (max-width: 980px) {

@@ -410,6 +410,9 @@ html {
 .button:hover {
   background: #FDDCC4;
 }
+.button:active {
+  background-color: #F1CDB3;
+}
 
 .header {
   display: flex;
@@ -482,7 +485,7 @@ html {
 .nav__link:hover {
   color: #FAFAFA;
 }
-@media (max-width: 750px) {
+@media (max-width: 767px) {
   .nav {
     display: none;
   }
@@ -499,7 +502,7 @@ html {
   background-color: #F1CDB3;
   margin: 9px 0;
 }
-@media (max-width: 750px) {
+@media (max-width: 767px) {
   .burger {
     display: block;
   }
@@ -730,6 +733,10 @@ html {
 .slider__left:hover, .slider__right:hover {
   background: url("../../assets/icons/Arrow.svg") center no-repeat, #FDDCC4;
   border: 2px solid #FDDCC4;
+}
+.slider__left:active, .slider__right:active {
+  background-color: #F1CDB3;
+  border-color: #F1CDB3;
 }
 .slider__right {
   transform: rotate(180deg);
@@ -978,11 +985,11 @@ html {
   }
   .donation__right {
     order: -1;
-    width: 49.5%;
+    width: 53.67%;
   }
   .donation__left {
-    width: 65%;
-    padding-bottom: 33.6%;
+    width: 71.33%;
+    padding-bottom: 36.87%;
   }
 }
 @media (max-width: 580px) {
@@ -1091,8 +1098,16 @@ html {
     justify-content: center;
     column-gap: 60px;
   }
+  .footer__contacts, .footer__location {
+    margin-top: 30px;
+  }
   .footer__img {
     margin-top: 5px;
+  }
+}
+@media (max-width: 701px) {
+  .footer__location {
+    margin-top: 0;
   }
 }
 @media (max-width: 580px) {
@@ -1109,7 +1124,6 @@ html {
   }
   .footer__location {
     align-items: center;
-    margin-top: 0;
     margin-bottom: 35px;
   }
   .footer__location .footer__text-container {

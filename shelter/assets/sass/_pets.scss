@@ -88,6 +88,11 @@
             background: url("../../assets/icons/Arrow.svg") center no-repeat, #FDDCC4;
             border: 2px solid #FDDCC4;
         }
+
+        &:active {
+            background-color: #F1CDB3;
+            border-color: #F1CDB3;
+        }
     }
 
     &__right {

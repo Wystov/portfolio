@@ -776,7 +776,8 @@ html {
   position: relative;
   left: -1080px;
   display: flex;
-  justify-content: space-between;
+  width: 3150px;
+  justify-content: center;
   gap: 90px;
   transition: none;
 }
@@ -897,6 +898,7 @@ html {
 .next-page {
   display: flex;
   gap: 90px;
+  width: 990px;
 }
 @media (max-width: 1240px) {
   .prev-page,

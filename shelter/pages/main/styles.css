@@ -773,8 +773,20 @@ html {
   padding: 35px;
 }
 .slider__content {
+  position: relative;
+  left: -1080px;
   display: flex;
   justify-content: space-between;
+  gap: 90px;
+  transition: none;
+}
+.slider__content--move-left {
+  transform: translateX(1080px);
+  transition: transform 0.5s;
+}
+.slider__content--move-right {
+  transform: translateX(-1080px);
+  transition: transform 0.5s;
 }
 .slider__left, .slider__right {
   cursor: pointer;
@@ -840,6 +852,21 @@ html {
 .card__img--woody {
   background: url("../../assets/images/pets-woody.png"), #FAFAFA;
 }
+.card__img--sophia {
+  background: url("../../assets/images/pets-sophia.png"), #FAFAFA;
+}
+.card__img--timmy {
+  background: url("../../assets/images/pets-timmy.png"), #FAFAFA;
+}
+.card__img--charly {
+  background: url("../../assets/images/pets-charly.png"), #FAFAFA;
+}
+.card__img--scarlet {
+  background: url("../../assets/images/pets-scarlet.png"), #FAFAFA;
+}
+.card__img--freddie {
+  background: url("../../assets/images/pets-freddie.png"), #FAFAFA;
+}
 .card__name {
   text-align: center;
   margin: 30px 0;
@@ -863,6 +890,20 @@ html {
 .card:hover .card__button {
   background: #FDDCC4;
   border: 2px solid #FDDCC4;
+}
+
+.prev-page,
+.current-page,
+.next-page {
+  display: flex;
+  gap: 90px;
+}
+@media (max-width: 1240px) {
+  .prev-page,
+  .current-page,
+  .next-page {
+    gap: 40px;
+  }
 }
 
 .help__title {

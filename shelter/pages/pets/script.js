@@ -1,7 +1,3 @@
-console.log(`
-
-`)
-
 const btnToStart = document.querySelector('.slider-btns__double-back');
 const btnToEnd = document.querySelector('.slider-btns__double-forward');
 const btnPrev = document.querySelector('.slider-btns__back');
@@ -17,12 +13,19 @@ btnNext.addEventListener('click', buttonHandler);
 btnToEnd.addEventListener('click', buttonHandler);
 
 let petsData;
+let clonePetsData;
 
 let pagesContent = [];
 let onePageContent = [];
 
-let cardsOnPage = 8;
+let cardsOnPage;
 let currentPage = 1;
+
+const media969 = window.matchMedia('(max-width: 969px)');
+const media639 = window.matchMedia('(max-width: 639px)');
+
+media969.addEventListener('change', setCardsOnPage);
+media639.addEventListener('change', setCardsOnPage);
 
 
 async function getData() {
@@ -30,26 +33,49 @@ async function getData() {
    const res = await fetch(data);
    petsData = await res.json();
 
-   createDataArray()
+   setCardsOnPage()
 }
 
 getData()
+
+function setCardsOnPage() {
+   if (media639.matches) {
+      cardsOnPage = 3;
+   } else if (media969.matches) {
+      cardsOnPage = 6;
+   } else {
+      cardsOnPage = 8;
+   }
+
+   currentPage = currentPage === 1 ? 1 : currentPage > 6 ? 6 : currentPage;
+   createDataArray()
+}
 
 function getRandom(min, max) {
    return Math.floor(Math.random() * (max - min) + min);
 }
 
 function createDataArray() {
-   for (let i = 0; i < 6; i++) {
+   pagesContent = [];
+   clonePetsData = JSON.parse(JSON.stringify(petsData));
+   for (let i = 0; i < 48 / cardsOnPage; i++) {
       while (onePageContent.length < cardsOnPage) {
-         const random = getRandom(0, cardsOnPage);
-         if (!onePageContent.includes(petsData[random])) {
-            onePageContent.push(petsData[random]);
+         const random = getRandom(0, 8);
+
+         if (!onePageContent.includes(clonePetsData[random])) {
+            if (!('count' in clonePetsData[random])) {
+               onePageContent.push(clonePetsData[random])
+               clonePetsData[random].count = 1;
+            } else if (clonePetsData[random].count <= 6) {
+               onePageContent.push(clonePetsData[random]);
+               clonePetsData[random].count += 1;
+            }
          }
       }
       pagesContent = [...pagesContent, ...onePageContent];
       onePageContent = [];
    }
+   console.log(pagesContent)
    createCards()
 }
 
@@ -74,7 +100,6 @@ function createCards() {
 }
 
 function buttonHandler(event) {
-   console.log(event.target)
    if (event.target.classList.contains('slider-btns__double-back')) {
       currentPage = 1;
    } else if (event.target.classList.contains('slider-btns__double-forward')) {
@@ -116,9 +141,3 @@ function deactivateArrows() {
       nextActive = true;
    }
 }
-
-
-
-
-
-

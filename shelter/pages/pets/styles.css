@@ -666,11 +666,11 @@ html {
 }
 .slider__content--move-left {
   transform: translateX(1080px);
-  transition: transform 1s;
+  transition: transform 1s ease-in-out;
 }
 .slider__content--move-right {
   transform: translateX(-1080px);
-  transition: transform 1s;
+  transition: transform 1s ease-in-out;
 }
 .slider__left, .slider__right {
   cursor: pointer;
@@ -703,11 +703,9 @@ html {
   }
   .slider__content--move-left {
     transform: translateX(620px);
-    transition: transform 1s;
   }
   .slider__content--move-right {
     transform: translateX(-620px);
-    transition: transform 1s;
   }
 }
 @media (max-width: 750px) {
@@ -723,11 +721,9 @@ html {
   }
   .slider__content--move-left {
     transform: translateX(290px);
-    transition: transform 1s;
   }
   .slider__content--move-right {
     transform: translateX(-290px);
-    transition: transform 1s;
   }
 }
 @media (max-width: 580px) {

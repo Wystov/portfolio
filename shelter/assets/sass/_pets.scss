@@ -88,12 +88,12 @@
 
         &--move-left {
             transform: translateX(1080px);
-            transition: transform 1s;
+            transition: transform 1s ease-in-out;
         }
 
         &--move-right {
             transform: translateX(-1080px);
-            transition: transform 1s;
+            transition: transform 1s ease-in-out;
         }
     }
 
@@ -136,12 +136,10 @@
 
             &--move-left {
                 transform: translateX(620px);
-                transition: transform 1s;
             }
 
             &--move-right {
                 transform: translateX(-620px);
-                transition: transform 1s;
             }
         }
     }
@@ -160,12 +158,10 @@
 
             &--move-left {
                 transform: translateX(290px);
-                transition: transform 1s;
             }
 
             &--move-right {
                 transform: translateX(-290px);
-                transition: transform 1s;
             }
         }
     }

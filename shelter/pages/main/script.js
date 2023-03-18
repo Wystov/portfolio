@@ -15,6 +15,33 @@ let contentPrev = [];
 let contentCurrent = [];
 let contentNext = [];
 
+let cardsCount;
+
+const media1240 = window.matchMedia('(max-width: 1240px)');
+const media750 = window.matchMedia('(max-width: 750px)');
+
+media1240.addEventListener('change', setCardsCount);
+media750.addEventListener('change', setCardsCount);
+
+function setCardsCount() {
+   prevPage.innerHTML = '';
+   currentPage.innerHTML = '';
+   nextPage.innerHTML = '';
+   contentPrev = [];
+   contentCurrent = [];
+   contentNext = [];
+   if (media750.matches) {
+      cardsCount = 1;
+      createCurrentPage()
+   } else if (media1240.matches) {
+      cardsCount = 2;
+      createCurrentPage()
+   } else {
+      cardsCount = 3;
+      createCurrentPage()
+   }
+}
+
 // CARD CONTENT
 
 function getRandom(min, max) {
@@ -42,15 +69,19 @@ function createCards(petsData, page, set, nextSet) {
    }
 }
 
+function createCurrentPage() {
+   for (let i = 0; i < cardsCount; i++) {
+      createCards(petsData, currentPage, contentCurrent, contentNext);
+   }
+}
+
 
 async function getData() {
    const data = '../../assets/data/pets.json';
    const res = await fetch(data);
    petsData = await res.json();
 
-   for (let i = 0; i < 3; i++) {
-      createCards(petsData, currentPage, contentCurrent, contentNext);
-   }
+   setCardsCount()
 }
 
 getData()
@@ -62,17 +93,16 @@ btnLeft.addEventListener('click', moveLeft);
 btnRight.addEventListener('click', moveRight);
 
 function moveLeft() {
-   if (contentPrev.length) {
-
-   } else {
+   if (!contentPrev.length) {
       contentPrev = [];
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < cardsCount; i++) {
          createCards(petsData, prevPage, contentPrev, contentCurrent);
       }
    }
 
    container.classList.add('slider__content--move-left');
    btnLeft.removeEventListener('click', moveLeft);
+   btnRight.removeEventListener('click', moveRight);
 
    setTimeout(() => {
       nextPage.innerHTML = currentPage.innerHTML;
@@ -83,21 +113,20 @@ function moveLeft() {
       contentPrev = [];
       container.classList.remove('slider__content--move-left')
       btnLeft.addEventListener('click', moveLeft);
-      console.log(contentPrev, contentCurrent, contentNext)
-   }, 800)
+      btnRight.addEventListener('click', moveRight);
+   }, 1000)
 }
 
 function moveRight() {
-   if (contentNext.length) {
-
-   } else {
+   if (!contentNext.length) {
       contentNext = [];
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < cardsCount; i++) {
          createCards(petsData, nextPage, contentNext, contentCurrent);
       }
    }
 
    container.classList.add('slider__content--move-right');
+   btnLeft.removeEventListener('click', moveLeft);
    btnRight.removeEventListener('click', moveRight);
    setTimeout(() => {
       prevPage.innerHTML = currentPage.innerHTML;
@@ -107,8 +136,8 @@ function moveRight() {
       nextPage.innerHTML = '';
       contentNext = [];
       container.classList.remove('slider__content--move-right')
+      btnLeft.addEventListener('click', moveLeft);
       btnRight.addEventListener('click', moveRight);
-      console.log(contentPrev, contentCurrent, contentNext)
-   }, 800)
+   }, 1000)
 }
 

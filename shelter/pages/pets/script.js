@@ -18,7 +18,8 @@ let clonePetsData;
 let pagesContent = [];
 let onePageContent = [];
 
-let cardsOnPage;
+let cardsOnPage = 8;
+let lastCardsOnPage;
 let currentPage = 1;
 
 const media969 = window.matchMedia('(max-width: 969px)');
@@ -47,35 +48,32 @@ function setCardsOnPage() {
       cardsOnPage = 8;
    }
 
-   currentPage = currentPage === 1 ? 1 : currentPage > 6 ? 6 : currentPage;
-   createDataArray()
-}
-
-function getRandom(min, max) {
-   return Math.floor(Math.random() * (max - min) + min);
+   if (lastCardsOnPage !== cardsOnPage) {
+      lastCardsOnPage = cardsOnPage;
+      currentPage = currentPage === 1 ? 1 : currentPage > 6 ? 6 : currentPage;
+      createDataArray()
+   }
 }
 
 function createDataArray() {
    pagesContent = [];
-   clonePetsData = JSON.parse(JSON.stringify(petsData));
+   clonePetsData = petsData.map(el => ({ ...el, count: 0 }));
+   clonePetsData.sort(() => Math.random() - Math.random());
    for (let i = 0; i < 48 / cardsOnPage; i++) {
+      if (cardsOnPage === 8) {
+         clonePetsData.sort(() => Math.random() - Math.random());
+      }
       while (onePageContent.length < cardsOnPage) {
-         const random = getRandom(0, 8);
-
-         if (!onePageContent.includes(clonePetsData[random])) {
-            if (!('count' in clonePetsData[random])) {
-               onePageContent.push(clonePetsData[random])
-               clonePetsData[random].count = 1;
-            } else if (clonePetsData[random].count <= 6) {
-               onePageContent.push(clonePetsData[random]);
-               clonePetsData[random].count += 1;
-            }
+         const pet = clonePetsData.shift();
+         if (pet.count < 6) {
+            onePageContent.push(pet);
+            pet.count += 1;
          }
+         clonePetsData.push(pet);
       }
       pagesContent = [...pagesContent, ...onePageContent];
       onePageContent = [];
    }
-   console.log(pagesContent)
    createCards()
 }
 

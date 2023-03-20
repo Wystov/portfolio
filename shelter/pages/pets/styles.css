@@ -561,6 +561,11 @@ html {
 .no-scroll {
   overflow: hidden;
 }
+@media (min-width: 1280px) {
+  .no-scroll {
+    padding-right: 18px;
+  }
+}
 
 .header {
   padding-top: 30px;
@@ -742,6 +747,7 @@ html {
 }
 
 .card {
+  cursor: pointer;
   background: #FAFAFA;
   transition: 0.3s;
 }
@@ -821,7 +827,7 @@ html {
 }
 
 .pop-up {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   top: 50%;
   left: 50%;
@@ -832,9 +838,12 @@ html {
   width: 70.32%;
   background: #FAFAFA;
   border-radius: 9px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 .pop-up--active {
   visibility: visible;
+  opacity: 1;
 }
 .pop-up:hover {
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
@@ -889,6 +898,7 @@ html {
   font-weight: 700;
 }
 .pop-up__close-btn {
+  cursor: pointer;
   position: absolute;
   top: -55px;
   right: -48px;
@@ -908,6 +918,8 @@ html {
   justify-content: center;
   max-height: 1365px;
   overflow: hidden;
+  margin: -35px;
+  padding: 35px;
 }
 @media (max-width: 878px) {
   .pets {

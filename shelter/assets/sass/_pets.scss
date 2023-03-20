@@ -183,6 +183,7 @@
 }
 
 .card {
+    cursor: pointer;
     background: #FAFAFA;
     transition: 0.3s;
 
@@ -269,7 +270,7 @@
 }
 
 .pop-up {
-    position: absolute;
+    position: fixed;
     z-index: 999;
     top: 50%;
     left: 50%;
@@ -280,9 +281,12 @@
     width: 70.32%;
     background: #FAFAFA;
     border-radius: 9px;
+    opacity: 0;
+    transition: opacity 0.3s;
 
     &--active {
         visibility: visible;
+        opacity: 1;
     }
 
     &:hover {
@@ -352,6 +356,7 @@
     }
 
     &__close-btn {
+        cursor: pointer;
         position: absolute;
         top: -55px;
         right: -48px;

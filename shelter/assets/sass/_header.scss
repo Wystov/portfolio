@@ -160,4 +160,8 @@
 
 .no-scroll {
     overflow: hidden;
+
+    @media (min-width: 1280px) {
+        padding-right: 18px;
+    }
 }

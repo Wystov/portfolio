@@ -22,12 +22,14 @@ function showPopup(content) {
 
     popUp.classList.add('pop-up--active');
     overlay.classList.add('overlay--active');
+    document.body.classList.add('no-scroll');
 }
 
 function closePopUp() {
     popUp.classList.remove('pop-up--active');
     popUpImg.classList.remove(`${popUpImg.classList[1]}`)
     overlay.classList.remove('overlay--active');
+    document.body.classList.remove('no-scroll');
 }
 
 export { popUp, popUpImg, popUpName, popUpType, popUpDescription, popUpAge, popUpInoculations, popUpDiseases, popUpParasites, popUpCloseBtn, showPopup, closePopUp }

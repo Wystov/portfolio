@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Georgia Regular";
   font-style: normal;
@@ -817,6 +818,85 @@ html {
   .next-page {
     width: 270px;
   }
+}
+
+.pop-up {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  display: flex;
+  gap: 29px;
+  width: 70.32%;
+  background: #FAFAFA;
+  border-radius: 9px;
+}
+.pop-up--active {
+  visibility: visible;
+}
+.pop-up:hover {
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+.pop-up__img {
+  width: 55.55%;
+  padding-bottom: 55.55%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.pop-up__content {
+  width: 39%;
+  padding: 50px 20px 50px 0;
+  font-family: "Georgia Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #000000;
+}
+.pop-up__name {
+  font-size: 35px;
+  line-height: 130%;
+  margin: 0 0 10px;
+}
+.pop-up__type {
+  font-size: 20px;
+  line-height: 115%;
+  margin: 0;
+}
+.pop-up__description {
+  margin: 40px 0;
+}
+.pop-up__list {
+  margin: 0;
+  padding-left: 10px;
+  list-style: none;
+}
+.pop-up__list li::before {
+  position: relative;
+  right: 10px;
+  display: inline-block;
+  content: "•";
+  color: #F1CDB3;
+}
+.pop-up__age, .pop-up__inoculations, .pop-up__diseases {
+  margin: 0 0 10px;
+}
+.pop-up__info-title {
+  font-weight: 700;
+}
+.pop-up__close-btn {
+  position: absolute;
+  top: -55px;
+  right: -48px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+  background: url("../../assets/icons/close.svg") no-repeat center;
 }
 
 .pets__slider {

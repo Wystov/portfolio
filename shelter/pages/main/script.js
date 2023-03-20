@@ -2,6 +2,11 @@ console.log(`
 
 `)
 
+import { burgerBtn, nav, navLinks, logo, overlay, toggleNav } from '../../assets/js/burger.js';
+
+burgerBtn.addEventListener('click', toggleNav);
+navLinks.forEach(link => link.addEventListener('click', toggleNav));
+
 const btnLeft = document.querySelector('.slider__left');
 const btnRight = document.querySelector('.slider__right');
 const container = document.querySelector('.slider__content');

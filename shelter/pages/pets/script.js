@@ -1,3 +1,5 @@
+import { burgerBtn, nav, navLinks, logo, overlay, toggleNav } from '../../assets/js/burger.js'
+
 const btnToStart = document.querySelector('.slider-btns__double-back');
 const btnToEnd = document.querySelector('.slider-btns__double-forward');
 const btnPrev = document.querySelector('.slider-btns__back');
@@ -11,6 +13,8 @@ const container = document.querySelector('.pets__slider');
 
 btnNext.addEventListener('click', buttonHandler);
 btnToEnd.addEventListener('click', buttonHandler);
+burgerBtn.addEventListener('click', toggleNav);
+navLinks.forEach(link => link.addEventListener('click', toggleNav));
 
 let petsData;
 let clonePetsData;
@@ -153,12 +157,13 @@ const popUpAge = document.querySelector('.pop-up__age');
 const popUpInoculations = document.querySelector('.pop-up__inoculations');
 const popUpDiseases = document.querySelector('.pop-up__diseases');
 const popUpParasites = document.querySelector('.pop-up__parasites');
-const overlay = document.querySelector('.overlay');
+
 
 const popUpCloseBtn = document.querySelector('.pop-up__close-btn');
 popUpCloseBtn.addEventListener('click', closePopUp);
 overlay.addEventListener('click', () => {
    if (popUp.classList.contains('pop-up--active')) closePopUp();
+   if (nav.classList.contains('nav--active')) toggleNav();
 })
 
 

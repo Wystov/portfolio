@@ -32,4 +32,4 @@ function closePopUp() {
     document.body.classList.remove('no-scroll');
 }
 
-export { popUp, popUpImg, popUpName, popUpType, popUpDescription, popUpAge, popUpInoculations, popUpDiseases, popUpParasites, popUpCloseBtn, showPopup, closePopUp }
+export { popUp, popUpCloseBtn, showPopup, closePopUp }

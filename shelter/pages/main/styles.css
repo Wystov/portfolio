@@ -1029,6 +1029,39 @@ html {
   border-radius: 100px;
   background: url("../../assets/icons/close.svg") no-repeat center;
 }
+.pop-up__close-btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+@media (max-width: 878px) {
+  .pop-up {
+    gap: 11px;
+    width: 82%;
+  }
+  .pop-up__description {
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  .pop-up__content {
+    padding: 10px 9px 10px 0;
+  }
+}
+@media (max-width: 580px) {
+  .pop-up {
+    justify-content: center;
+    width: 75%;
+  }
+  .pop-up__img {
+    display: none;
+  }
+  .pop-up__content {
+    padding: 10px;
+    width: 100%;
+  }
+  .pop-up__description {
+    margin-bottom: 24px;
+  }
+}
 
 .help__title {
   width: 310px;

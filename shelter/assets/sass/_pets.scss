@@ -365,5 +365,42 @@
         border: 2px solid #F1CDB3;
         border-radius: 100px;
         background: url('../../assets/icons/close.svg') no-repeat center;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+    }
+
+    @media (max-width: 878px) {
+        gap: 11px;
+        width: 82%;
+
+        &__description {
+            font-size: 13px;
+            margin: 20px 0;
+        }
+
+        &__content {
+            padding: 10px 9px 10px 0;
+        }
+    }
+
+    @media (max-width: 580px) {
+        justify-content: center;
+        width: 75%;
+
+        &__img {
+            display: none;
+        }
+
+        &__content {
+            padding: 10px;
+            width: 100%;
+        }
+
+        &__description {
+            margin-bottom: 24px;
+        }
     }
 }

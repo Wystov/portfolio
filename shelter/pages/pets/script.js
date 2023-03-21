@@ -40,11 +40,6 @@ const media639 = window.matchMedia('(max-width: 639px)');
 media969.addEventListener('change', setCardsOnPage);
 media639.addEventListener('change', setCardsOnPage);
 
-
-
-
-getData()
-
 function setCardsOnPage() {
    if (media639.matches) {
       cardsOnPage = 3;
@@ -146,7 +141,6 @@ function deactivateArrows() {
       nextActive = true;
    }
 }
-
 
 // POPUP
 

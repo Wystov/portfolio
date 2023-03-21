@@ -1,9 +1,13 @@
-console.log(`
-
-`)
-
+import { petsData, getData } from '../../assets/js/get-data.js';
 import { burgerBtn, nav, navLinks, overlay, toggleNav } from '../../assets/js/burger.js';
 import { popUp, popUpCloseBtn, showPopup, closePopUp } from '../../assets/js/popup.js';
+import { selfEsteem } from '../../assets/js/self-esteem.js';
+
+window.onload = async function () {
+   await getData()
+   setCardsCount()
+   selfEsteem()
+}
 
 burgerBtn.addEventListener('click', toggleNav);
 navLinks.forEach(link => link.addEventListener('click', toggleNav));
@@ -19,8 +23,6 @@ const container = document.querySelector('.slider__content');
 const prevPage = document.querySelector('.prev-page');
 const currentPage = document.querySelector('.current-page');
 const nextPage = document.querySelector('.next-page');
-
-let petsData;
 
 let contentPrev = [];
 let contentCurrent = [];
@@ -83,18 +85,6 @@ function createCurrentPage() {
       createCards(petsData, currentPage, contentCurrent, contentNext);
    }
 }
-
-
-async function getData() {
-   const data = '../../assets/data/pets.json';
-   const res = await fetch(data);
-   petsData = await res.json();
-
-   setCardsCount()
-}
-
-getData()
-
 
 // SLIDER
 

@@ -1,5 +1,13 @@
-import { burgerBtn, nav, navLinks, overlay, toggleNav } from '../../assets/js/burger.js'
+import { petsData, getData } from '../../assets/js/get-data.js';
+import { burgerBtn, nav, navLinks, overlay, toggleNav } from '../../assets/js/burger.js';
 import { popUp, popUpCloseBtn, showPopup, closePopUp } from '../../assets/js/popup.js';
+import { selfEsteem } from '../../assets/js/self-esteem.js';
+
+window.onload = async function () {
+   await getData()
+   setCardsOnPage()
+   selfEsteem()
+}
 
 const btnToStart = document.querySelector('.slider-btns__double-back');
 const btnToEnd = document.querySelector('.slider-btns__double-forward');
@@ -17,7 +25,6 @@ btnToEnd.addEventListener('click', buttonHandler);
 burgerBtn.addEventListener('click', toggleNav);
 navLinks.forEach(link => link.addEventListener('click', toggleNav));
 
-let petsData;
 let clonePetsData;
 
 let pagesContent = [];
@@ -34,13 +41,7 @@ media969.addEventListener('change', setCardsOnPage);
 media639.addEventListener('change', setCardsOnPage);
 
 
-async function getData() {
-   const data = '../../assets/data/pets.json';
-   const res = await fetch(data);
-   petsData = await res.json();
 
-   setCardsOnPage()
-}
 
 getData()
 

@@ -2,10 +2,16 @@ console.log(`
 
 `)
 
-import { burgerBtn, nav, navLinks, logo, overlay, toggleNav } from '../../assets/js/burger.js';
+import { burgerBtn, nav, navLinks, overlay, toggleNav } from '../../assets/js/burger.js';
+import { popUp, popUpCloseBtn, showPopup, closePopUp } from '../../assets/js/popup.js';
 
 burgerBtn.addEventListener('click', toggleNav);
 navLinks.forEach(link => link.addEventListener('click', toggleNav));
+popUpCloseBtn.addEventListener('click', closePopUp);
+overlay.addEventListener('click', () => {
+   if (popUp.classList.contains('pop-up--active')) closePopUp();
+   if (nav.classList.contains('nav--active')) toggleNav();
+})
 
 const btnLeft = document.querySelector('.slider__left');
 const btnRight = document.querySelector('.slider__right');
@@ -37,14 +43,12 @@ function setCardsCount() {
    contentNext = [];
    if (media750.matches) {
       cardsCount = 1;
-      createCurrentPage()
    } else if (media1240.matches) {
       cardsCount = 2;
-      createCurrentPage()
    } else {
       cardsCount = 3;
-      createCurrentPage()
    }
+   createCurrentPage()
 }
 
 // CARD CONTENT
@@ -146,3 +150,19 @@ function moveRight() {
    }, 1000)
 }
 
+// POPUP
+
+currentPage.addEventListener('click', findCard)
+
+function findCard(event) {
+   const petName = event.target.parentNode.children[1].textContent;
+   console.log(petName)
+   let popupPetData;
+   for (let i = 0; i < petsData.length; i++) {
+      if (petsData[i].name === petName) {
+         popupPetData = petsData[i];
+         break
+      }
+   }
+   showPopup(popupPetData)
+}

@@ -15,11 +15,10 @@ function showPopup(content) {
     popUpName.textContent = content.name;
     popUpType.textContent = content.type;
     popUpDescription.textContent = content.description;
-    popUpAge.textContent = content.age;
-    popUpInoculations.textContent = content.inoculations;
-    popUpDiseases.textContent = content.diseases;
-    popUpParasites.textContent = content.parasites;
-
+    popUpAge.children[1].textContent = content.age;
+    popUpInoculations.children[1].textContent = content.inoculations;
+    popUpDiseases.children[1].textContent = content.diseases;
+    popUpParasites.children[1].textContent = content.parasites;
     popUp.classList.add('pop-up--active');
     overlay.classList.add('overlay--active');
     document.body.classList.add('no-scroll');

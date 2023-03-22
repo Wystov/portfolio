@@ -186,6 +186,8 @@
     cursor: pointer;
     background: #FAFAFA;
     transition: 0.3s;
+    overflow: hidden;
+    cursor: pointer;
 
     &__img {
         width: 100%;

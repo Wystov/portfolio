@@ -145,7 +145,9 @@ function moveRight() {
 currentPage.addEventListener('click', findCard)
 
 function findCard(event) {
-   const petName = event.target.parentNode.children[1].textContent;
+   const ev = event.target;
+   const petName = ev.classList.contains('pets__card') ? ev.children[1].textContent :
+      ev.parentNode.children[1].textContent;
    console.log(petName)
    let popupPetData;
    for (let i = 0; i < petsData.length; i++) {

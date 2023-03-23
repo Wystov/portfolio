@@ -50,6 +50,10 @@
         &:hover {
             color: #ffffff;
         }
+
+        &:nth-child(odd) {
+            margin-bottom: 60px;
+        }
     }
 
     &__text-container {

@@ -1,5 +1,5 @@
 import { petsData, getData } from '../../assets/js/get-data.js';
-import { burgerBtn, nav, navLinks, overlay, toggleNav } from '../../assets/js/burger.js';
+import { burgerBtn, nav, overlay, toggleNav } from '../../assets/js/burger.js';
 import { popUp, popUpCloseBtn, showPopup, closePopUp } from '../../assets/js/popup.js';
 import { selfEsteem } from '../../assets/js/self-esteem.js';
 
@@ -23,7 +23,6 @@ const container = document.querySelector('.pets__slider');
 btnNext.addEventListener('click', buttonHandler);
 btnToEnd.addEventListener('click', buttonHandler);
 burgerBtn.addEventListener('click', toggleNav);
-navLinks.forEach(link => link.addEventListener('click', toggleNav));
 
 let clonePetsData;
 

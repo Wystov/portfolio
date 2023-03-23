@@ -1,5 +1,5 @@
 import { petsData, getData } from '../../assets/js/get-data.js';
-import { burgerBtn, nav, navLinks, overlay, toggleNav } from '../../assets/js/burger.js';
+import { burgerBtn, nav, overlay, toggleNav } from '../../assets/js/burger.js';
 import { popUp, popUpCloseBtn, showPopup, closePopUp } from '../../assets/js/popup.js';
 import { selfEsteem } from '../../assets/js/self-esteem.js';
 
@@ -10,7 +10,6 @@ window.onload = async function () {
 }
 
 burgerBtn.addEventListener('click', toggleNav);
-navLinks.forEach(link => link.addEventListener('click', toggleNav));
 popUpCloseBtn.addEventListener('click', closePopUp);
 overlay.addEventListener('click', () => {
    if (popUp.classList.contains('pop-up--active')) closePopUp();

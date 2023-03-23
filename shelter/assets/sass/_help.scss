@@ -1,4 +1,6 @@
 .help {
+    display: flex;
+    flex-direction: column;
 
     &__title {
         width: 310px;

@@ -894,6 +894,11 @@ html {
   border: 2px solid #FDDCC4;
 }
 
+.help {
+  display: flex;
+  flex-direction: column;
+}
+
 .help__title {
   width: 310px;
   margin: 80px auto 60px;
@@ -1206,12 +1211,6 @@ html {
   color: #ffffff;
 }
 
-.footer__text-container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 32px;
-}
-
 .footer__location {
   width: 302px;
   row-gap: 34px;
@@ -1223,7 +1222,7 @@ html {
   width: 300px;
   padding-bottom: 310px;
   background-image: url("../../assets/images/footer-puppy.png");
-  background-size: contain;
+  background-position: top 20px right;
   background-repeat: no-repeat;
 }
 

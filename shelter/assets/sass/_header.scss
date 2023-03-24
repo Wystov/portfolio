@@ -151,6 +151,7 @@
     background-color: #292929;
     opacity: 0;
     transition: 0.3s;
+    z-index: 900;
 
     &--active {
         visibility: visible;

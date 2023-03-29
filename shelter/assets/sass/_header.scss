@@ -14,7 +14,7 @@
     }
 
     @media (max-width: 580px) {
-        padding: 30px 10px 60px;
+        padding: 30px 20px 60px;
     }
 }
 
@@ -87,7 +87,6 @@
 
 .burger {
     display: none;
-    margin-right: 43px;
 
     &__tab {
         display: block;

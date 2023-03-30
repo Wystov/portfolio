@@ -505,6 +505,7 @@ html {
     height: 100vh;
     background-color: #292929;
     transition: 0.3s;
+    z-index: 998;
   }
   .nav__list {
     flex-direction: column;

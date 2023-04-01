@@ -736,6 +736,16 @@ html {
 .card__img--freddie {
   background: url("../../assets/images/pets-freddie.png"), #FAFAFA;
 }
+@media (max-width: 969px) {
+  .card:nth-child(n+7) {
+    display: none;
+  }
+}
+@media (max-width: 639px) {
+  .card:nth-child(n+4) {
+    display: none;
+  }
+}
 
 .slider-btns {
   display: flex;

@@ -48,22 +48,27 @@ function setCardsOnPage() {
       cardsOnPage = 8;
    }
 
-   if (lastCardsOnPage !== cardsOnPage) {
-      lastCardsOnPage = cardsOnPage;
-      currentPage = currentPage === 1 ? 1 : currentPage > 6 ? 6 : currentPage;
+   if (!pagesContent.length) {
       createDataArray()
+   } else if (lastCardsOnPage !== cardsOnPage) {
+      lastCardsOnPage = cardsOnPage;
+      currentPage = 1;
+      createCards()
    }
+}
+
+function getRandom(min, max) {
+   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function createDataArray() {
    pagesContent = [];
+   let lastTwo = [];
    clonePetsData = petsData.map(el => ({ ...el, count: 0 }));
    clonePetsData.sort(() => Math.random() - Math.random());
-   for (let i = 0; i < 48 / cardsOnPage; i++) {
-      if (cardsOnPage === 8) {
-         clonePetsData.sort(() => Math.random() - Math.random());
-      }
-      while (onePageContent.length < cardsOnPage) {
+   for (let i = 0; i < 48 / 8; i++) {
+      clonePetsData.sort(() => Math.random() - Math.random());
+      while (onePageContent.length < 8) {
          const pet = clonePetsData.shift();
          if (pet.count < 6) {
             onePageContent.push(pet);
@@ -71,9 +76,35 @@ function createDataArray() {
          }
          clonePetsData.push(pet);
       }
+      if (lastTwo.length) {
+         for (let i = 0; i < 2; i++) {
+            const index = onePageContent.indexOf(lastTwo[i]);
+            if (index < 4) {
+               const movePet = onePageContent.splice(index, 1)[0];
+               onePageContent.splice(getRandom(4, 8), 0, movePet);
+            }
+         }
+
+      }
       pagesContent = [...pagesContent, ...onePageContent];
+      lastTwo = onePageContent.slice(onePageContent.length - 2, onePageContent.length);
       onePageContent = [];
    }
+
+   console.log(pagesContent)
+   console.log(pagesContent.reduce((acc, val, i) => {
+      if (i % 6 === 0) {
+         acc.push([val, pagesContent[i + 1], pagesContent[i + 2], pagesContent[i + 3], pagesContent[i + 4], pagesContent[i + 5],]);
+      }
+      return acc;
+   }, []))
+   console.log(pagesContent.reduce((acc, val, i) => {
+      if (i % 3 === 0) {
+         acc.push([val, pagesContent[i + 1], pagesContent[i + 2]]);
+      }
+      return acc;
+   }, []))
+
    createCards()
 }
 

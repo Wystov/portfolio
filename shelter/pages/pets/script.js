@@ -6,8 +6,9 @@ import { selfEsteem } from '../../assets/js/self-esteem.js';
 window.onload = async function () {
    await getData()
    setCardsOnPage()
-   selfEsteem()
 }
+
+selfEsteem()
 
 const btnToStart = document.querySelector('.slider-btns__double-back');
 const btnToEnd = document.querySelector('.slider-btns__double-forward');
@@ -15,8 +16,10 @@ const btnPrev = document.querySelector('.slider-btns__back');
 const btnNext = document.querySelector('.slider-btns__forward');
 const pageNum = document.querySelector('.slider-btns__current');
 
-let prevActive = false;
-let nextActive = true;
+const btnState = {
+   prevActive: false,
+   nextActive: true
+}
 
 const container = document.querySelector('.pets__slider');
 
@@ -24,13 +27,9 @@ btnNext.addEventListener('click', buttonHandler);
 btnToEnd.addEventListener('click', buttonHandler);
 burgerBtn.addEventListener('click', toggleNav);
 
-let clonePetsData;
-
-let pagesContent = [];
-let onePageContent = [];
+const pagesContent = [];
 
 let cardsOnPage = 8;
-let lastCardsOnPage;
 let currentPage = 1;
 
 const media969 = window.matchMedia('(max-width: 969px)');
@@ -48,12 +47,11 @@ function setCardsOnPage() {
       cardsOnPage = 8;
    }
 
-   if (!pagesContent.length) {
-      createDataArray()
-   } else if (lastCardsOnPage !== cardsOnPage) {
-      lastCardsOnPage = cardsOnPage;
+   if (pagesContent.length) {
       currentPage = 1;
       createCards()
+   } else {
+      createDataArray()
    }
 }
 
@@ -62,11 +60,13 @@ function getRandom(min, max) {
 }
 
 function createDataArray() {
-   pagesContent = [];
+   // remember last two pets on page to properly shuffle array
+   // and don't have duplicate cards on lower screen sizes
    let lastTwo = [];
-   clonePetsData = petsData.map(el => ({ ...el, count: 0 }));
+   const clonePetsData = petsData.map(el => ({ ...el, count: 0 }));
    clonePetsData.sort(() => Math.random() - Math.random());
    for (let i = 0; i < 48 / 8; i++) {
+      const onePageContent = [];
       clonePetsData.sort(() => Math.random() - Math.random());
       while (onePageContent.length < 8) {
          const pet = clonePetsData.shift();
@@ -86,24 +86,9 @@ function createDataArray() {
          }
 
       }
-      pagesContent = [...pagesContent, ...onePageContent];
+      pagesContent.push(...onePageContent);
       lastTwo = onePageContent.slice(onePageContent.length - 2, onePageContent.length);
-      onePageContent = [];
    }
-
-   console.log(pagesContent)
-   console.log(pagesContent.reduce((acc, val, i) => {
-      if (i % 6 === 0) {
-         acc.push([val, pagesContent[i + 1], pagesContent[i + 2], pagesContent[i + 3], pagesContent[i + 4], pagesContent[i + 5],]);
-      }
-      return acc;
-   }, []))
-   console.log(pagesContent.reduce((acc, val, i) => {
-      if (i % 3 === 0) {
-         acc.push([val, pagesContent[i + 1], pagesContent[i + 2]]);
-      }
-      return acc;
-   }, []))
 
    createCards()
 }
@@ -148,13 +133,13 @@ function deactivateArrows() {
       btnPrev.classList.add('slider-btns__back--inactive')
       btnPrev.removeEventListener('click', buttonHandler);
       btnToStart.removeEventListener('click', buttonHandler)
-      prevActive = false;
-   } else if (!prevActive) {
+      btnState.prevActive = false;
+   } else if (!btnState.prevActive) {
       btnToStart.classList.remove('slider-btns__double-back--inactive');
       btnPrev.classList.remove('slider-btns__back--inactive');
       btnPrev.addEventListener('click', buttonHandler);
       btnToStart.addEventListener('click', buttonHandler)
-      prevActive = true;
+      btnState.prevActive = true;
    }
 
    if (currentPage === pagesContent.length / cardsOnPage) {
@@ -162,13 +147,13 @@ function deactivateArrows() {
       btnNext.classList.add('slider-btns__forward--inactive')
       btnNext.removeEventListener('click', buttonHandler);
       btnToEnd.removeEventListener('click', buttonHandler)
-      nextActive = false;
-   } else if (!nextActive) {
+      btnState.nextActive = false;
+   } else if (!btnState.nextActive) {
       btnToEnd.classList.remove('slider-btns__double-forward--inactive');
       btnNext.classList.remove('slider-btns__forward--inactive');
       btnNext.addEventListener('click', buttonHandler);
       btnToEnd.addEventListener('click', buttonHandler);
-      nextActive = true;
+      btnState.nextActive = true;
    }
 }
 

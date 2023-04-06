@@ -37,14 +37,14 @@ function testData(data) {
             const set = new Set(arr[i]);
             if (set.size !== arr[i].length) {
                 allUnique = false;
-                repeatOnPage = i;
+                repeatOnPage = i + 1;
                 break;
             }
         }
         return allUnique ? allUnique : `${allUnique}, repeat on page ${repeatOnPage}`;
     }
 
-    console.log('**array for all pages:**\n', data,
+    console.table('**array for all pages:**\n', data,
         '\n\n**array splitted to 8 items per page:**\n', perPage8,
         '\n\n**array splitted to 6 items per page:**\n', perPage6,
         '\n\n**array splitted to 3 items per page:**\n', perPage3,

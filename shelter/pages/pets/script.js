@@ -61,9 +61,7 @@ function getRandom(min, max) {
 }
 
 function createDataArray() {
-   // remember last two pets on page to properly shuffle array
-   // and don't have duplicate cards on lower screen sizes
-   let lastTwo = [];
+   let prev = [];
    const clonePetsData = petsData.map(el => ({ ...el, count: 0 }));
    clonePetsData.sort(() => Math.random() - Math.random());
    for (let i = 0; i < 48 / 8; i++) {
@@ -77,18 +75,18 @@ function createDataArray() {
          }
          clonePetsData.push(pet);
       }
-      if (lastTwo.length) {
-         for (let i = 0; i < 2; i++) {
-            const index = onePageContent.indexOf(lastTwo[i]);
-            if (index < 4) {
+
+      if (prev.length) {
+         for (let j = 0; j < prev.length; j++) {
+            const index = onePageContent.indexOf(prev[j]);
+            if (index < prev.length) {
                const movePet = onePageContent.splice(index, 1)[0];
-               onePageContent.splice(getRandom(4, 8), 0, movePet);
+               onePageContent.splice(getRandom(5, 7), 0, movePet)
             }
          }
-
       }
       pagesContent.push(...onePageContent);
-      lastTwo = onePageContent.slice(onePageContent.length - 2, onePageContent.length);
+      prev = onePageContent.slice(onePageContent.length - 5, onePageContent.length);
    }
    testData(pagesContent)
    createCards()

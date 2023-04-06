@@ -70,7 +70,7 @@
         margin: -35px;
         padding: 35px;
 
-    &:has(.slider__content--move-left),
+        &:has(.slider__content--move-left),
         &:has(.slider__content--move-right) {
             margin: 0;
             padding: 0;

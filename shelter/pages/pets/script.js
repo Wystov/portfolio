@@ -2,6 +2,7 @@ import { petsData, getData } from '../../assets/js/get-data.js';
 import { burgerBtn, nav, overlay, toggleNav } from '../../assets/js/burger.js';
 import { popUp, popUpCloseBtn, showPopup, closePopUp } from '../../assets/js/popup.js';
 import { selfEsteem } from '../../assets/js/self-esteem.js';
+import { testData } from '../../assets/js/test-data.js';
 
 window.onload = async function () {
    await getData()
@@ -89,7 +90,7 @@ function createDataArray() {
       pagesContent.push(...onePageContent);
       lastTwo = onePageContent.slice(onePageContent.length - 2, onePageContent.length);
    }
-
+   testData(pagesContent)
    createCards()
 }
 

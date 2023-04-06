@@ -9,6 +9,27 @@
     <title>Cozy House</title>
 </head>
 <body>
+    <div class="overlay"></div>
+    <div class="pop-up">
+        <div class="pop-up__img"></div>
+        <div class="pop-up__content">
+            <p class="pop-up__name">Jennifer</p>
+            <p class="pop-up__type">Dog - Labrador</p>
+            <p class="pop-up__description">Jennifer is a sweet 2 months old Labrador that is patiently waiting to
+                find a
+                new forever home. This girl really enjoys being able to go outside to run and play, but won't
+                hesitate
+                to play up a storm in the house if she has all of her favorite toys.</p>
+            <ul class="pop-up__list">
+                <li class="pop-up__age"><span class="pop-up__info-title">Age:</span> <span></span></li>
+                <li class="pop-up__inoculations"><span class="pop-up__info-title">Inoculations:</span> <span></span>
+                </li>
+                <li class="pop-up__diseases"><span class="pop-up__info-title">Diseases:</span> <span></span></li>
+                <li class="pop-up__parasites"><span class="pop-up__info-title">Parasites:</span> <span></span></li>
+            </ul>
+            <div class="pop-up__close-btn"></div>
+        </div>
+    </div>
     <div class="intro__bg">
         <header class="header wrapper">
             <a class="header__logo" href="#">
@@ -62,21 +83,10 @@
                 <i class="slider__left"></i>
                 <div class="slider__container">
                     <div class="slider__content">
-                        <div class="pets__card card">
-                            <div class="card__img card__img--katrine"></div>
-                            <div class="card__name">Katrine</div>
-                            <a class="card__button button" href="#">Learn more</a>
-                        </div>
-                        <div class="pets__card card">
-                            <div class="card__img card__img--jennifer"></div>
-                            <div class="card__name">Jennifer</div>
-                            <a class="card__button button" href="#">Learn more</a>
-                        </div>
-                        <div class="pets__card card">
-                            <div class="card__img card__img--woody"></div>
-                            <div class="card__name">Woody</div>
-                            <a class="button card__button" href="#">Learn more</a>
-                        </div>
+                        <div class="prev-page"></div>
+                        <div class="current-page"></div>
+                        <div class="next-page"></div>
+
                     </div>
                 </div>
                 <i class="slider__right"></i>
@@ -161,6 +171,6 @@
             <div class="footer__img"></div>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

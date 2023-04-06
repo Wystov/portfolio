@@ -69,11 +69,32 @@
         overflow: hidden;
         margin: -35px;
         padding: 35px;
+
+    &:has(.slider__content--move-left),
+        &:has(.slider__content--move-right) {
+            margin: 0;
+            padding: 0;
+        }
     }
 
     &__content {
+        position: relative;
+        left: -1080px;
         display: flex;
-        justify-content: space-between;
+        width: 3150px;
+        justify-content: center;
+        gap: 90px;
+        transition: none;
+
+        &--move-left {
+            transform: translateX(1080px);
+            transition: transform 1s ease-in-out;
+        }
+
+        &--move-right {
+            transform: translateX(-1080px);
+            transition: transform 1s ease-in-out;
+        }
     }
 
     &__left,
@@ -109,13 +130,39 @@
         }
 
         &__content {
+            left: -620px;
+            width: 1820px;
             gap: 40px;
+
+            &--move-left {
+                transform: translateX(620px);
+            }
+
+            &--move-right {
+                transform: translateX(-620px);
+            }
         }
     }
 
     @media (max-width: 750px) {
         &__container {
-            width: 270px;
+            width: 290px;
+            margin: 0;
+            padding: 0;
+        }
+
+        &__content {
+            left: -280px;
+            width: 850px;
+            gap: 20px;
+
+            &--move-left {
+                transform: translateX(290px);
+            }
+
+            &--move-right {
+                transform: translateX(-290px);
+            }
         }
     }
 
@@ -136,6 +183,7 @@
 }
 
 .card {
+    cursor: pointer;
     background: #FAFAFA;
     transition: 0.3s;
     overflow: hidden;
@@ -155,6 +203,26 @@
 
         &--woody {
             background: url("../../assets/images/pets-woody.png"), #FAFAFA;
+        }
+
+        &--sophia {
+            background: url("../../assets/images/pets-sophia.png"), #FAFAFA;
+        }
+
+        &--timmy {
+            background: url("../../assets/images/pets-timmy.png"), #FAFAFA;
+        }
+
+        &--charly {
+            background: url("../../assets/images/pets-charly.png"), #FAFAFA;
+        }
+
+        &--scarlet {
+            background: url("../../assets/images/pets-scarlet.png"), #FAFAFA;
+        }
+
+        &--freddie {
+            background: url("../../assets/images/pets-freddie.png"), #FAFAFA;
         }
     }
 
@@ -184,5 +252,159 @@
     &:hover .card__button {
         background: #FDDCC4;
         border: 2px solid #FDDCC4;
+    }
+}
+
+.prev-page,
+.current-page,
+.next-page {
+    display: flex;
+    gap: 90px;
+    width: 990px;
+
+    @media (max-width: 1240px) {
+        gap: 40px;
+    }
+
+    @media (max-width: 750px) {
+        width: 270px;
+    }
+}
+
+.pop-up {
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    display: flex;
+    gap: 29px;
+    width: 70.32%;
+    background: #FAFAFA;
+    border-radius: 9px;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &--active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &:hover {
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    }
+
+    &__img {
+        width: 55.55%;
+        padding-bottom: 55.55%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+    }
+
+    &__content {
+        width: 39%;
+        padding: 50px 20px 50px 0;
+        font-family: 'Georgia Regular';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 110%;
+        letter-spacing: 0.06em;
+        color: #000000;
+    }
+
+    &__name {
+        font-size: 35px;
+        line-height: 130%;
+        margin: 0 0 10px;
+    }
+
+    &__type {
+        font-size: 20px;
+        line-height: 115%;
+        margin: 0;
+    }
+
+    &__description {
+        margin: 40px 0;
+    }
+
+    &__list {
+        margin: 0;
+        padding-left: 10px;
+        list-style: none;
+
+        li {
+            &::before {
+                position: relative;
+                right: 10px;
+                display: inline-block;
+                content: "\2022";
+                color: #F1CDB3;
+            }
+        }
+    }
+
+    &__age,
+    &__inoculations,
+    &__diseases {
+        margin: 0 0 10px;
+    }
+
+    &__info-title {
+        font-weight: 700;
+    }
+
+    &__close-btn {
+        cursor: pointer;
+        position: absolute;
+        top: -55px;
+        right: -48px;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #F1CDB3;
+        border-radius: 100px;
+        background: url('../../assets/icons/close.svg') no-repeat center;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+    }
+
+    @media (max-width: 878px) {
+        gap: 11px;
+        width: 82%;
+
+        &__description {
+            font-size: 13px;
+            margin: 20px 0;
+        }
+
+        &__content {
+            padding: 10px 9px 10px 0;
+        }
+    }
+
+    @media (max-width: 580px) {
+        justify-content: center;
+        width: 75%;
+
+        &__img {
+            display: none;
+        }
+
+        &__content {
+            padding: 10px;
+            width: 100%;
+        }
+
+        &__description {
+            margin-bottom: 24px;
+        }
     }
 }

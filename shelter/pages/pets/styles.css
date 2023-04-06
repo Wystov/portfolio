@@ -439,7 +439,7 @@ html {
 .logo {
   position: relative;
   left: 0;
-  z-index: 999;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -494,7 +494,7 @@ html {
 .nav__link:hover {
   color: #FAFAFA;
 }
-@media (max-width: 767px) {
+@media (max-width: 767.9px) {
   .nav {
     position: fixed;
     top: 0;
@@ -536,7 +536,7 @@ html {
   background-color: #F1CDB3;
   margin: 9px 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 767.9px) {
   .burger {
     display: block;
   }
@@ -594,7 +594,7 @@ html {
 .nav__link:hover {
   color: #292929;
 }
-@media (max-width: 767px) {
+@media (max-width: 767.9px) {
   .nav {
     background-color: #ffffff;
   }
@@ -862,6 +862,8 @@ html {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
 }
 .pop-up__content {
   width: 39%;

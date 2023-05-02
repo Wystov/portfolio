@@ -1,0 +1,40 @@
+.header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.logo {
+
+    &__name {
+        color: #545454;
+    }
+
+    &__title {
+        color: #292929;
+    }
+}
+
+.header {
+    padding-bottom: 30px;
+}
+
+.nav {
+
+    &__link {
+        color: #545454;
+
+        &--active,
+        &:active {
+            color: #292929;
+        }
+
+        &:hover {
+            color: #292929;
+        }
+    }
+
+    @media (max-width: 767.9px) {
+
+        background-color: #ffffff;
+    }
+}

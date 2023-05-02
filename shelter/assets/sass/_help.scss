@@ -1,0 +1,121 @@
+.help {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        width: 310px;
+        margin: 80px auto 60px;
+        text-align: center;
+        font-family: 'Georgia Regular';
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 130%;
+        letter-spacing: 0.06em;
+        color: #545454;
+    }
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 120px;
+        row-gap: 55px;
+        margin: 0 auto 100px;
+    }
+
+    &__icon {
+        display: block;
+        margin: 0 auto;
+        width: 60px;
+        height: 60px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &--pet-food {
+            background-image: url("../../assets/icons/icon-pet-food.svg");
+        }
+
+        &--transportation {
+            background-image: url("../../assets/icons/icon-transportation.svg");
+        }
+
+        &--toys {
+            background-image: url("../../assets/icons/icon-toys.svg");
+        }
+
+        &--bowls-and-cups {
+            background: url("../../assets/icons/icon-bowls-and-cups.svg") top / 50px no-repeat;
+        }
+
+        &--shampoos {
+            background-image: url("../../assets/icons/icon-shampoos.svg");
+        }
+
+        &--vitamins {
+            background-image: url("../../assets/icons/icon-vitamins.svg");
+        }
+
+        &--medicines {
+            background-image: url("../../assets/icons/icon-medicines.svg");
+        }
+
+        &--collars-leashes {
+            background-image: url("../../assets/icons/icon-collars-leashes.svg");
+        }
+
+        &--sleeping-areas {
+            background-image: url("../../assets/icons/icon-sleeping-areas.svg");
+        }
+    }
+
+    &__description {
+        margin: 30px 0 0;
+        text-align: center;
+        font-family: 'Georgia Regular';
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+        color: #545454;
+    }
+
+    @media (max-width: 878px) {
+        &__container {
+            column-gap: 60px;
+            row-gap: 55px;
+        }
+
+        &__item {
+            flex-basis: 24%;
+        }
+    }
+
+    @media (max-width: 580px) {
+        &__title {
+            margin: 41px 0;
+            font-size: 25px;
+            letter-spacing: 0.06em;
+        }
+
+        &__container {
+            margin-bottom: 42px;
+            justify-content: flex-start;
+            gap: 30px;
+        }
+
+        &__item {
+            flex-basis: 45%;
+        }
+
+        &__icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        &__description {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+    }
+}

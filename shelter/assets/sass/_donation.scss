@@ -1,0 +1,135 @@
+.donation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-top: 77px;
+    padding-bottom: 100px;
+
+    &__bg {
+        background: #F6F6F6;
+    }
+
+    &__left {
+        padding-bottom: 21.7%;
+        width: 42%;
+        background: url("../../assets/images/donation-dog.png") no-repeat;
+        background-size: contain;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 31.6%;
+    }
+
+    &__title {
+        font-family: 'Georgia Regular';
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 130%;
+        letter-spacing: 0.06em;
+        color: #545454;
+        margin: 0;
+    }
+
+    &__bank {
+        font-family: 'Georgia Regular';
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 110%;
+        letter-spacing: 0.06em;
+        color: #545454;
+        margin: 0;
+    }
+
+    &__button {
+        position: relative;
+        border-radius: 9px;
+        padding: 10px 15px 10px 60px;
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+        color: #545454;
+
+        &::before {
+            position: absolute;
+            left: 15px;
+            display: block;
+            content: '';
+            width: 30px;
+            height: 23px;
+            background: url("../../assets/icons/credit-card.svg");
+        }
+    }
+
+    &__text {
+        font-family: 'Arial Italic';
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: #B2B2B2;
+        margin: 0;
+    }
+
+    @media (max-width: 878px) {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 60px;
+
+        &__right {
+            order: -1;
+            width: 53.67%;
+        }
+
+        &__left {
+            width: 71.33%;
+            padding-bottom: 36.87%;
+        }
+    }
+
+    @media (max-width: 580px) {
+        padding-top: 40px;
+        padding-bottom: 42px;
+        justify-content: flex-start;
+        gap: 40px;
+
+        &__right {
+            width: 93%;
+            gap: 23px;
+        }
+
+        &__title {
+            font-size: 25px;
+            letter-spacing: 0.06em;
+            text-align: center;
+        }
+
+        &__bank {
+            letter-spacing: normal;
+        }
+
+        &__button {
+            font-size: 15px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+
+            &:before {
+                top: 10px;
+            }
+        }
+
+        &__text {
+            text-align: justify;
+        }
+
+        &__left {
+            width: 86.66%;
+            padding-bottom: 45%;
+        }
+    }
+}

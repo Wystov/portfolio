@@ -1,6 +1,10 @@
 # portfolio
 In order from newest to oldest:
 
++ **CSS Selectors game**
+[Deploy](https://wystov.github.io/CSS-Selectors-game/)
++ **Minesweeper**
+[Deploy](https://wystov.github.io/Minesweeper/)
 + **Virtual-keyboard**
 [Deploy](https://wystov.github.io/virtual-keyboard/)
 + **Shelter**

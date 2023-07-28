@@ -1,6 +1,9 @@
 # portfolio
 In order from newest to oldest:
 
++ **Async-race**  
+Backend deployed to free service so it may take some time to run on a cold start. If nothing works, please give it 15 seconds and refresh the page :)  
+[Deploy](https://wystov.github.io/async-race/)
 + **CSS Selectors game**
 [Deploy](https://wystov.github.io/CSS-Selectors-game/)
 + **Minesweeper**

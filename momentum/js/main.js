@@ -179,7 +179,7 @@ function setBg() {
         currentTag.textContent = timeOfDay;
         tagInput.classList.add('bg-src-tag-input-hide');
         const bgNum = randomNum.toString().padStart(2, '0');
-        const bgLink = `https://raw.githubusercontent.com/Wystov/momentum-img/main/img/${timeOfDay}/${bgNum}.webp`
+        const bgLink = `https://raw.githubusercontent.com/Wystov/portfolio/main/momentum-img/img/${timeOfDay}/${bgNum}.webp`
         const img = new Image();
         img.src = bgLink;
         img.onload = () => {      

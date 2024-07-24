@@ -1,0 +1,20 @@
+---
+const links = [
+  { title: 'Home', url: '/' },
+  { title: 'Projects', url: '/projects' },
+];
+---
+
+<header class="fixed w-full">
+  <nav>
+    <ul class="flex gap-2 justify-center">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.url}>{link.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

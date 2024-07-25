@@ -2,6 +2,7 @@ import type { TagsStateType } from '@/types';
 import { mapTagsState } from '@/utils/mapTagsState';
 import type { CollectionEntry } from 'astro:content';
 import { createEffect, createMemo, createSignal } from 'solid-js';
+import { Card } from './Card';
 
 type Props = {
   data: CollectionEntry<'projects'>[];
@@ -24,7 +25,7 @@ export const Projects = ({ data }: Props) => {
   return (
     <>
       <p>tags</p>
-      <ul class="flex gap-2 border-2 p-2">
+      <ul class="flex gap-2 border-2 rounded p-2">
         {Object.entries(tags()).map(([tag, isActive]) => (
           <li onClick={() => toggleTag(tag)}>
             <input type="checkbox" checked={isActive} class="mr-2" />
@@ -33,10 +34,10 @@ export const Projects = ({ data }: Props) => {
         ))}
       </ul>
       <p>projects</p>
-      <ul>
+      <ul class="flex flex-col gap-2">
         {filteredProjects().map((project) => (
           <li>
-            <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+            <Card project={project} />
           </li>
         ))}
       </ul>

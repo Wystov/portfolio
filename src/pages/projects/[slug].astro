@@ -13,8 +13,8 @@ const { project } = Astro.props;
 ---
 
 <BaseLayout pageTitle={project.data.title}>
+  <a href="/projects">Back</a>
   <h1>{project.data.title}</h1>
-
   <p>{project.body}</p>
   <a href={project.data.urlDemo} target="_blank">Demo</a>
   <a href={project.data.urlRepo} target="_blank">Repo</a>

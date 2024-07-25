@@ -12,6 +12,7 @@ export const Projects = ({ data }: Props) => {
   const [tags, setTags] = createSignal<TagsStateType>(mapTagsState(data));
 
   const toggleTag = (tag: string) => {
+    if (!filteredTags().includes(tag)) return;
     setTags((prev) => ({ ...prev, [tag]: !prev[tag] }));
   };
 
@@ -22,13 +23,22 @@ export const Projects = ({ data }: Props) => {
     return data.filter((project) => activeTags.every((tag) => project.data.tags.includes(tag)));
   });
 
+  const filteredTags = createMemo(() => [
+    ...new Set(filteredProjects().flatMap((project) => project.data.tags)),
+  ]);
+
   return (
     <>
       <p>tags</p>
       <ul class="flex gap-2 border-2 rounded p-2">
         {Object.entries(tags()).map(([tag, isActive]) => (
           <li onClick={() => toggleTag(tag)}>
-            <input type="checkbox" checked={isActive} class="mr-2" />
+            <input
+              type="checkbox"
+              checked={isActive}
+              disabled={!filteredTags().includes(tag)}
+              class="mr-2"
+            />
             {tag}
           </li>
         ))}

@@ -25,7 +25,7 @@ const links = [
 <script is:inline>
   const theme = (() => {
     switch (true) {
-      case localStorage.getItem('theme'):
+      case localStorage.getItem('wystov-theme') !== null:
         return localStorage.getItem('theme');
       case window.matchMedia('(prefers-color-scheme: dark)').matches:
         return 'dark';
@@ -37,7 +37,7 @@ const links = [
   const action = theme === 'dark' ? 'add' : 'remove';
   document.documentElement.classList[action]('dark');
 
-  window.localStorage.setItem('theme', theme);
+  window.localStorage.setItem('wystov-theme', theme);
 
   const handleToggleClick = () => {
     const element = document.documentElement;

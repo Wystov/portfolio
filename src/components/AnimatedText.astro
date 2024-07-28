@@ -1,0 +1,74 @@
+---
+const { text } = Astro.props;
+---
+
+<svg id={text}>
+  <symbol id="s-text">
+    <text
+      text-anchor="middle"
+      x="50%"
+      y="50%"
+      dy=".35em"
+      class="text-6xl font-extrabold tracking-widest select-none"
+    >
+      {text}
+    </text>
+  </symbol>
+
+  <use xlink:href="#s-text" class="effect color1"></use>
+  <use xlink:href="#s-text" class="effect color2"></use>
+  <use xlink:href="#s-text" class="effect color3"></use>
+  <use xlink:href="#s-text" class="effect color4"></use>
+  <use xlink:href="#s-text" class="effect color5"></use>
+</svg>
+
+<script is:inline>
+  const svg = document.getElementById('WYSTOV');
+
+  if (svg instanceof SVGGraphicsElement) {
+    const bbox = svg.getBBox();
+    svg.setAttribute('height', bbox.height + '');
+    svg.setAttribute('width', bbox.width + '');
+  }
+</script>
+
+<style>
+  .effect {
+    fill: none;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-dasharray: 70 330;
+    stroke-dashoffset: 0;
+    animation: stroke 9s infinite linear;
+  }
+
+  .color1 {
+    @apply stroke-red-500;
+    animation-delay: -1.8s;
+  }
+  .color2 {
+    @apply stroke-sky-500;
+    animation-delay: -3.6s;
+  }
+
+  .color3 {
+    @apply stroke-lime-500;
+    animation-delay: -5.4s;
+  }
+
+  .color4 {
+    @apply stroke-yellow-500;
+    animation-delay: -7.2s;
+  }
+
+  .color5 {
+    @apply stroke-teal-500;
+    animation-delay: -9s;
+  }
+
+  @keyframes stroke {
+    100% {
+      stroke-dashoffset: -400;
+    }
+  }
+</style>

@@ -4,20 +4,31 @@ import ThemeIcon from './ThemeIcon/ThemeIcon.astro';
 const links = [
   { title: 'Home', url: '/' },
   { title: 'Projects', url: '/projects' },
+  { title: 'Contact', url: '/#' },
 ];
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<header class="sticky top-0 w-full py-2">
-  <nav>
-    <ul class="flex gap-4 justify-center">
-      {
-        links.map((link) => (
-          <li class="text-xl font-bold tracking-wider hover:text-gray-600 dark:hover:text-amber-300">
-            <a href={link.url}>{link.title}</a>
-          </li>
-        ))
-      }
-    </ul>
+<header class="sticky top-0 w-full py-3">
+  <nav class="flex gap-4 justify-center">
+    {
+      links.map((link) => (
+        <a
+          href={link.url}
+          class={`${pathname === link.url ? 'text-gray-600 dark:text-amber-300' : ''} text-xl font-bold tracking-wider hover:text-gray-600 dark:hover:text-amber-300`}
+        >
+          {link.title}
+        </a>
+      ))
+    }
+
+    <ThemeIcon />
   </nav>
-  <ThemeIcon />
 </header>
+
+<style>
+  a:first-of-type {
+    margin-right: auto;
+  }
+</style>

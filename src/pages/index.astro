@@ -2,6 +2,21 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AnimatedText from '@/components/AnimatedText.astro';
 const pageTitle = 'Home | Wystov';
+
+const socialLinks = [
+  {
+    name: 'github',
+    url: 'https://github.com/wystov',
+  },
+  {
+    name: 'linkedin',
+    url: 'https://www.linkedin.com/in/wystov/',
+  },
+  {
+    name: 'telegram',
+    url: 'https://t.me/konssus',
+  },
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -9,5 +24,21 @@ const pageTitle = 'Home | Wystov';
     <h1 class="text-5xl font-bold">Hi, i'm</h1>
     <AnimatedText text="WYSTOV" />
     <p class="text-lg tracking-wider">Frontend developer</p>
+    <div class="flex gap-2">
+      {
+        socialLinks.map((social) => (
+          <a
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="size-12 p-2 mt-4 opacity-75 hover:opacity-100 transition duration-300"
+          >
+            <svg class="size-full fill-black dark:fill-white">
+              <use href={`/icons.svg#${social.name}`} />
+            </svg>
+          </a>
+        ))
+      }
+    </div>
   </section>
 </BaseLayout>

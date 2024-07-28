@@ -4,14 +4,13 @@ import ThemeIcon from './ThemeIcon/ThemeIcon.astro';
 const links = [
   { title: 'Home', url: '/' },
   { title: 'Projects', url: '/projects' },
-  { title: 'Contact', url: '/#' },
 ];
 
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<header class="sticky top-0 w-full py-3">
-  <nav class="flex gap-4 justify-center">
+<header class="sticky top-0 w-full py-3 flex justify-between">
+  <nav class="flex gap-4 justify-start">
     {
       links.map((link) => (
         <a
@@ -22,9 +21,8 @@ const pathname = new URL(Astro.request.url).pathname;
         </a>
       ))
     }
-
-    <ThemeIcon />
   </nav>
+  <ThemeIcon />
 </header>
 
 <style>

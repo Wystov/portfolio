@@ -1,4 +1,5 @@
 ---
+type Props = { text: string };
 const { text } = Astro.props;
 ---
 
@@ -22,14 +23,20 @@ const { text } = Astro.props;
   <use xlink:href="#s-text" class="effect color5"></use>
 </svg>
 
-<script is:inline>
-  const svg = document.getElementById('WYSTOV');
+<script define:vars={{ text }}>
+  const setSvgSize = () => {
+    const svg = document.getElementById(text);
 
-  if (svg instanceof SVGGraphicsElement) {
-    const bbox = svg.getBBox();
-    svg.setAttribute('height', bbox.height + '');
-    svg.setAttribute('width', bbox.width + '');
-  }
+    if (svg instanceof SVGGraphicsElement) {
+      const bbox = svg.getBBox();
+      svg.setAttribute('height', bbox.height + '');
+      svg.setAttribute('width', bbox.width + '');
+    }
+  };
+
+  setSvgSize();
+
+  document.addEventListener('astro:after-swap', setSvgSize);
 </script>
 
 <style>

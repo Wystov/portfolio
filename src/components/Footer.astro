@@ -1,0 +1,33 @@
+---
+const socialLinks = [
+  {
+    name: 'github',
+    url: 'https://github.com/wystov',
+  },
+  {
+    name: 'linkedin',
+    url: 'https://www.linkedin.com/in/wystov/',
+  },
+  {
+    name: 'telegram',
+    url: 'https://t.me/konssus',
+  },
+];
+---
+
+<footer class="flex justify-center gap-2 py-2">
+  {
+    socialLinks.map((social) => (
+      <a
+        href={social.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="size-12 p-2 opacity-75 hover:opacity-100 transition duration-300"
+      >
+        <svg class="size-full fill-black dark:fill-white">
+          <use href={`/icons.svg#${social.name}`} />
+        </svg>
+      </a>
+    ))
+  }
+</footer>

@@ -7,7 +7,7 @@ type Props = {
 export const Card = ({ project }: Props) => {
   return (
     <a
-      href={`/projects/${project.slug}`}
+      href={`/projects/${project.slug}/`}
       class="flex border-2 p-2 rounded col-span-2 md:col-span-1"
     >
       <div>

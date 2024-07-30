@@ -29,32 +29,34 @@ export const Projects = ({ data }: Props) => {
 
   return (
     <section class="mt-6">
-      <div class="grid grid-cols-6 gap-2">
+      <div class="grid grid-cols-6 gap-4">
         <div class="col-span-6 sm:col-span-1">
-          <p class="mb-4">Filter</p>
-          <ul class="flex flex-wrap gap-2 flex-row sm:flex-col">
+          <p class="mb-2">Filter</p>
+          <div class="flex flex-wrap gap-2 flex-row sm:flex-col">
             {Object.entries(tags()).map(([tag, isActive]) => (
-              <li onClick={() => toggleTag(tag)}>
-                <input
-                  type="checkbox"
-                  checked={isActive}
-                  disabled={!filteredTags().includes(tag)}
-                  class="mr-2"
-                />
+              <button
+                onClick={() => toggleTag(tag)}
+                disabled={!filteredTags().includes(tag)}
+                class="flex justify-start items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-auto rounded-md p-2 bg-slate-700/80 hover:bg-slate-700 w-full"
+              >
+                <svg class="size-5">
+                  <use
+                    href={`/icons.svg#${isActive ? 'cb-checked' : 'cb'}`}
+                    class={isActive ? 'fill-yellow-500' : 'fill-white'}
+                  />
+                </svg>
                 {tag}
-              </li>
+              </button>
             ))}
-          </ul>
+          </div>
         </div>
         <div class="col-span-6 sm:col-span-5">
-          <p class="mb-4">{`Show ${filteredProjects().length} of ${data.length} projects`}</p>
-          <ul class="grid grid-cols-2 gap-2">
+          <p class="mb-2">{`${filteredProjects().length} of ${data.length} projects`}</p>
+          <div class="grid grid-cols-2 gap-2">
             {filteredProjects().map((project) => (
-              <li class="col-span-2 md:col-span-1">
-                <Card project={project} />
-              </li>
+              <Card project={project} />
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </section>

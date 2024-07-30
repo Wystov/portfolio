@@ -1,7 +1,7 @@
 import type { TagsStateType } from '@/types';
 import { mapTagsState } from '@/utils/mapTagsState';
 import type { CollectionEntry } from 'astro:content';
-import { createEffect, createMemo, createSignal } from 'solid-js';
+import { createEffect, createMemo, createSignal, Show } from 'solid-js';
 import { Card } from './Card';
 
 type Props = {
@@ -16,11 +16,12 @@ export const Projects = ({ data }: Props) => {
     setTags((prev) => ({ ...prev, [tag]: !prev[tag] }));
   };
 
-  const filteredProjects = createMemo(() => {
-    const activeTags = Object.keys(tags()).filter((tag) => tags()[tag]);
-    if (activeTags.length === 0) return data;
+  const activeTags = createMemo(() => Object.keys(tags()).filter((tag) => tags()[tag]));
 
-    return data.filter((project) => activeTags.every((tag) => project.data.tags.includes(tag)));
+  const filteredProjects = createMemo(() => {
+    if (activeTags().length === 0) return data;
+
+    return data.filter((project) => activeTags().every((tag) => project.data.tags.includes(tag)));
   });
 
   const filteredTags = createMemo(() => [
@@ -31,7 +32,12 @@ export const Projects = ({ data }: Props) => {
     <section class="mt-6">
       <div class="grid grid-cols-6 gap-4">
         <div class="col-span-6 sm:col-span-1">
-          <p class="mb-2">Filter</p>
+          <div class="flex justify-between">
+            <p class="mb-2">Filter</p>
+            <Show when={activeTags().length}>
+              <button onClick={() => setTags(mapTagsState(data))}>reset</button>
+            </Show>
+          </div>
           <div class="flex flex-wrap gap-2 flex-row sm:flex-col">
             {Object.entries(tags()).map(([tag, isActive]) => (
               <button

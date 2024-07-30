@@ -23,7 +23,7 @@ const { text } = Astro.props;
   <use xlink:href="#s-text" class="effect color5"></use>
 </svg>
 
-<script define:vars={{ text }}>
+<script is:inline define:vars={{ text }}>
   const setSvgSize = () => {
     const svg = document.getElementById(text);
 
@@ -35,6 +35,8 @@ const { text } = Astro.props;
   };
 
   setSvgSize();
+
+  document.fonts.onloadingdone = setSvgSize;
 
   document.addEventListener('astro:after-swap', setSvgSize);
 </script>

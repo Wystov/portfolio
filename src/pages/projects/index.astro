@@ -7,9 +7,7 @@ const projects = await getCollection('projects');
 ---
 
 <BaseLayout pageTitle="Projects">
-  <section class="h-full flex flex-col items-center gap-2">
-    <p>Projects</p>
-    <p>Total: {projects.length}</p>
+  <section class="mb-4">
     <Projects client:load data={projects} />
   </section>
 </BaseLayout>

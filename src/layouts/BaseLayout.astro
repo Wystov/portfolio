@@ -9,7 +9,7 @@ const { pageTitle } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <ViewTransitions />
@@ -17,7 +17,7 @@ const { pageTitle } = Astro.props;
   <body
     class="font-['Poppins'] bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-50 transition-colors duration-500"
   >
-    <div class="flex flex-col min-h-dvh max-w-screen-md m-auto px-6">
+    <div class="flex flex-col min-h-dvh max-w-screen-xl m-auto px-6">
       <Header />
       <main class="flex flex-col grow">
         <slot />

@@ -5,9 +5,39 @@ const pageTitle = 'Home | Wystov';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <section class="flex flex-col grow justify-center items-center mt-[-52px]">
+  <section
+    class="flex flex-col grow justify-center items-center mt-[-52px] opacity-0 blur-sm animate-[fadein_500ms_ease-in_forwards]"
+  >
     <h1 class="text-5xl font-bold">Hi, i'm</h1>
     <AnimatedText text="WYSTOV" />
-    <p class="text-lg tracking-wider">Frontend developer</p>
+    <p class="text-lg tracking-[-0.5em] opacity-0 animate-[textexpand_1.5s_ease_1s_forwards]">
+      Frontend developer
+    </p>
   </section>
 </BaseLayout>
+
+<style>
+  @keyframes fadein {
+    0% {
+      filter: blur(6px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes textexpand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    60% {
+      opacity: 0.8;
+    }
+    100% {
+      letter-spacing: 0.05em;
+      opacity: 1;
+    }
+  }
+</style>

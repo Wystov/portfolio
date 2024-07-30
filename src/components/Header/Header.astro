@@ -9,7 +9,9 @@ const links = [
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<header class="sticky top-0 w-full py-3 flex justify-between">
+<header
+  class="sticky top-0 w-full py-3 flex justify-between bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-[1px]"
+>
   <nav class="flex gap-4 justify-start">
     {
       links.map((link) => (

@@ -12,6 +12,13 @@ export const Card = ({ project }: Props) => {
     >
       <div>
         <h3>{project.data.title}</h3>
+        <p>
+          {project.data.date.toLocaleDateString('en-US', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })}
+        </p>
         <ul class="flex gap-2">
           {project.data.tags.map((tag) => (
             <li>{tag}</li>

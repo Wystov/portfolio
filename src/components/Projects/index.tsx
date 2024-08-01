@@ -9,15 +9,10 @@ type Props = {
 };
 
 export const Projects = ({ data }: Props) => {
-  const [tags, setTags] = createSignal<TagsStateType>(mapTagsState(data));
-  const [sort, setSort] = createSignal<'Old' | 'New'>('New');
+  const [tagsState, setTagsState] = createSignal<TagsStateType>(mapTagsState(data));
+  const [sortOrder, setSortOrder] = createSignal<'Old' | 'New'>('New');
 
-  const toggleTag = (tag: string) => {
-    if (!filteredTags().includes(tag)) return;
-    setTags((prev) => ({ ...prev, [tag]: !prev[tag] }));
-  };
-
-  const activeTags = createMemo(() => Object.keys(tags()).filter((tag) => tags()[tag]));
+  const activeTags = createMemo(() => Object.keys(tagsState()).filter((tag) => tagsState()[tag]));
 
   const filteredProjects = createMemo(() => {
     return activeTags().length === 0
@@ -28,17 +23,23 @@ export const Projects = ({ data }: Props) => {
   const sortedProjects = createMemo(() => {
     return [...filteredProjects()].sort(({ data: projectA }, { data: projectB }) => {
       const isFirstNewer = projectA.date > projectB.date;
-      if (sort() === 'Old') return isFirstNewer ? 1 : -1;
+      if (sortOrder() === 'Old') return isFirstNewer ? 1 : -1;
       return isFirstNewer ? -1 : 1;
     });
   });
 
-  const filteredTags = createMemo(() => [
+  const availableTags = createMemo(() => [
     ...new Set(filteredProjects().flatMap((project) => project.data.tags)),
   ]);
 
-  const handleSortClick = () => {
-    setSort((prev) => (prev === 'New' ? 'Old' : 'New'));
+  const handleTags = (tag?: string) => {
+    if (!tag) return setTagsState(mapTagsState(data));
+    if (!availableTags().includes(tag)) return;
+    setTagsState((prev) => ({ ...prev, [tag]: !prev[tag] }));
+  };
+
+  const handleSort = () => {
+    setSortOrder((prev) => (prev === 'New' ? 'Old' : 'New'));
   };
 
   return (
@@ -48,16 +49,16 @@ export const Projects = ({ data }: Props) => {
           <div class="flex justify-between mb-2">
             <p>Filter</p>
             <Show when={activeTags().length}>
-              <button onClick={() => setTags(mapTagsState(data))} class="hover:opacity-70">
+              <button onClick={() => handleTags()} class="hover:opacity-70">
                 reset
               </button>
             </Show>
           </div>
           <div class="flex flex-wrap gap-2 flex-row sm:flex-col">
-            {Object.entries(tags()).map(([tag, isActive]) => (
+            {Object.entries(tagsState()).map(([tag, isActive]) => (
               <button
-                onClick={() => toggleTag(tag)}
-                disabled={!filteredTags().includes(tag)}
+                onClick={() => handleTags(tag)}
+                disabled={!availableTags().includes(tag)}
                 class="flex justify-start items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-auto rounded-md p-2 bg-slate-700/80 hover:bg-slate-700 sm:w-full"
               >
                 <svg class="size-5">
@@ -74,11 +75,11 @@ export const Projects = ({ data }: Props) => {
         <div class="col-span-6 sm:col-span-5">
           <div class="flex justify-between mb-2">
             <p>{`${filteredProjects().length} of ${data.length} projects`}</p>
-            <button onClick={handleSortClick} class="flex gap-2 items-center">
-              {`${sort()} first`}
+            <button onClick={handleSort} class="flex gap-2 items-center">
+              {`${sortOrder()} first`}
               <svg class="size-5">
                 <use
-                  href={`/icons.svg#${sort() === 'New' ? 'arrow-up' : 'arrow-down'}`}
+                  href={`/icons.svg#${sortOrder() === 'New' ? 'arrow-up' : 'arrow-down'}`}
                   class="fill-black dark:fill-white"
                 />
               </svg>

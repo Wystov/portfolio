@@ -10,6 +10,7 @@ type Props = {
 
 export const Projects = ({ data }: Props) => {
   const [tags, setTags] = createSignal<TagsStateType>(mapTagsState(data));
+  const [sort, setSort] = createSignal<'Old' | 'New'>('New');
 
   const toggleTag = (tag: string) => {
     if (!filteredTags().includes(tag)) return;
@@ -19,14 +20,26 @@ export const Projects = ({ data }: Props) => {
   const activeTags = createMemo(() => Object.keys(tags()).filter((tag) => tags()[tag]));
 
   const filteredProjects = createMemo(() => {
-    if (activeTags().length === 0) return data;
+    return activeTags().length === 0
+      ? data
+      : data.filter(({ data: project }) => activeTags().every((tag) => project.tags.includes(tag)));
+  });
 
-    return data.filter((project) => activeTags().every((tag) => project.data.tags.includes(tag)));
+  const sortedProjects = createMemo(() => {
+    return [...filteredProjects()].sort(({ data: projectA }, { data: projectB }) => {
+      const isFirstNewer = projectA.date > projectB.date;
+      if (sort() === 'Old') return isFirstNewer ? 1 : -1;
+      return isFirstNewer ? -1 : 1;
+    });
   });
 
   const filteredTags = createMemo(() => [
     ...new Set(filteredProjects().flatMap((project) => project.data.tags)),
   ]);
+
+  const handleSortClick = () => {
+    setSort((prev) => (prev === 'New' ? 'Old' : 'New'));
+  };
 
   return (
     <section class="mt-6">
@@ -59,9 +72,20 @@ export const Projects = ({ data }: Props) => {
           </div>
         </div>
         <div class="col-span-6 sm:col-span-5">
-          <p class="mb-2">{`${filteredProjects().length} of ${data.length} projects`}</p>
+          <div class="flex justify-between mb-2">
+            <p>{`${filteredProjects().length} of ${data.length} projects`}</p>
+            <button onClick={handleSortClick} class="flex gap-2 items-center">
+              {`${sort()} first`}
+              <svg class="size-5">
+                <use
+                  href={`/icons.svg#${sort() === 'New' ? 'arrow-up' : 'arrow-down'}`}
+                  class="fill-black dark:fill-white"
+                />
+              </svg>
+            </button>
+          </div>
           <div class="grid grid-cols-2 gap-2">
-            {filteredProjects().map((project) => (
+            {sortedProjects().map((project) => (
               <Card project={project} />
             ))}
           </div>

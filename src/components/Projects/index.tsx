@@ -1,8 +1,9 @@
 import type { TagsStateType } from '@/types';
 import { mapTagsState } from '@/utils/mapTagsState';
 import type { CollectionEntry } from 'astro:content';
-import { createMemo, createSignal, Show, For } from 'solid-js';
-import { Card } from './Card';
+import { createMemo, createSignal } from 'solid-js';
+import { Filters } from './Filters';
+import { ProjectList } from './ProjectList';
 
 type Props = {
   data: CollectionEntry<'projects'>[];
@@ -56,54 +57,21 @@ export const Projects = (props: Props) => {
   return (
     <section class="mt-6">
       <div class="grid grid-cols-6 gap-4">
-        <div class="col-span-6 sm:col-span-1">
-          <div class="mb-2 flex justify-between">
-            <p>Filter</p>
-            <Show when={activeTags().length}>
-              <button onClick={() => handleTags()} class="hover:opacity-70">
-                reset
-              </button>
-            </Show>
-          </div>
-          <div class="flex flex-row flex-wrap gap-2 sm:flex-col">
-            <For each={Object.entries(tagsState())}>
-              {([tag, isActive]) => (
-                <button
-                  onClick={() => handleTags(tag)}
-                  disabled={!availableTags().includes(tag)}
-                  class="flex cursor-pointer items-center justify-start gap-2 rounded-md bg-slate-700/80 p-2 hover:bg-slate-700 disabled:cursor-auto disabled:opacity-50 sm:w-full"
-                >
-                  <svg class="size-5">
-                    <use
-                      href={`/icons.svg#${isActive ? 'cb-checked' : 'cb'}`}
-                      class={isActive ? 'fill-yellow-500' : 'fill-white'}
-                    />
-                  </svg>
-                  {tag}
-                </button>
-              )}
-            </For>
-          </div>
-        </div>
-        <div class="col-span-6 sm:col-span-5">
-          <div class="mb-2 flex justify-between">
-            <p>{`${filteredProjects().length} of ${initialData().length} projects`}</p>
-            <button onClick={handleSort} class="flex items-center gap-2">
-              {`${sortOrder()} first`}
-              <svg class="size-5">
-                <use
-                  href={`/icons.svg#${sortOrder() === 'New' ? 'arrow-up' : 'arrow-down'}`}
-                  class="fill-black dark:fill-white"
-                />
-              </svg>
-            </button>
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <For each={sortedProjects()}>
-              {(project) => <Card project={project} />}
-            </For>
-          </div>
-        </div>
+        <Filters
+          activeTags={activeTags}
+          handleTags={handleTags}
+          tagsState={tagsState}
+          availableTags={availableTags}
+        />
+        <ProjectList
+          projectsCount={{
+            init: initialData().length,
+            filtered: filteredProjects().length,
+          }}
+          sortedProjects={sortedProjects}
+          sortOrder={sortOrder}
+          handleSort={handleSort}
+        />
       </div>
     </section>
   );

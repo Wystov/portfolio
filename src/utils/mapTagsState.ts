@@ -1,5 +1,4 @@
 import type { ProjectsType, TagsStateType } from '@/types';
-import type { CollectionEntry } from 'astro:content';
 
 export const mapTagsState = (projects: ProjectsType) =>
   projects.reduce((acc, project) => {

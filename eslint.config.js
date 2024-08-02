@@ -10,6 +10,9 @@ export default [
     files: ['**/*.{js,mjs,cjs,ts,tsx,astro}'],
   },
   {
+    ignores: ['.astro/*'],
+  },
+  {
     languageOptions: { globals: globals.browser },
   },
   pluginJs.configs.recommended,

@@ -1,5 +1,9 @@
 <button id="themeToggle">
-  <svg class="size-6 active:animate-ping" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <svg
+    class="size-6 active:animate-ping"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
     <use href="/icons.svg#sun" class="fill-black dark:fill-transparent"></use>
     <use href="/icons.svg#moon" class="fill-transparent dark:fill-white"></use>
   </svg>
@@ -28,7 +32,9 @@
   const setTheme = () => {
     const action = getTheme() === 'dark' ? 'add' : 'remove';
     document.documentElement.classList[action]('dark');
-    document.getElementById('themeToggle').addEventListener('click', handleToggleClick);
+    document
+      .getElementById('themeToggle')
+      .addEventListener('click', handleToggleClick);
   };
 
   setTheme();

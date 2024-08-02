@@ -1,4 +1,4 @@
-import { For } from "solid-js";
+import { For } from 'solid-js';
 import type { ProjectsType } from '@/types';
 
 type Props = {
@@ -9,7 +9,7 @@ export const Card = (props: Props) => {
   return (
     <a
       href={`/projects/${props.project.slug}/`}
-      class="flex border-2 p-2 rounded col-span-2 md:col-span-1"
+      class="col-span-2 flex rounded border-2 p-2 md:col-span-1"
     >
       <div>
         <h3>{props.project.data.title}</h3>
@@ -21,9 +21,7 @@ export const Card = (props: Props) => {
           })}
         </p>
         <ul class="flex gap-2">
-          <For each={props.project.data.tags}>{(tag) => (
-            <li>{tag}</li>
-          )}</For>
+          <For each={props.project.data.tags}>{(tag) => <li>{tag}</li>}</For>
         </ul>
       </div>
     </a>

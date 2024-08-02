@@ -15,11 +15,11 @@ const { pageTitle } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="font-poppins bg-stone-50 text-stone-950 dark:bg-stone-950 dark:text-stone-50 transition-colors duration-500"
+    class="bg-stone-50 font-poppins text-stone-950 transition-colors duration-500 dark:bg-stone-950 dark:text-stone-50"
   >
-    <div class="flex flex-col min-h-dvh max-w-screen-xl m-auto px-6">
+    <div class="m-auto flex min-h-dvh max-w-screen-xl flex-col px-6">
       <Header />
-      <main class="flex flex-col grow">
+      <main class="flex grow flex-col">
         <slot />
       </main>
       <Footer />

@@ -21,7 +21,7 @@ export const Filters = (props: Props) => {
       </div>
       <div class="flex flex-row flex-wrap gap-2 sm:flex-col">
         <For each={Object.entries(props.tagsState())}>
-          {([tag, isActive]) => (
+          {([tag, { isActive, count }]) => (
             <button
               onClick={() => props.handleTags(tag)}
               disabled={!props.availableTags().includes(tag)}
@@ -34,6 +34,7 @@ export const Filters = (props: Props) => {
                 />
               </svg>
               {tag}
+              <span class="ml-auto">{`(${count})`}</span>
             </button>
           )}
         </For>

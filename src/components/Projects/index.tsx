@@ -11,14 +11,14 @@ type Props = {
 
 export const Projects = (props: Props) => {
   const initialData = () => props.data;
-  const allTags = createMemo(() => mapTagsState(initialData()));
 
-  // eslint-disable-next-line solid/reactivity
-  const [tagsState, setTagsState] = createSignal<TagsStateType>(allTags());
+  const [tagsState, setTagsState] = createSignal<TagsStateType>(
+    mapTagsState(initialData())
+  );
   const [sortOrder, setSortOrder] = createSignal<'Old' | 'New'>('New');
 
   const activeTags = createMemo(() =>
-    Object.keys(tagsState()).filter((tag) => tagsState()[tag])
+    Object.keys(tagsState()).filter((tag) => tagsState()[tag].isActive)
   );
 
   const filteredProjects = createMemo(() => {
@@ -45,9 +45,13 @@ export const Projects = (props: Props) => {
   ]);
 
   const handleTags = (tag?: string) => {
-    if (!tag) return setTagsState(allTags());
+    if (!tag) return setTagsState(mapTagsState(initialData()));
     if (!availableTags().includes(tag)) return;
-    setTagsState((prev) => ({ ...prev, [tag]: !prev[tag] }));
+    setTagsState((prev) => {
+      const newTagsState = { ...prev };
+      newTagsState[tag].isActive = !prev[tag].isActive;
+      return newTagsState;
+    });
   };
 
   const handleSort = () => {

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -19,4 +20,9 @@ const { project } = Astro.props;
   <p>Tags: {project.data.tags.join(', ')}</p>
   <a href={project.data.urlDemo} target="_blank">Demo</a>
   <a href={project.data.urlRepo} target="_blank">Repo</a>
+  {
+    project.data.coverImg && (
+      <Image src={project.data.coverImg} alt={project.data.title} />
+    )
+  }
 </BaseLayout>

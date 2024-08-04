@@ -15,11 +15,16 @@ export const Filters = (props: Props) => {
         <p>Filter</p>
         <Show when={props.activeTags().length}>
           <button onClick={() => props.handleTags()} class="hover:opacity-70">
-            reset
+            <svg class="size-5">
+              <use
+                href="/icons.svg#x-mark"
+                class="fill-black dark:fill-white"
+              />
+            </svg>
           </button>
         </Show>
       </div>
-      <div class="flex flex-row flex-wrap gap-2 sm:flex-col">
+      <div class="flex flex-row flex-wrap gap-1 sm:flex-col">
         <For each={Object.entries(props.tagsState())}>
           {([tag, { isActive, count }]) => (
             <button

@@ -15,9 +15,8 @@ const { Content } = await project.render();
 ---
 
 <BaseLayout pageTitle={project.data.title}>
-  <a href="/projects/">Back</a>
-  <h1>{project.data.title}</h1>
-  <article class="prose lg:prose-xl dark:prose-invert max-w-none">
+  <p class="my-6 text-5xl font-black lg:text-6xl">{project.data.title}</p>
+  <article class="prose max-w-none lg:prose-xl dark:prose-invert">
     <Content />
   </article>
   <p>Tags: {project.data.tags.join(', ')}</p>

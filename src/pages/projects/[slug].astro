@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
+import Link from '@/components/Link.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -15,13 +16,15 @@ const { Content } = await project.render();
 ---
 
 <BaseLayout pageTitle={project.data.title}>
-  <p class="my-6 text-5xl font-black lg:text-6xl">{project.data.title}</p>
-  <article class="prose max-w-none lg:prose-xl dark:prose-invert">
+  <h1 class="my-6 text-5xl font-black lg:text-6xl">{project.data.title}</h1>
+  <div class="mb-6 flex gap-2">
+    <Link href={project.data.urlDemo} text="Demo" external />
+    <Link href={project.data.urlRepo} text="Repo" external />
+  </div>
+  <article class="prose mb-6 max-w-none lg:prose-xl dark:prose-invert">
     <Content />
   </article>
   <p>Tags: {project.data.tags.join(', ')}</p>
-  <a href={project.data.urlDemo} target="_blank">Demo</a>
-  <a href={project.data.urlRepo} target="_blank">Repo</a>
   {
     project.data.coverImg && (
       <Image src={project.data.coverImg} alt={project.data.title} />

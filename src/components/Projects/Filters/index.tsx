@@ -3,7 +3,7 @@ import { Show, For, type Accessor } from 'solid-js';
 
 type Props = {
   activeTags: Accessor<string[]>;
-  handleTags: (tag?: string) => TagsStateType | undefined;
+  handleTags: (category?: string, tag?: string) => TagsStateType | undefined;
   tagsState: Accessor<TagsStateType>;
   availableTags: Accessor<string[]>;
 };
@@ -24,23 +24,30 @@ export const Filters = (props: Props) => {
           </button>
         </Show>
       </div>
-      <div class="flex flex-row flex-wrap gap-1 sm:flex-col">
+      <div class="flex flex-row flex-wrap gap-3 sm:flex-col">
         <For each={Object.entries(props.tagsState())}>
-          {([tag, { isActive, count }]) => (
-            <button
-              onClick={() => props.handleTags(tag)}
-              disabled={!props.availableTags().includes(tag)}
-              class="flex cursor-pointer items-center justify-start gap-2 rounded-md bg-slate-700/80 p-2 hover:bg-slate-700 disabled:cursor-auto disabled:opacity-50 sm:w-full"
-            >
-              <svg class="size-5">
-                <use
-                  href={`/icons.svg#${isActive ? 'cb-checked' : 'cb'}`}
-                  class={isActive ? 'fill-yellow-500' : 'fill-white'}
-                />
-              </svg>
-              {tag}
-              <span class="ml-auto">{`(${count})`}</span>
-            </button>
+          {([category, tags]) => (
+            <div class="pb-3 [&:not(:last-child)]:border-b-2">
+              <p class="mb-1 font-semibold">{category}</p>
+              <For each={Object.entries(tags)}>
+                {([tag, { isActive, count }]) => (
+                  <button
+                    onClick={() => props.handleTags(category, tag)}
+                    disabled={!props.availableTags().includes(tag)}
+                    class="flex cursor-pointer items-center justify-start gap-2 hover:bg-slate-700 disabled:cursor-auto disabled:opacity-50 sm:w-full"
+                  >
+                    <svg class="size-5">
+                      <use
+                        href={`/icons.svg#${isActive ? 'cb-checked' : 'cb'}`}
+                        class={isActive ? 'fill-yellow-500' : 'fill-white'}
+                      />
+                    </svg>
+                    {tag}
+                    <span class="ml-auto opacity-70">{`(${count})`}</span>
+                  </button>
+                )}
+              </For>
+            </div>
           )}
         </For>
       </div>

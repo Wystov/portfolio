@@ -18,7 +18,11 @@ export const Projects = (props: Props) => {
   const [sortOrder, setSortOrder] = createSignal<'Old' | 'New'>('New');
 
   const activeTags = createMemo(() =>
-    Object.keys(tagsState()).filter((tag) => tagsState()[tag].isActive)
+    Object.values(tagsState()).flatMap((tags) =>
+      Object.entries(tags)
+        .filter(([, { isActive }]) => isActive)
+        .map(([tag]) => tag)
+    )
   );
 
   const filteredProjects = createMemo(() => {
@@ -44,12 +48,12 @@ export const Projects = (props: Props) => {
     ...new Set(filteredProjects().flatMap((project) => project.data.tags)),
   ]);
 
-  const handleTags = (tag?: string) => {
-    if (!tag) return setTagsState(mapTagsState(initialData()));
+  const handleTags = (category?: string, tag?: string) => {
+    if (!category || !tag) return setTagsState(mapTagsState(initialData()));
     if (!availableTags().includes(tag)) return;
     setTagsState((prev) => {
       const newTagsState = { ...prev };
-      newTagsState[tag].isActive = !prev[tag].isActive;
+      newTagsState[category][tag].isActive = !prev[category][tag].isActive;
       return newTagsState;
     });
   };

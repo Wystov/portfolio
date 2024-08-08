@@ -3,7 +3,7 @@ import { Show, For, type Accessor } from 'solid-js';
 
 type Props = {
   activeTags: Accessor<string[]>;
-  handleTags: (category?: string, tag?: string) => TagsStateType | undefined;
+  handleTags: (category?: string, tag?: string) => void;
   tagsState: Accessor<TagsStateType>;
   availableTags: Accessor<string[]>;
 };
@@ -25,11 +25,11 @@ export const Filters = (props: Props) => {
         </Show>
       </div>
       <div class="flex flex-row flex-wrap gap-3 sm:flex-col">
-        <For each={Object.entries(props.tagsState())}>
+        <For each={[...props.tagsState().entries()]}>
           {([category, tags]) => (
             <div class="pb-3 [&:not(:last-child)]:border-b-2">
               <p class="mb-1 font-semibold">{category}</p>
-              <For each={Object.entries(tags)}>
+              <For each={[...tags.entries()]}>
                 {([tag, { isActive, count }]) => (
                   <button
                     onClick={() => props.handleTags(category, tag)}

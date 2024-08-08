@@ -8,16 +8,28 @@ const getTagCategory = (tag: string) => {
   return 'Other';
 };
 
-export const mapTagsState = (projects: ProjectsType) =>
-  projects.reduce((acc, { data: project }) => {
+export const mapTagsState = (projects: ProjectsType): TagsStateType => {
+  const tagsState = new Map();
+  Object.keys(FILTER_CATEGORIES).forEach((category) => {
+    tagsState.set(category, new Map());
+  });
+
+  return projects.reduce((tagsState, { data: project }) => {
     for (const tag of project.tags) {
       const category = getTagCategory(tag);
-      if (!(category in acc)) acc[category] = {};
-      if (!(tag in acc[category])) {
-        acc[category][tag] = { isActive: false, count: 1 };
-      } else {
-        acc[category][tag].count += 1;
+      if (!tagsState.has(category)) {
+        tagsState.set(category, new Map());
       }
+      const tagsInCategory = tagsState.get(category)!;
+      if (!tagsInCategory.has(tag)) {
+        tagsInCategory.set(tag, { isActive: false, count: 0 });
+      }
+      const currentTagState = tagsInCategory.get(tag);
+      tagsInCategory.set(tag, {
+        ...currentTagState,
+        count: currentTagState.count + 1,
+      });
     }
-    return acc;
-  }, {} as TagsStateType);
+    return tagsState;
+  }, tagsState);
+};

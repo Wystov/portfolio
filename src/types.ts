@@ -2,11 +2,8 @@ import type { CollectionEntry } from 'astro:content';
 
 export type ProjectsType = CollectionEntry<'projects'>[];
 
-export type TagsStateType = {
-  [category: string]: {
-    [tag: string]: {
-      isActive: boolean;
-      count: number;
-    };
-  };
+type TagState = {
+  isActive: boolean;
+  count: number;
 };
+export type TagsStateType = Map<string, Map<string, TagState>>;

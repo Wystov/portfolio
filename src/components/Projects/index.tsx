@@ -1,12 +1,11 @@
-import type { TagsStateType } from '@/types';
+import type { TagsStateType, ProjectsType } from '@/types';
 import { mapTagsState } from '@/utils/mapTagsState';
-import type { CollectionEntry } from 'astro:content';
 import { createMemo, createSignal } from 'solid-js';
 import { Filters } from './Filters';
 import { ProjectList } from './ProjectList';
 
 type Props = {
-  data: CollectionEntry<'projects'>[];
+  data: ProjectsType;
 };
 
 export const Projects = (props: Props) => {
@@ -18,8 +17,8 @@ export const Projects = (props: Props) => {
   const [sortOrder, setSortOrder] = createSignal<'Old' | 'New'>('New');
 
   const activeTags = createMemo(() =>
-    Object.values(tagsState()).flatMap((tags) =>
-      Object.entries(tags)
+    [...tagsState().values()].flatMap((tags) =>
+      [...tags.entries()]
         .filter(([, { isActive }]) => isActive)
         .map(([tag]) => tag)
     )
@@ -51,9 +50,15 @@ export const Projects = (props: Props) => {
   const handleTags = (category?: string, tag?: string) => {
     if (!category || !tag) return setTagsState(mapTagsState(initialData()));
     if (!availableTags().includes(tag)) return;
+
     setTagsState((prev) => {
-      const newTagsState = { ...prev };
-      newTagsState[category][tag].isActive = !prev[category][tag].isActive;
+      const newTagsState = new Map(prev);
+      const tags = newTagsState.get(category);
+      const tagState = tags?.get(tag);
+      if (tags && tagState) {
+        tags.set(tag, { ...tagState, isActive: !tagState.isActive });
+        newTagsState.set(category, tags);
+      }
       return newTagsState;
     });
   };

@@ -5,7 +5,7 @@ type Props = {
   activeTags: Accessor<string[]>;
   handleTags: (category?: string, tag?: string) => void;
   tagsState: Accessor<TagsStateType>;
-  availableTags: Accessor<string[]>;
+  availableTags: Accessor<Map<string, number>>;
 };
 
 export const Filters = (props: Props) => {
@@ -30,10 +30,10 @@ export const Filters = (props: Props) => {
             <div class="pb-3 [&:not(:last-child)]:border-b-2">
               <p class="mb-1 font-semibold">{category}</p>
               <For each={[...tags.entries()]}>
-                {([tag, { isActive, count }]) => (
+                {([tag, { isActive }]) => (
                   <button
                     onClick={() => props.handleTags(category, tag)}
-                    disabled={!props.availableTags().includes(tag)}
+                    disabled={!props.availableTags().has(tag)}
                     class="flex cursor-pointer items-center justify-start gap-2 hover:bg-slate-700 disabled:cursor-auto disabled:opacity-50 sm:w-full"
                   >
                     <svg class="size-5">
@@ -43,7 +43,7 @@ export const Filters = (props: Props) => {
                       />
                     </svg>
                     {tag}
-                    <span class="ml-auto opacity-70">{`(${count})`}</span>
+                    <span class="ml-auto opacity-70">{`(${props.availableTags().get(tag) ?? 0})`}</span>
                   </button>
                 )}
               </For>

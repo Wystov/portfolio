@@ -43,13 +43,18 @@ export const Projects = (props: Props) => {
     );
   });
 
-  const availableTags = createMemo(() => [
-    ...new Set(filteredProjects().flatMap((project) => project.data.tags)),
-  ]);
+  const availableTags = createMemo(() =>
+    filteredProjects()
+      .flatMap(({ data: project }) => project.tags)
+      .reduce((acc, tag) => {
+        acc.set(tag, (acc.get(tag) ?? 0) + 1);
+        return acc;
+      }, new Map<string, number>())
+  );
 
   const handleTags = (category?: string, tag?: string) => {
     if (!category || !tag) return setTagsState(mapTagsState(initialData()));
-    if (!availableTags().includes(tag)) return;
+    if (!availableTags().has(tag)) return;
 
     setTagsState((prev) => {
       const newTagsState = new Map(prev);

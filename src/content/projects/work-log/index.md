@@ -1,7 +1,7 @@
 ---
 title: Work log
 date: 2023-08-05
-tags: [JavaScript, Vue]
+tags: [JavaScript, Vue, Personal]
 urlRepo: https://github.com/Wystov/work-log
 urlDemo: https://wystov.github.io/work-log/
 ---

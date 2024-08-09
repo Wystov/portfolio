@@ -1,7 +1,7 @@
 ---
 title: Virtual keyboard
 date: 2023-04-22
-tags: [JavaScript]
+tags: [JavaScript, Personal]
 urlRepo: https://github.com/Wystov/virtual-keyboard
 urlDemo: https://wystov.github.io/virtual-keyboard/
 coverImg: './cover.png'

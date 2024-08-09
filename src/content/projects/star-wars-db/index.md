@@ -1,7 +1,7 @@
 ---
 title: Star wars DB
 date: 2023-11-18
-tags: [TypeScript, React, Next, Redux Toolkit]
+tags: [TypeScript, React, Next, Redux Toolkit, Personal]
 urlRepo: https://github.com/Wystov/star-wars-db
 urlDemo: https://rss-react-w4.netlify.app/
 coverImg: './cover.png'

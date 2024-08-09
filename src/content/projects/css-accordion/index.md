@@ -1,7 +1,7 @@
 ---
 title: CSS accordion
 date: 2023-03-12
-tags: []
+tags: [Personal]
 urlRepo: https://github.com/Wystov/cssBayan
 urlDemo: https://wystov.github.io/cssBayan/cssBayan
 ---

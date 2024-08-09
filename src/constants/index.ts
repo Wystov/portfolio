@@ -1,5 +1,5 @@
 export const FILTER_CATEGORIES = {
-  type: ['Individual', 'Teamwork', 'Opensource'],
+  type: ['Personal', 'Teamwork', 'Opensource'],
   languages: ['JavaScript', 'TypeScript'],
   frameworks: ['Vue', 'React', 'Next'],
   // misc: [

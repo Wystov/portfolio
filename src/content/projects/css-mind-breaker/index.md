@@ -1,7 +1,7 @@
 ---
 title: Css Mind Breaker
 date: 2023-07-02
-tags: [TypeScript]
+tags: [TypeScript, Personal]
 urlRepo: https://github.com/Wystov/CSS-mind-breaker
 urlDemo: https://wystov.github.io/CSS-mind-breaker/
 coverImg: './cover.png'

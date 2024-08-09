@@ -1,7 +1,7 @@
 ---
 title: Async Race
 date: 2023-07-22
-tags: [TypeScript]
+tags: [TypeScript, Personal]
 urlRepo: https://github.com/Wystov/async-race
 urlDemo: https://wystov.github.io/async-race/
 coverImg: './cover.png'

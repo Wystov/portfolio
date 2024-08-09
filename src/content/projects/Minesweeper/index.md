@@ -1,7 +1,7 @@
 ---
 title: Minesweeper
 date: 2023-05-21
-tags: [JavaScript]
+tags: [JavaScript, Personal]
 urlRepo: https://github.com/Wystov/Minesweeper
 urlDemo: https://wystov.github.io/Minesweeper/
 coverImg: './cover.png'

@@ -1,7 +1,7 @@
 ---
 title: Movie queue
 date: 2024-07-20
-tags: [TypeScript, Vue, Pinia, Vuetify]
+tags: [TypeScript, Vue, Pinia, Vuetify, Personal]
 urlRepo: https://github.com/Wystov/movie-queue
 urlDemo: https://movie-queue.netlify.app/
 coverImg: './cover.png'

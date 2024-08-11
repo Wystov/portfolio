@@ -5,7 +5,7 @@ const getTagCategory = (tag: string) => {
   for (const [category, tags] of Object.entries(FILTER_CATEGORIES)) {
     if (tags.includes(tag)) return category;
   }
-  return 'Other';
+  return 'other';
 };
 
 export const mapTagsState = (projects: ProjectsType): TagsStateType => {

@@ -11,7 +11,7 @@ type Props = {
 
 export const ProjectList = (props: Props) => {
   return (
-    <div class="col-span-6 sm:col-span-5">
+    <div class="col-span-2 sm:col-span-1">
       <div class="mb-2 flex justify-between">
         <p>{`${props.projectsCount.filtered} of ${props.projectsCount.init} projects`}</p>
         <button

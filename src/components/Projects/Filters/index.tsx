@@ -10,7 +10,7 @@ type Props = {
 
 export const Filters = (props: Props) => {
   return (
-    <div class="col-span-6 sm:col-span-1">
+    <div class="col-span-2 sm:col-span-1">
       <div class="mb-2 flex justify-between">
         <p>Filter</p>
         <Show when={props.activeTags().length}>
@@ -24,7 +24,7 @@ export const Filters = (props: Props) => {
           </button>
         </Show>
       </div>
-      <div class="flex flex-row flex-wrap gap-3 sm:flex-col">
+      <div class="flex flex-row flex-wrap gap-3 overflow-hidden sm:flex-col">
         <For each={[...props.tagsState().entries()]}>
           {([category, tags]) => (
             <div class="pb-3 [&:not(:last-child)]:border-b-2">
@@ -34,12 +34,12 @@ export const Filters = (props: Props) => {
                   <button
                     onClick={() => props.handleTags(category, tag)}
                     disabled={!props.availableTags().has(tag)}
-                    class="flex cursor-pointer items-center justify-start gap-2 hover:bg-slate-700 disabled:cursor-auto disabled:opacity-50 sm:w-full"
+                    class="flex cursor-pointer items-center justify-start gap-2 rounded hover:bg-slate-700/50 disabled:cursor-auto disabled:opacity-50 disabled:hover:bg-transparent sm:w-full"
                   >
                     <svg class="size-5">
                       <use
                         href={`/icons.svg#${isActive ? 'cb-checked' : 'cb'}`}
-                        class={isActive ? 'fill-yellow-500' : 'fill-white'}
+                        class={isActive ? 'fill-amber-300' : 'fill-white'}
                       />
                     </svg>
                     {tag}

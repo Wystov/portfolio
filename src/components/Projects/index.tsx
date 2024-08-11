@@ -74,7 +74,7 @@ export const Projects = (props: Props) => {
 
   return (
     <section class="mt-6">
-      <div class="grid grid-cols-6 gap-4">
+      <div class="grid grid-cols-[200px,1fr] gap-6">
         <Filters
           activeTags={activeTags}
           handleTags={handleTags}

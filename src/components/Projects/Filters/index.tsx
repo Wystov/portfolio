@@ -50,7 +50,7 @@ export const Filters = (props: Props) => {
               class="w-[200px] pb-3 sm:[&:not(:last-child)]:border-b-2"
             >
               <summary
-                class="mb-1 font-semibold"
+                class="mb-1 font-semibold max-sm:cursor-pointer sm:list-none"
                 onClick={(e) => {
                   e.preventDefault();
                   if (isLargeScreen()) return;

@@ -5,6 +5,7 @@ tags: [TypeScript, Vue, Pinia, Vuetify, Personal]
 urlRepo: https://github.com/Wystov/movie-queue
 urlDemo: https://movie-queue.netlify.app/
 coverImg: './cover.png'
+brief: 'Find a movie and add it to queue'
 ---
 
 ## Overview

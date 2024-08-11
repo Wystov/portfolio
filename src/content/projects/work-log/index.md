@@ -4,6 +4,7 @@ date: 2023-08-05
 tags: [JavaScript, Vue, Personal]
 urlRepo: https://github.com/Wystov/work-log
 urlDemo: https://wystov.github.io/work-log/
+brief: 'Util for generating telegram formatted reports for your task progress'
 ---
 
 ## Overview

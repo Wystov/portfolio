@@ -4,6 +4,7 @@ date: 2023-03-12
 tags: [Personal]
 urlRepo: https://github.com/Wystov/cssBayan
 urlDemo: https://wystov.github.io/cssBayan/cssBayan
+brief: 'CSS-only responsive accordion with click and hover functionality'
 ---
 
 ## Overview

@@ -5,6 +5,7 @@ tags: [TypeScript, React, GraphQL, Firebase, Teamwork]
 urlRepo: https://github.com/Howl404/graphiql-app
 urlDemo: https://graphiql-debugastronauts.netlify.app/
 coverImg: './cover.png'
+brief: 'Playground for any graphql API.'
 ---
 
 ## Overview

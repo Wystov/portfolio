@@ -20,6 +20,7 @@ export const Card = (props: Props) => {
             year: 'numeric',
           })}
         </p>
+        <p>{props.project.data.brief}</p>
         <ul class="flex flex-wrap gap-x-2 gap-y-1">
           <For each={props.project.data.tags}>{(tag) => <li>{tag}</li>}</For>
         </ul>

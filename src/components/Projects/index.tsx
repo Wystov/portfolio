@@ -1,6 +1,6 @@
 import type { TagsStateType, ProjectsType } from '@/types';
 import { mapTagsState } from '@/utils/mapTagsState';
-import { createMemo, createSignal } from 'solid-js';
+import { createEffect, createMemo, createSignal, onMount } from 'solid-js';
 import { Filters } from './Filters';
 import { ProjectList } from './ProjectList';
 
@@ -10,6 +10,35 @@ type Props = {
 
 export const Projects = (props: Props) => {
   const initialData = () => props.data;
+  const [searchParams, setSearchParams] = createSignal(new URLSearchParams());
+
+  onMount(() => {
+    setSearchParams(new URLSearchParams(window.location.search));
+    const sort = searchParams().get('sort');
+    if (sort) setSortOrder(sort as 'Old' | 'New');
+
+    const filter = searchParams().get('filter');
+    if (filter) {
+      const activeTags = filter.split(',');
+      setTagsState((prev) => {
+        const newTagsState = new Map(prev);
+        activeTags.forEach((tag) => {
+          for (const [category, tags] of newTagsState.entries()) {
+            if (tags.has(tag)) {
+              tags.set(tag, { ...tags.get(tag)!, isActive: true });
+              newTagsState.set(category, tags);
+            }
+          }
+        });
+        return newTagsState;
+      });
+    }
+  });
+
+  createEffect(() => {
+    const params = searchParams().toString().replace(/%2C/g, ',');
+    window.history.replaceState({}, '', `?${params}`);
+  });
 
   const [tagsState, setTagsState] = createSignal<TagsStateType>(
     mapTagsState(initialData())
@@ -56,6 +85,24 @@ export const Projects = (props: Props) => {
     if (!category || !tag) return setTagsState(mapTagsState(initialData()));
     if (!availableTags().has(tag)) return;
 
+    const filter = searchParams().get('filter')?.split(',') ?? [];
+    const newFilter = filter.includes(tag)
+      ? filter.filter((t) => t !== tag)
+      : [...filter, tag];
+    console.log(newFilter);
+
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      newFilter.length
+        ? params.set('filter', newFilter.join(','))
+        : params.delete('filter');
+      console.log(params.getAll('filter'));
+      console.log(params.toString());
+
+      return params;
+    });
+
     setTagsState((prev) => {
       const newTagsState = new Map(prev);
       const tags = newTagsState.get(category);
@@ -70,6 +117,11 @@ export const Projects = (props: Props) => {
 
   const handleSort = () => {
     setSortOrder((prev) => (prev === 'New' ? 'Old' : 'New'));
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.set('sort', sortOrder());
+      return params;
+    });
   };
 
   return (

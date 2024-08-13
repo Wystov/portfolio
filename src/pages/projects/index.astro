@@ -8,6 +8,6 @@ const projects = await getCollection('projects');
 
 <BaseLayout pageTitle="Projects">
   <section class="mb-4">
-    <Projects client:load data={projects} />
+    <Projects client:load data={projects} transition:persist />
   </section>
 </BaseLayout>

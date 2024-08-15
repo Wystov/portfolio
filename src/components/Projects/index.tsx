@@ -23,8 +23,10 @@ export const Projects = (props: Props) => {
 
   createEffect(() => {
     if (!searchParams()) return;
-    const params = searchParams()!.toString().replace(/%2C/g, ',');
-    window.history.replaceState({}, '', `?${params}`);
+    const params = searchParams()?.size
+      ? '?' + searchParams()!.toString().replace(/%2C/g, ',')
+      : '';
+    window.history.replaceState({}, '', window.location.pathname + params);
   });
 
   const activeTags = createMemo(

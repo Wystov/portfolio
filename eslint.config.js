@@ -28,4 +28,11 @@ export default [
       },
     },
   },
+  {
+    rules: {
+      tseslint: {
+        'no-unused-expressions': 'off',
+      },
+    },
+  },
 ];

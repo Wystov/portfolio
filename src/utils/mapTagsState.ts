@@ -1,4 +1,4 @@
-import type { ProjectsType, TagsStateType } from '@/types';
+import type { TagsByCategoriesType, ProjectsType } from '@/types';
 import { FILTER_CATEGORIES } from '@/constants';
 
 const getTagCategory = (tag: string) => {
@@ -8,28 +8,23 @@ const getTagCategory = (tag: string) => {
   return 'other';
 };
 
-export const mapTagsState = (projects: ProjectsType): TagsStateType => {
-  const tagsState = new Map();
+export const mapTagsState = (projects: ProjectsType): TagsByCategoriesType => {
+  const categories = new Map();
   Object.keys(FILTER_CATEGORIES).forEach((category) => {
-    tagsState.set(category, new Map());
+    categories.set(category, new Set());
   });
 
-  return projects.reduce((tagsState, { data: project }) => {
+  return projects.reduce((categories, { data: project }) => {
     for (const tag of project.tags) {
       const category = getTagCategory(tag);
-      if (!tagsState.has(category)) {
-        tagsState.set(category, new Map());
+      if (!categories.has(category)) {
+        categories.set(category, new Set());
       }
-      const tagsInCategory = tagsState.get(category)!;
+      const tagsInCategory = categories.get(category)!;
       if (!tagsInCategory.has(tag)) {
-        tagsInCategory.set(tag, { isActive: false, count: 0 });
+        tagsInCategory.add(tag);
       }
-      const currentTagState = tagsInCategory.get(tag);
-      tagsInCategory.set(tag, {
-        ...currentTagState,
-        count: currentTagState.count + 1,
-      });
     }
-    return tagsState;
-  }, tagsState);
+    return categories;
+  }, categories);
 };

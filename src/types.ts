@@ -1,9 +1,11 @@
 import type { CollectionEntry } from 'astro:content';
+import type { FILTER_CATEGORIES } from './constants';
 
 export type ProjectsType = CollectionEntry<'projects'>[];
 
-type TagState = {
-  isActive: boolean;
-  count: number;
-};
-export type TagsStateType = Map<string, Map<string, TagState>>;
+export type TagsByCategoriesType = Map<
+  keyof typeof FILTER_CATEGORIES,
+  Set<string>
+>;
+
+export type SortOrderType = 'New' | 'Old';

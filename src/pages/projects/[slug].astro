@@ -26,7 +26,18 @@ const { Content } = await project.render();
   <article class="prose mb-6 max-w-none lg:prose-xl dark:prose-invert">
     <Content />
   </article>
-  <p>Tags: {project.data.tags.join(', ')}</p>
+  <p class="mb-12">
+    Tags: {
+      project.data.tags.map((tag, i) => (
+        <>
+          <a href={`/projects/?filter=${tag}`} class="hover:text-accent">
+            {tag}
+          </a>
+          {i < project.data.tags.length - 1 && '/ '}
+        </>
+      ))
+    }
+  </p>
   {
     project.data.coverImg && (
       <Image src={project.data.coverImg} alt={project.data.title} />

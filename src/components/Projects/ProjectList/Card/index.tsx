@@ -9,10 +9,10 @@ export const Card = (props: Props) => {
   return (
     <a
       href={`/projects/${props.project.slug}/`}
-      class="group col-span-2 flex flex-col rounded border-2 border-white/20 p-4 duration-300 hover:border-amber-300 md:col-span-1"
+      class="border-primary/20 hover:border-accent group col-span-2 flex flex-col rounded border-2 p-4 duration-300 md:col-span-1"
     >
       <p class="relative inline-flex text-3xl font-bold">
-        <span class="absolute -translate-x-4 text-amber-300 opacity-0 duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+        <span class="text-accent absolute -translate-x-4 opacity-0 duration-300 group-hover:translate-x-0 group-hover:opacity-100">
           {'> '}
         </span>
         <span class="duration-300 group-hover:translate-x-6">
@@ -29,7 +29,7 @@ export const Card = (props: Props) => {
       <p class="mb-4 text-lg">{props.project.data.brief}</p>
       <ul class="mt-auto flex flex-wrap gap-x-2 gap-y-1">
         <For each={props.project.data.tags}>
-          {(tag) => <li class="rounded bg-slate-500/50 p-1 text-sm">{tag}</li>}
+          {(tag) => <li class="bg-highlight/50 rounded p-1 text-sm">{tag}</li>}
         </For>
       </ul>
     </a>

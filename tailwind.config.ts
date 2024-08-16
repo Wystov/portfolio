@@ -14,6 +14,7 @@ export default {
         neutral: 'rgb(var(--color-bg) / <alpha-value>)',
         primary: 'rgb(var(--color-text) / <alpha-value>)',
         accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        highlight: 'rgb(var(--color-highlight) / <alpha-value>)',
       },
     },
   },

@@ -22,7 +22,7 @@ export const ProjectList = (props: Props) => {
           <svg class="size-5">
             <use
               href={`/icons.svg#${props.sortOrder() === 'New' ? 'arrow-up' : 'arrow-down'}`}
-              class="fill-black dark:fill-white"
+              class="fill-accent"
             />
           </svg>
         </button>

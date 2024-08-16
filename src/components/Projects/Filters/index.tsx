@@ -36,10 +36,7 @@ export const Filters = (props: Props) => {
           >
             <span>reset</span>
             <svg class="size-5">
-              <use
-                href="/icons.svg#x-mark"
-                class="fill-black dark:fill-white"
-              />
+              <use href="/icons.svg#x-mark" class="fill-accent" />
             </svg>
           </button>
         </Show>
@@ -49,7 +46,7 @@ export const Filters = (props: Props) => {
           {([category, tags], i) => (
             <details
               open={isLargeScreen() || openFilter() === i()}
-              class="w-[200px] border-white/20 pb-3 sm:[&:not(:last-child)]:border-b-2"
+              class="border-primary/20 w-[200px] pb-3 sm:[&:not(:last-child)]:border-b-2"
             >
               <summary
                 class="mb-1 font-semibold max-sm:cursor-pointer sm:list-none"
@@ -67,7 +64,7 @@ export const Filters = (props: Props) => {
                   <button
                     onClick={() => props.handleTags(tag)}
                     disabled={!props.availableTagsCount().has(tag)}
-                    class="flex cursor-pointer items-center justify-start gap-2 rounded hover:bg-slate-700/50 disabled:cursor-auto disabled:opacity-50 disabled:hover:bg-transparent sm:w-full"
+                    class="hover:bg-highlight/50 flex cursor-pointer items-center justify-start gap-2 rounded disabled:cursor-auto disabled:opacity-50 disabled:hover:bg-transparent sm:w-full"
                   >
                     <svg class="size-5">
                       <use
@@ -76,8 +73,8 @@ export const Filters = (props: Props) => {
                         }`}
                         class={
                           props.activeTags().includes(tag)
-                            ? 'fill-amber-300'
-                            : 'fill-white'
+                            ? 'fill-accent'
+                            : 'fill-primary'
                         }
                       />
                     </svg>

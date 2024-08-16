@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import Link from '@/components/Link.astro';
+import BackBtn from '@/components/BackBtn.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -16,6 +17,7 @@ const { Content } = await project.render();
 ---
 
 <BaseLayout pageTitle={project.data.title}>
+  <BackBtn />
   <h1 class="my-6 text-5xl font-black lg:text-6xl">{project.data.title}</h1>
   <div class="mb-6 flex gap-2">
     <Link href={project.data.urlDemo} text="Demo" external />

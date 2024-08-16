@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AnimatedText from '@/components/AnimatedText.astro';
+import Link from '@/components/Link.astro';
+
+const pageTitle = '404 page | Wystov';
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section class="mt-[-52px] flex grow flex-col items-center justify-center">
+    <AnimatedText text="404" />
+    <h1 class="mb-4 text-3xl font-bold">Page not found :(</h1>
+    <Link href="/" text="Go to homepage" />
+  </section>
+</BaseLayout>

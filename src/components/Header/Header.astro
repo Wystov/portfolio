@@ -17,7 +17,7 @@ const pathname = new URL(Astro.request.url).pathname;
       links.map((link) => (
         <a
           href={link.url}
-          class={`${pathname === link.url ? 'text-gray-600 dark:text-amber-300' : ''} text-xl font-bold tracking-wider hover:text-gray-600 dark:hover:text-amber-300`}
+          class={`${pathname === link.url ? 'text-accent' : ''} hover:text-accent text-xl font-bold tracking-wider`}
         >
           {link.title}
         </a>

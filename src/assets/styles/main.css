@@ -1,0 +1,11 @@
+:root {
+  --color-bg: 250 250 249;
+  --color-text: 12 10 9;
+  --color-accent: 6 78 59;
+}
+
+.dark:root {
+  --color-bg: 12 10 9;
+  --color-text: 250 250 249;
+  --color-accent: 252 211 77;
+}

@@ -2,6 +2,8 @@
 import { ViewTransitions } from 'astro:transitions';
 import Header from '@/components/Header/Header.astro';
 import Footer from '@/components/Footer.astro';
+import '@/assets/styles/main.css';
+
 const { pageTitle } = Astro.props;
 ---
 
@@ -15,7 +17,7 @@ const { pageTitle } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="bg-stone-50 font-poppins text-stone-950 transition-colors duration-500 dark:bg-stone-950 dark:text-stone-50"
+    class="bg-neutral font-poppins text-primary transition-colors duration-500"
   >
     <div class="m-auto flex min-h-dvh max-w-screen-xl flex-col px-6">
       <Header />

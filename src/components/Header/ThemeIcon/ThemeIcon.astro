@@ -11,34 +11,16 @@
 </button>
 
 <script is:inline>
-  const getTheme = () => {
-    switch (true) {
-      case localStorage.getItem('wstv-theme') !== null:
-        return localStorage.getItem('wstv-theme');
-      case window.matchMedia('(prefers-color-scheme: dark)').matches:
-        return 'dark';
-      default:
-        return 'light';
-    }
-  };
-
   const handleToggleClick = () => {
     const element = document.documentElement;
-    element.classList.toggle('dark');
 
-    const isDark = element.classList.contains('dark');
+    const isDark = element.classList.toggle('dark');
     localStorage.setItem('wstv-theme', isDark ? 'dark' : 'light');
   };
 
-  const setTheme = () => {
-    const action = getTheme() === 'dark' ? 'add' : 'remove';
-    document.documentElement.classList[action]('dark');
+  document.addEventListener('astro:page-load', () => {
     document
       .getElementById('themeToggle')
       .addEventListener('click', handleToggleClick);
-  };
-
-  setTheme();
-
-  document.addEventListener('astro:after-swap', setTheme);
+  });
 </script>

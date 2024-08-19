@@ -26,14 +26,15 @@ const { pageTitle } = Astro.props;
         }
       };
 
-      const setTheme = () => {
+      const setTheme = (e) => {
+        const newDocument = e?.newDocument ?? document;
         const action = getTheme() === 'dark' ? 'add' : 'remove';
-        document.documentElement.classList[action]('dark');
+        newDocument.documentElement.classList[action]('dark');
       };
 
       setTheme();
 
-      document.addEventListener('astro:after-swap', setTheme);
+      document.addEventListener('astro:before-swap', setTheme);
     </script>
     <ViewTransitions />
   </head>

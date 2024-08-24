@@ -4,7 +4,7 @@ date: 2023-04-22
 tags: [JavaScript, Personal]
 urlRepo: https://github.com/Wystov/virtual-keyboard
 urlDemo: https://wystov.github.io/virtual-keyboard/
-coverImg: './cover.png'
+images: ['./cover.png']
 brief: 'Fully functional virtual keyboard, responding to both mouse clicks and physical key presses, supports switching between two language layouts.'
 ---
 

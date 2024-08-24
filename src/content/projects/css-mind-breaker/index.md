@@ -4,7 +4,7 @@ date: 2023-07-02
 tags: [TypeScript, Personal]
 urlRepo: https://github.com/Wystov/CSS-mind-breaker
 urlDemo: https://wystov.github.io/CSS-mind-breaker/
-coverImg: './cover.png'
+images: ['./cover.png']
 brief: 'Small game that will test your CSS knowledge with 10 challenging levels'
 ---
 

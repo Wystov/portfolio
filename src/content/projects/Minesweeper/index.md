@@ -4,7 +4,7 @@ date: 2023-05-21
 tags: [JavaScript, Personal]
 urlRepo: https://github.com/Wystov/Minesweeper
 urlDemo: https://wystov.github.io/Minesweeper/
-coverImg: './cover.png'
+images: ['./cover.png']
 brief: 'Classic minesweeper game with 3 difficulty levels and leaderboard.'
 ---
 

@@ -4,7 +4,7 @@ date: 2023-07-22
 tags: [TypeScript, Personal]
 urlRepo: https://github.com/Wystov/async-race
 urlDemo: https://wystov.github.io/async-race/
-coverImg: './cover.png'
+images: ['./cover.png']
 brief: 'Async racing game'
 ---
 

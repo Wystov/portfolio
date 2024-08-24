@@ -4,7 +4,7 @@ date: 2023-11-18
 tags: [TypeScript, React, Next, Redux Toolkit, Personal]
 urlRepo: https://github.com/Wystov/star-wars-db
 urlDemo: https://rss-react-w4.netlify.app/
-coverImg: './cover.png'
+images: ['./cover.png']
 brief: 'Star Wars characters db'
 ---
 

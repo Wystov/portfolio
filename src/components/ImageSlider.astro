@@ -1,0 +1,62 @@
+---
+import type { ProjectsType } from '@/types';
+import Image from 'astro/components/Image.astro';
+
+type Props = {
+  images: ProjectsType[number]['data']['images'];
+};
+
+const { images } = Astro.props;
+---
+
+{
+  images?.length && (
+    <div class="mb-10">
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3" id="images">
+        {images.map((image, i) => (
+          <a
+            href={`#image${i}`}
+            data-astro-history="replace"
+            class="cursor-pointer overflow-hidden rounded-lg"
+          >
+            <Image src={image} alt={`thumbnail ${i + 1}`} class="h-full" />
+          </a>
+        ))}
+      </div>
+      {images.map((image, i) => (
+        <div
+          id={`image${i}`}
+          class="invisible fixed inset-0 z-20 flex items-center justify-center bg-neutral/90 px-8 opacity-0 backdrop-blur-[2px] duration-300 target:visible target:opacity-100 sm:px-16"
+        >
+          <a
+            href="#images"
+            data-astro-history="replace"
+            class="absolute inset-0 cursor-default"
+          />
+          <a
+            href="#images"
+            data-astro-history="replace"
+            class="absolute right-2 top-4 text-2xl duration-300 hover:opacity-80 sm:right-4 sm:text-6xl"
+          >
+            &times;
+          </a>
+          <a
+            href={`#image${i - 1}`}
+            data-astro-history="replace"
+            class={`absolute left-1 top-1/2 z-40 -translate-y-1/2 cursor-pointer p-2 text-lg duration-300 hover:opacity-80 sm:left-2 sm:text-5xl ${i === 0 ? 'invisible' : ''}`}
+          >
+            &#10094;
+          </a>
+          <Image src={image} alt={`Image ${i + 1}`} class="z-30" />
+          <a
+            href={`#image${i + 1}`}
+            data-astro-history="replace"
+            class={`absolute right-1 top-1/2 z-40 -translate-y-1/2 cursor-pointer p-2 text-lg duration-300 hover:opacity-80 sm:right-2 sm:text-5xl ${i === images.length - 1 ? 'invisible' : ''}`}
+          >
+            &#10095;
+          </a>
+        </div>
+      ))}
+    </div>
+  )
+}

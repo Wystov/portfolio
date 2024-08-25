@@ -4,7 +4,7 @@ date: 2024-07-20
 tags: [TypeScript, Vue, Pinia, Vuetify, Personal]
 urlRepo: https://github.com/Wystov/movie-queue
 urlDemo: https://movie-queue.netlify.app/
-images: ['./cover.png']
+images: ['./1.jpg', './2.jpg']
 brief: 'Find a movie and add it to queue'
 ---
 

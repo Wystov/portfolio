@@ -12,14 +12,18 @@ const { images } = Astro.props;
 {
   images?.length && (
     <div class="mb-10">
-      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3" id="images">
+      <div class="flex flex-wrap gap-4" id="images">
         {images.map((image, i) => (
           <a
             href={`#image${i}`}
             data-astro-history="replace"
             class="cursor-pointer overflow-hidden rounded-lg"
           >
-            <Image src={image} alt={`thumbnail ${i + 1}`} class="h-full" />
+            <Image
+              src={image}
+              alt={`thumbnail ${i + 1}`}
+              class="max-h-[30vh] w-auto object-contain"
+            />
           </a>
         ))}
       </div>
@@ -47,7 +51,11 @@ const { images } = Astro.props;
           >
             &#10094;
           </a>
-          <Image src={image} alt={`Image ${i + 1}`} class="z-30" />
+          <Image
+            src={image}
+            alt={`Image ${i + 1}`}
+            class="z-30 max-h-[80vh] max-w-[80vw] object-contain"
+          />
           <a
             href={`#image${i + 1}`}
             data-astro-history="replace"
